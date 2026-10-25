@@ -2,6 +2,8 @@
 import re,unicodedata
 RADICALS={'⺠':'民','⻅':'见','⻋':'车'}
 PUNCT=set('，。！？：；、（）【】《》“”‘’—–…·°£€¥×÷≤≥±•●○■□◆◇★☆✓✔✗→←↑↓©®')
+# Exact correction visually verified against doc-008, page 1; not a guessed glyph map.
+VERIFIED={'practical实ᴬ的':'practical实际的','practical实A的':'practical实际的'}
 def normalize_text(text):
  chars=list(text);out=[]
  for i,c in enumerate(chars):
@@ -16,11 +18,15 @@ def problems(text):
  if re.search(r'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f-\x9f]',text):reasons.append('control')
  if re.search(r'Ã.|Â.|â€|ï¿|锟斤|烫烫|屯屯',text):reasons.append('encoding')
  if re.search(r'(?:\b[a-z]\s+){5,}',text):reasons.append('letter_spacing')
+ if re.search(r'人g离|speed limits H速|潜在危P',text):reasons.append('folded_glyph')
  for c in text:
   if c.isspace() or 32<=ord(c)<=126 or '\u4e00'<=c<='\u9fff' or c in PUNCT:continue
   if 0xc0<=ord(c)<=0xff and unicodedata.category(c).startswith('L'):continue
   reasons.append('unexpected_glyph');break
  return reasons
 def clean_text(text):
+ for old,new in VERIFIED.items():text=text.replace(old,new)
+ # Check the source before compatibility folding can turn a bad modifier into ASCII.
+ if re.search(r'[\u1d00-\u1fff]',text):return None
  normalized=normalize_text(text)
  return None if problems(normalized) else normalized
