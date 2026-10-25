@@ -37,3 +37,7 @@ python scripts/package_offline.py --output pea-english-offline.zip
 ```
 
 原始教材及范文版权归各自权利人，站点为非官方个人学习整理，禁止商用。公开展示需要相应授权；学习用途声明不代替授权。
+
+## 输出练习与掌握度
+
+`study-training.js` 提供本地仿写、草稿、目标表达匹配、口语计时和自评。无语音上传、自动评分或后台请求。`pea-study-v1` 增加 mastery 和 practice 字段，保留既有收藏与背诵记录；练习自评最多保留 200 条。话题复习建议依据最近 50 条自评，至少两条记录才参与提示。仿写草稿单独保存在 pea-writing:条目ID 下；阅读字号保存在 pea-reader-font。

@@ -81,10 +81,10 @@ def main():
    outline=[o for o in meta['outlines'].get(doc,[]) if o['page']<=number];topic=outline[-1]['title'] if outline else ''
    for text in paragraphs:
     identifier=doc+'-'+str(number)+'-'+hashlib.sha1(text.encode()).hexdigest()[:12];localtags=sorted(set(tags(text+' '+topic+' '+resource['category'])));doc_tags.update(localtags)
-    row={'id':identifier,'resourceId':doc,'title':title,'topic':topic,'content':text,'tags':localtags,'category':resource['category'],'page':number,'format':d['format'],'path':f'reader.html?v=study-tools&id={doc}&page={number}&excerpt={identifier}#{identifier}','anchor':identifier,'expressions':[p for p in PHRASES if re.search(r'\b'+re.escape(p)+r'\b',text,re.I)]}
+    row={'id':identifier,'resourceId':doc,'title':title,'topic':topic,'content':text,'tags':localtags,'category':resource['category'],'page':number,'format':d['format'],'path':f'reader.html?v=workbench&id={doc}&page={number}&excerpt={identifier}#{identifier}','anchor':identifier,'expressions':[p for p in PHRASES if re.search(r'\b'+re.escape(p)+r'\b',text,re.I)]}
     if not any(existing['id']==identifier for existing in items):items.append(row);allrows.append(row)
   documents[doc]={'id':doc,'title':title,'category':resource['category'],'tags':sorted(doc_tags),'readable':bool(items),'format':d['format']}
-  if not items:allrows.append({'id':'resource:'+doc,'kind':'resource','resourceId':doc,'title':title,'topic':'','content':'','tags':sorted(doc_tags),'category':resource['category'],'page':1,'format':d['format'],'path':f'reader.html?v=study-tools&id={doc}','anchor':'','expressions':[]})
+  if not items:allrows.append({'id':'resource:'+doc,'kind':'resource','resourceId':doc,'title':title,'topic':'','content':'','tags':sorted(doc_tags),'category':resource['category'],'page':1,'format':d['format'],'path':f'reader.html?v=workbench&id={doc}','anchor':'','expressions':[]})
   (out/(doc+'.json')).write_text(json.dumps({'items':items},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
  (ROOT/'search-index.json').write_text(json.dumps({'version':1,'items':allrows},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
  (ROOT/'tags-index.json').write_text(json.dumps({'tags':list(TOPICS),'documents':documents},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
