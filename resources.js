@@ -1,5 +1,68 @@
 const resources = [
   {
+    "name": "41篇Simon雅思小作文满分模板.pdf",
+    "readerId": "doc-165",
+    "pages": 41,
+    "category": "小作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "Ideas_for_IELTS_topics_（simon）.pdf",
+    "readerId": "doc-166",
+    "pages": 52,
+    "category": "大作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "Ideas-for-IELTS-topics-(simon)(中文译稿).pdf",
+    "readerId": "doc-167",
+    "pages": 29,
+    "category": "大作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "Simon老师口语优秀表达.pdf",
+    "readerId": "doc-168",
+    "pages": 5,
+    "category": "口语表达",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "SIMON小作文45篇【55页】.pdf",
+    "readerId": "doc-169",
+    "pages": 55,
+    "category": "小作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "考官Simon大作文范文28篇(批注版)29页.pdf",
+    "readerId": "doc-170",
+    "pages": 29,
+    "category": "大作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
+    "name": "考官Simon雅思小作文范文(22篇)22页.pdf",
+    "readerId": "doc-171",
+    "pages": 22,
+    "category": "小作文",
+    "format": "PDF",
+    "status": "全文已收录",
+    "desc": "原文件全部页面已收录，可逐页阅读和查看文字。"
+  },
+  {
     "name": "195个雅思写作必备句型.pdf",
     "category": "词汇",
     "pages": 7,
@@ -33,15 +96,6 @@ const resources = [
     "status": "全文已收录",
     "desc": "全部原页面已加入，可逐页阅读和查看文字。",
     "readerId": "doc-005",
-    "format": "PDF"
-  },
-  {
-    "name": "[提升你的学术类雅思写作].improve_your_ielts_writing_skills.pdf",
-    "category": "大作文",
-    "pages": 111,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-006",
     "format": "PDF"
   },
   {
@@ -159,15 +213,6 @@ const resources = [
     "status": "全文已收录",
     "desc": "全部原页面已加入，可逐页阅读和查看文字。",
     "readerId": "doc-021",
-    "format": "PDF"
-  },
-  {
-    "name": "雅思考官教你征服雅思写作.pdf",
-    "category": "大作文",
-    "pages": 245,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-022",
     "format": "PDF"
   },
   {
@@ -380,63 +425,14 @@ const resources = [
     "readerId": "doc-047"
   },
   {
-    "name": "【写作】黑眼睛雅思系列：IELTS考试技能训练教程(修订版).pdf",
-    "category": "写作全科",
-    "group": "全科资料",
-    "format": "PDF",
-    "pages": 272,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-048"
-  },
-  {
-    "name": "慎小嶷《十天突破雅思完整真题库与6-9分范文（高清版）》.pdf",
-    "category": "写作全科",
-    "group": "全科资料",
-    "format": "PDF",
-    "pages": 365,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-049"
-  },
-  {
-    "name": "雅思写作1000高频词汇.pdf",
-    "category": "写作全科",
-    "group": "全科资料",
-    "format": "PDF",
-    "pages": 202,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-050"
-  },
-  {
-    "name": "雅思写作官方题库范文大全.pdf",
-    "category": "写作全科",
-    "group": "全科资料",
-    "format": "PDF",
-    "pages": 533,
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-051"
-  },
-  {
     "name": "雅思考官Simon写作大小作文9分范文合集.pdf",
-    "category": "写作全科",
+    "category": "写作整理",
     "group": "全科资料",
     "format": "PDF",
     "pages": 28,
     "status": "全文已收录",
     "desc": "全部原页面已加入，可逐页阅读和查看文字。",
     "readerId": "doc-052"
-  },
-  {
-    "name": "手把手雅思写作6.0.pdf",
-    "category": "写作全科",
-    "format": "PDF",
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-053",
-    "pages": 425
   },
   {
     "name": "阅读考点词真经538（打印：第1-4页）(1)(1).pdf",
@@ -450,32 +446,12 @@ const resources = [
   },
   {
     "name": "顾家北-写作语法知识.pdf",
-    "category": "写作全科",
+    "category": "写作整理",
     "group": "写作教材",
     "format": "PDF",
     "status": "全文已收录",
     "desc": "全部原页面已加入，可逐页阅读和查看文字。",
     "readerId": "doc-162",
     "pages": 23
-  },
-  {
-    "name": "顾家北手把手教你雅思写作剑11.pdf",
-    "category": "写作全科",
-    "group": "写作教材",
-    "format": "PDF",
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-163",
-    "pages": 334
-  },
-  {
-    "name": "顾家北手把手教你雅思词伙  2.0版.pdf",
-    "category": "词汇",
-    "group": "词汇教材",
-    "format": "PDF",
-    "status": "全文已收录",
-    "desc": "全部原页面已加入，可逐页阅读和查看文字。",
-    "readerId": "doc-164",
-    "pages": 264
   }
 ];
