@@ -10,9 +10,17 @@ def main():
   assert not problems(row['content']),row['id']
   assert row['content']==normalize_text(row['content']),row['id']
   assert clean_text(row['content'])==row['content'],row['id']
- for f in ['index.html','reader.html','notebook.html','practice.html','changelog.html','offline.html']:
+ pages=list(ROOT.glob('*.html'))
+ for file in pages:
+  f=file.name
   text=(ROOT/f).read_text(encoding='utf-8')
   for target in re.findall(r'(?:src|href)="([^"?#]+)',text):
    if ':' not in target and not target.startswith('#'):assert (ROOT/target).exists(),(f,target)
- print(json.dumps({'validatedSearchEntries':len(ids),'pages':6}))
+ assert len(re.findall(r'class="source-entry"',(ROOT/'sources.html').read_text(encoding='utf-8')))==51
+ for file in pages:
+  text=file.read_text(encoding='utf-8')
+  for target in re.findall(r'(?:src|href)="([^"#?]+)',text):
+   if ':' not in target and not target.startswith('#'):assert (ROOT/target).exists(),(file.name,target)
+ assert (ROOT/'robots.txt').exists() and (ROOT/'sitemap.xml').exists()
+ print(json.dumps({'validatedSearchEntries':len(ids),'pages':len(pages),'sourceRecords':51}))
 if __name__=='__main__':main()
