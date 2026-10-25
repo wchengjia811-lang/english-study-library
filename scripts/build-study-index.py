@@ -2,6 +2,7 @@
 from pathlib import Path
 from html.parser import HTMLParser
 import json,re,hashlib
+from excerpt_quality import normalize_text,clean_text,problems
 ROOT=Path(__file__).resolve().parent.parent
 class Text(HTMLParser):
  def __init__(self):super().__init__();self.parts=[]
@@ -46,25 +47,43 @@ def sections(blocks):
  if current:out.append(current)
  return out
 def clean_pdf(text,doc):
- lines=[]
+ runs=[];lines=[]
+ def flush():
+  if lines:runs.append(' '.join(lines));lines.clear()
  for line in text.splitlines():
   line=line.strip()
-  if not line or re.search(r'[\u2c00-\u2dff\u3400-\u4dbf\ue000-\uf8ff\ufffd]',line):continue
-  if doc=='doc-165' and re.search(r'[\u4e00-\u9fff]',line):continue
+  normalized=clean_text(line)
+  if normalized is None or doc=='doc-165' and re.search(r'[^\x00-\x7f]',normalize_text(line).replace('£','').replace('’',"'").replace('–','-')):
+   flush();continue
+  line=normalized
+  if not line:continue
   if re.fullmatch(r'[\d\s/.,·—_-]+',line) or len(line)<3:continue
   if line.count('.')>14:continue
+  if doc=='doc-008':
+   # This source is a vocabulary list; keep complete reliable entries separate.
+   if lines and lines[-1].count('(')>lines[-1].count(')'):lines[-1]+=' '+line
+   else:flush();lines.append(line)
+   continue
   lines.append(line)
- text=' '.join(lines)
- sentences=re.split(r'(?<=[.!?。！？])\s+(?=[A-Z\u4e00-\u9fff0-9])',text)
- chunks=[];current=''
- for sentence in sentences:
-  if current and len(current)+len(sentence)>650:chunks.append(norm(current));current=''
-  current+=(' ' if current else '')+sentence
- if current:chunks.append(norm(current))
+ flush();chunks=[]
+ for text in runs:
+  if doc=='doc-165':
+   text=re.sub(r'\(\d+\s+words,?\s*band\s*\d+\)','',text,flags=re.I).strip()
+   if text and not re.match(r'[A-Z]',text):text=re.sub(r'^.*?[.!?]\s*','',text,count=1)
+   # Never stitch a surviving fragment across an unreadable line.
+   if not re.search(r'[.!?]["\u201d\u2019\)]?\s*$',text):
+    end=max(text.rfind('.'),text.rfind('!'),text.rfind('?'));text=text[:end+1] if end>=0 else ''
+  sentences=re.split(r'(?<=[.!?。！？])\s+(?=[A-Z\u4e00-\u9fff0-9])',text);current=''
+  for sentence in sentences:
+   if current and len(current)+len(sentence)>650:chunks.append(norm(current));current=''
+   current+=(' ' if current else '')+sentence
+  if current:chunks.append(norm(current))
  # Extremely long unpunctuated OCR tables are not offered as excerpts.
- return [s for s in chunks if 18<=len(s)<=1800]
+ return [s for s in chunks if (5 if doc=='doc-008' else 18)<=len(s)<=1800 and (doc!='doc-008' or re.search(r'[A-Za-z]{2}',s))]
 def main():
  resource_text=(ROOT/'resources.js').read_text(encoding='utf-8');resources=json.loads(resource_text[resource_text.index('['):resource_text.rindex(']')+1]);meta_text=(ROOT/'study-meta.js').read_text(encoding='utf-8');meta=json.loads(meta_text[meta_text.index('{'):meta_text.rindex('}')+1]);allrows=[];documents={};out=ROOT/'study-data';out.mkdir(exist_ok=True)
+ previous=json.loads((ROOT/'search-index.json').read_text(encoding='utf-8')).get('items',[]) if (ROOT/'search-index.json').exists() else []
+ previous_ids={(r['resourceId'],r['page'],normalize_text(r.get('content',''))):r['id'] for r in previous if r.get('content') and clean_text(r['content']) is not None}
  for resource in resources:
   doc=resource.get('readerId')
   if not doc:continue
@@ -80,11 +99,13 @@ def main():
   for number,paragraphs in units:
    outline=[o for o in meta['outlines'].get(doc,[]) if o['page']<=number];topic=outline[-1]['title'] if outline else ''
    for text in paragraphs:
-    identifier=doc+'-'+str(number)+'-'+hashlib.sha1(text.encode()).hexdigest()[:12];localtags=sorted(set(tags(text+' '+topic+' '+resource['category'])));doc_tags.update(localtags)
-    row={'id':identifier,'resourceId':doc,'title':title,'topic':topic,'content':text,'tags':localtags,'category':resource['category'],'page':number,'format':d['format'],'path':f'reader.html?v=workbench&id={doc}&page={number}&excerpt={identifier}#{identifier}','anchor':identifier,'expressions':[p for p in PHRASES if re.search(r'\b'+re.escape(p)+r'\b',text,re.I)]}
+    text=clean_text(text)
+    if not text:continue
+    identifier=previous_ids.get((doc,number,text),doc+'-'+str(number)+'-'+hashlib.sha1(text.encode()).hexdigest()[:12]);localtags=sorted(set(tags(text+' '+topic+' '+resource['category'])));doc_tags.update(localtags)
+    row={'id':identifier,'resourceId':doc,'title':title,'topic':topic,'content':text,'tags':localtags,'category':resource['category'],'page':number,'format':d['format'],'path':f'reader.html?v=quality-1&id={doc}&page={number}&excerpt={identifier}#{identifier}','anchor':identifier,'expressions':[p for p in PHRASES if re.search(r'\b'+re.escape(p)+r'\b',text,re.I)]}
     if not any(existing['id']==identifier for existing in items):items.append(row);allrows.append(row)
   documents[doc]={'id':doc,'title':title,'category':resource['category'],'tags':sorted(doc_tags),'readable':bool(items),'format':d['format']}
-  if not items:allrows.append({'id':'resource:'+doc,'kind':'resource','resourceId':doc,'title':title,'topic':'','content':'','tags':sorted(doc_tags),'category':resource['category'],'page':1,'format':d['format'],'path':f'reader.html?v=workbench&id={doc}','anchor':'','expressions':[]})
+  if not items:allrows.append({'id':'resource:'+doc,'kind':'resource','resourceId':doc,'title':title,'topic':'','content':'','tags':sorted(doc_tags),'category':resource['category'],'page':1,'format':d['format'],'path':f'reader.html?v=quality-1&id={doc}','anchor':'','expressions':[]})
   (out/(doc+'.json')).write_text(json.dumps({'items':items},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
  (ROOT/'search-index.json').write_text(json.dumps({'version':1,'items':allrows},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
  (ROOT/'tags-index.json').write_text(json.dumps({'tags':list(TOPICS),'documents':documents},ensure_ascii=False,separators=(',',':')),encoding='utf-8')
