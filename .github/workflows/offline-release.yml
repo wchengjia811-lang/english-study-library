@@ -1,0 +1,27 @@
+name: Build offline study library
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: offline-release
+  cancel-in-progress: true
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate search and tag indexes
+        run: python3 scripts/build-study-index.py
+      - name: Validate static pages and indexes
+        run: python3 scripts/validate_static.py
+      - name: Build offline ZIP
+        run: python3 scripts/package_offline.py --output "$RUNNER_TEMP/pea-english-offline.zip"
+      - name: Publish offline release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view offline >/dev/null 2>&1 || gh release create offline --title "豌豆尖英语 · 离线资料库" --notes "完整解压后打开 index.html。包含资料原页、离线搜索与本地学习工具。个人学习用途，非官方，禁止商用。"
+          gh release upload offline "$RUNNER_TEMP/pea-english-offline.zip" --clobber
