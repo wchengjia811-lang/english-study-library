@@ -22,5 +22,16 @@ def main():
   for target in re.findall(r'(?:src|href)="([^"#?]+)',text):
    if ':' not in target and not target.startswith('#'):assert (ROOT/target).exists(),(file.name,target)
  assert (ROOT/'robots.txt').exists() and (ROOT/'sitemap.xml').exists()
+ restored=['doc-025','doc-026','doc-027','doc-028','doc-029','doc-030','doc-031']
+ if all(json.loads((ROOT/'library'/d/'document.json').read_text(encoding='utf-8')).get('format')=='PDF' for d in restored):
+  total=0
+  for doc in restored:
+   data=json.loads((ROOT/'library'/doc/'document.json').read_text(encoding='utf-8'));total+=data['pages']
+   assert len(data['text'])==data['pages'],doc
+   for page in range(1,data['pages']+1):assert (ROOT/f'library/{doc}/pages/{page:04}.avif').exists(),(doc,page)
+  assert total==168,total
+  entries=json.loads((ROOT/'study-data/doc-026.json').read_text(encoding='utf-8'))['items']
+  assert [int(re.match(r'(\d+)\s*\.',x['content'])[1]) for x in entries]==list(range(1,401))
+  assert entries[-1]['page']==19 and 'optimize' in entries[-1]['content']
  print(json.dumps({'validatedSearchEntries':len(ids),'pages':len(pages),'sourceRecords':51}))
 if __name__=='__main__':main()
