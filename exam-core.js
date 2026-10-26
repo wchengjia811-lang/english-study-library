@@ -3,6 +3,7 @@
 const wx={getStorageSync(key){const raw=localStorage.getItem(key);return raw?JSON.parse(raw):null;},setStorageSync(key,value){localStorage.setItem(key,JSON.stringify(value));},showToast(o){window.dispatchEvent(new CustomEvent('exam-notice',{detail:o.title}));}};
 const BOOKS = window.PeaExamBooks;
 const KEY = 'pea-exams-web-v1', DAY = 86400000;
+const GOALS=[10,20,40,60,80,100,150,200], ROUND=40;
 let memory, warning = '';
 const ids = BOOKS.map(b => b.id);
 function blank() { return { version: 1, goal: 20, books: {} }; }
@@ -13,7 +14,7 @@ function own(obj, key) { return Object.prototype.hasOwnProperty.call(obj,key); }
 function safeTerm(s) { return typeof s === 'string' && s.length > 0 && s.length <= 160 && s !== '__proto__'; }
 function sanitize(input) {
  if (!input || input.version !== 1 || !input.books || typeof input.books !== 'object') throw Error('不是新版词库备份');
- const out = blank(); out.goal = [10,20,40].includes(input.goal) ? input.goal : 20;
+ const out = blank(); out.goal = GOALS.includes(input.goal) ? input.goal : 20;
  for (const id of ids) {
   const b=input.books[id]; if(!b || typeof b !== 'object') continue;
   const v=fresh();
@@ -34,7 +35,7 @@ function load() {
  if(memory) return memory;
  memory=blank();
  try {
-  const meta=wx.getStorageSync(KEY+'-settings');if(meta && [10,20,40].includes(meta.goal))memory.goal=meta.goal;
+  const meta=wx.getStorageSync(KEY+'-settings');if(meta && GOALS.includes(meta.goal))memory.goal=meta.goal;
   for(const id of ids) {
    const base=wx.getStorageSync(KEY+'-'+id);if(!base)continue;
    const b={words:{},days:base.days,session:base.session};
@@ -71,10 +72,11 @@ function grade(id,rating,now=Date.now()) {
 function select(id,rows,filter='all',query='',now=Date.now()) {
  const q=query.trim().toLowerCase(); return rows.filter(w=>{const r=stateOf(id,w[0]); return (!q || w.join(' ').toLowerCase().includes(q)) && (filter==='all' || filter==='new' && (!r || !r.last) || filter==='due' && r && r.last>0 && r.due<=now || filter==='weak' && r && r.last>0 && r.rating===0 || filter==='favorites' && r && r.favorite || filter==='known' && r && r.last>0 && r.rating===2);});
 }
+function shuffle(list,random=Math.random) { const result=list.slice();for(let i=result.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result; }
 function queue(id,rows,kind='daily',now=Date.now()) {
- if(kind!=='daily') return select(id,rows,kind,'',now).slice(0,20).map(w=>w[0]);
- const due=select(id,rows,'due','',now).sort((a,b)=>stateOf(id,a[0]).due-stateOf(id,b[0]).due), unseen=select(id,rows,'new','',now);
- const count=Math.max(0,load().goal-stats(id,now).today); return due.concat(unseen).slice(0,count).map(w=>w[0]);
+ if(kind!=='daily') return shuffle(select(id,rows,kind,'',now)).slice(0,20).map(w=>w[0]);
+ const due=select(id,rows,'due','',now).sort((a,b)=>stateOf(id,a[0]).due-stateOf(id,b[0]).due), unseen=shuffle(select(id,rows,'new','',now));
+ const count=Math.max(0,load().goal-stats(id,now).today); return due.concat(unseen).slice(0,Math.min(count,ROUND)).map(w=>w[0]);
 }
 function exportText() { return JSON.stringify({version:1,application:'pea-exams',goal:load().goal,books:load().books,exportedAt:Date.now()}); }
 function merge(text) {
@@ -82,6 +84,6 @@ function merge(text) {
  for(const id of ids) { const src=incoming.books[id]; if(!src)continue; const dest=book(id); for(const [term,r] of Object.entries(src.words)){const old=stateOf(id,term); if(!old || r.last>old.last) dest.words[term]={...r,favorite:Math.max(r.favorite,old?old.favorite:0)}; else old.favorite=Math.max(old.favorite,r.favorite); } for(const [d,list] of Object.entries(src.days)) dest.days[d]=Array.from(new Set([...(dest.days[d]||[]),...list])); }
  if(!save()) throw Error('合并在内存中完成，但未保存，请立即导出');
 }
-window.PeaExamCore={KEY,DAY,day,load,save,book,stats,stateOf,favorite,start,grade,select,queue,exportText,merge,sanitize,reload(){memory=undefined;serialized={};return load();},getWarning:()=>warning};
+window.PeaExamCore={KEY,DAY,GOALS,ROUND,shuffle,day,load,save,book,stats,stateOf,favorite,start,grade,select,queue,exportText,merge,sanitize,reload(){memory=undefined;serialized={};return load();},getWarning:()=>warning};
 
 })();

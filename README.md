@@ -52,3 +52,6 @@ python scripts/package_offline.py --output pea-english-offline.zip
 `exam-core.js` 负责分词库进度、收藏、未完成练习、间隔复习与合并备份；独立使用 `pea-exams-web-v1-*` 存储，不覆盖原400组与资料本。忘记后10分钟、有印象1天，连续能想起按1/3/7/14/30天安排；打开网站时展示到期词，不后台推送。
 
 `node scripts/check-vocabulary.cjs` 校验词表、乱码、复习时间、备份与存储；`python scripts/validate_static.py` 校验链接和原资料。离线打包器同时打入七类词表。
+
+
+每日目标支持10/20/40/60/80/100/150/200词；每天可分多轮，每轮最多40个不同词（错词每轮最多额外重现2次）。词表载入时乱序，新词从全部未学词中随机选取，到期词按时间优先。继续练习保留原队列。

@@ -14,3 +14,13 @@ const js=fs.readFileSync(path.join(r,'vocabulary.js'),'utf8');for(const match of
 for(const b of B){const rows=JSON.parse(fs.readFileSync(path.join(r,b.url),'utf8'));for(const w of rows)S.book(b.id).words[w[0]]={rating:2,last:now,due:now+86400000,streak:1,favorite:0};}assert(S.save());const savedBytes=[...h.store.entries()].filter(([k])=>k.startsWith('pea-exams-web')).reduce((n,[k,v])=>n+Buffer.byteLength(k+v),0);assert(savedBytes<5*1024*1024);assert(Math.max(...[...h.store.values()].map(v=>Buffer.byteLength(v)))<1024*1024);
 S.reload();assert.equal(S.book('cet4').session.answer,'constructor');const reloaded=setup(Object.fromEntries(h.store));for(const b of B)assert.equal(reloaded.S.stats(b.id,now).studied,b.count);
 console.log(JSON.stringify({books:B.length,entries:36387,dataSourceAndEncoding:'passed',spacedReviewIntervals:'passed',favoritesDraftsAndBackup:'passed',legacyProgress:'preserved',homepageAndIELTS:'passed',domBindings:'passed',fullProgressBytes:savedBytes}));
+
+// High daily goals span manageable rounds and survive storage/backup validation.
+const high=setup(),H=high.S;H.load().goal=200;H.save();const highReload=setup(Object.fromEntries(high.store));assert.equal(highReload.S.load().goal,200);assert.equal(H.sanitize(JSON.parse(H.exportText())).goal,200);
+const sample=Array.from({length:250},(_,i)=>['word'+i,'','释义']);const original=sample.slice();const shuffled=H.shuffle(sample,()=>0);assert.deepEqual(sample,original);assert.equal(shuffled[0][0],'word1');assert.equal(new Set(shuffled.map(w=>w[0])).size,250);
+const round=H.queue('cet4',sample,'daily',now);assert.equal(round.length,40);assert.equal(new Set(round).size,40);
+H.start('cet4',round);assert.equal(H.book('cet4').session.queue.length,40);const savedQueue=Array.from(H.book('cet4').session.queue);H.save();assert.deepEqual(Array.from(setup(Object.fromEntries(high.store)).S.book('cet4').session.queue),savedQueue);
+H.book('cet4').words.word249={rating:0,last:now-1000,due:now-100,streak:0,favorite:0};assert.equal(H.queue('cet4',sample,'daily',now)[0],'word249');
+H.book('cet4').days[H.day(now)]=sample.slice(0,195).map(w=>w[0]);assert.equal(H.queue('cet4',sample,'daily',now).length,5);H.book('cet4').days[H.day(now)]=sample.slice(0,200).map(w=>w[0]);assert.equal(H.queue('cet4',sample,'daily',now).length,0);
+for(const goal of [10,20,40,60,80,100,150,200]){assert(H.GOALS.includes(goal));for(const name of ['index.html','vocabulary.html'])assert(fs.readFileSync(path.join(r,name),'utf8').includes('value="'+goal+'"'));}
+console.log('Shuffle, due-first ordering, 200-word goals and resumed rounds: passed');
