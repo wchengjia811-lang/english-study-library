@@ -24,3 +24,7 @@ H.book('cet4').words.word249={rating:0,last:now-1000,due:now-100,streak:0,favori
 H.book('cet4').days[H.day(now)]=sample.slice(0,195).map(w=>w[0]);assert.equal(H.queue('cet4',sample,'daily',now).length,5);H.book('cet4').days[H.day(now)]=sample.slice(0,200).map(w=>w[0]);assert.equal(H.queue('cet4',sample,'daily',now).length,0);
 for(const goal of [10,20,40,60,80,100,150,200]){assert(H.GOALS.includes(goal));for(const name of ['index.html','vocabulary.html'])assert(fs.readFileSync(path.join(r,name),'utf8').includes('value="'+goal+'"'));}
 console.log('Shuffle, due-first ordering, 200-word goals and resumed rounds: passed');
+
+const legacy=fs.readFileSync(path.join(r,'words.js'),'utf8'),functions=legacy.split('\n').filter(line=>line.startsWith('function shuffleWords(')||line.startsWith('function dailyQueue(')).join('\n');
+const oldContext={items:Array.from({length:400},(_,i)=>({number:i+1})),state:{goal:200,words:{}},due:()=>[{number:400}],todayCount:()=>0};vm.createContext(oldContext);vm.runInContext(functions+';result=dailyQueue();',oldContext);assert.equal(oldContext.result.length,40);assert.equal(oldContext.result[0].number,400);assert(fs.readFileSync(path.join(r,'words.html'),'utf8').includes('value="200"'));assert(legacy.includes('[10,20,40,60,80,100,150,200].includes(input.goal)'));
+console.log('Legacy 400-group shuffle, larger goals and bounded rounds: passed');
