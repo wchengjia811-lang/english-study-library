@@ -23,3 +23,5 @@ async function render(){const mine=++renderEpoch,q=search.value.trim();renderAct
 PeaStudy.tags().then(data=>{tagData=data;const container=document.querySelector('#tag-buttons');for(const tag of data.tags){const b=document.createElement('button');b.type='button';b.dataset.studyTag=tag;b.textContent=tag;b.onclick=()=>{selectedTags.has(tag)?selectedTags.delete(tag):selectedTags.add(tag);page=1;render()};container.append(b)}syncTags();render()}).catch(()=>{document.querySelector('#tag-filter-status').textContent='标签暂时未载入，仍可使用分类查找。'});
 
 document.querySelector('#goal-synonyms').onclick=()=>{search.value='';current='阅读同义替换';selectedTags.clear();page=1;render();search.focus()};
+
+const requestedCategory=new URLSearchParams(location.search).get("category");if(categories.includes(requestedCategory)){current=requestedCategory;page=1;search.value="";selectedTags.clear();render();}

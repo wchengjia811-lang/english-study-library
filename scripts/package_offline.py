@@ -5,7 +5,7 @@ ROOT=Path(__file__).resolve().parent.parent
 def main():
  p=argparse.ArgumentParser();p.add_argument('--output',required=True);args=p.parse_args();output=Path(args.output).resolve();output.parent.mkdir(parents=True,exist_ok=True)
  data={}
- for path in [ROOT/'search-index.json',ROOT/'tags-index.json',*sorted((ROOT/'study-data').glob('*.json')),*sorted((ROOT/'library').glob('*/document.json'))]:data[path.relative_to(ROOT).as_posix()]=json.loads(path.read_text(encoding='utf-8'))
+ for path in [ROOT/'search-index.json',ROOT/'tags-index.json',*sorted((ROOT/'exam-data').glob('*.json')),*sorted((ROOT/'study-data').glob('*.json')),*sorted((ROOT/'library').glob('*/document.json'))]:data[path.relative_to(ROOT).as_posix()]=json.loads(path.read_text(encoding='utf-8'))
  with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
   for path in ROOT.rglob('*'):
    rel=path.relative_to(ROOT)

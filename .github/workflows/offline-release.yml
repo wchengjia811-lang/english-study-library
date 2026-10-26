@@ -17,6 +17,8 @@ jobs:
         run: python3 scripts/build-study-index.py
       - name: Validate static pages and indexes
         run: python3 scripts/validate_static.py
+      - name: Check vocabulary data and spaced review
+        run: node scripts/check-vocabulary.cjs
       - name: Build offline ZIP
         run: python3 scripts/package_offline.py --output "$RUNNER_TEMP/pea-english-offline.zip"
       - name: Publish offline release

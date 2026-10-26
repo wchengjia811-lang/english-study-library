@@ -41,3 +41,14 @@ python scripts/package_offline.py --output pea-english-offline.zip
 ## 输出练习与掌握度
 
 `study-training.js` 提供本地仿写、草稿、目标表达匹配、口语计时和自评。无语音上传、自动评分或后台请求。`pea-study-v1` 增加 mastery 和 practice 字段，保留既有收藏与背诵记录；练习自评最多保留 200 条。话题复习建议依据最近 50 条自评，至少两条记录才参与提示。仿写草稿单独保存在 pea-writing:条目ID 下；阅读字号保存在 pea-reader-font。
+
+
+## 七类词库（2026-10-26）
+
+首页为七个考试分类，原资料目录迁至 `ielts.html`，原阅读链接与400组进度保持不变。`vocabulary.html#cet4` 等链接直接打开对应词库；IELTS入口先进入写作、口语与词汇分区。
+
+`exam-data/*.json` 是从 WordTyper / ECDICT MIT词表精简出的词头、音标与释义，按选库加载，合计36,387条（跨库有重叠，非官方完整大纲）。来源、版本、原文哈希及生成数据哈希见 `exam-data/manifest.json`。
+
+`exam-core.js` 负责分词库进度、收藏、未完成练习、间隔复习与合并备份；独立使用 `pea-exams-web-v1-*` 存储，不覆盖原400组与资料本。忘记后10分钟、有印象1天，连续能想起按1/3/7/14/30天安排；打开网站时展示到期词，不后台推送。
+
+`node scripts/check-vocabulary.cjs` 校验词表、乱码、复习时间、备份与存储；`python scripts/validate_static.py` 校验链接和原资料。离线打包器同时打入七类词表。

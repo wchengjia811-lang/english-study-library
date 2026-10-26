@@ -1,0 +1,92 @@
+{
+  "source": "https://github.com/grhliu/wordtyper-vocabularies",
+  "license": "MIT",
+  "downloadedAt": "2026-10-26",
+  "books": [
+    {
+      "id": "cet4",
+      "name": "四级词汇",
+      "count": 3815,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "568b5203eb6b48bdecf8deb8d5ad3bc6546b7960c72e9eafcd877242b6b70105",
+      "path": "vocabulary.html#cet4",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "url": "exam-data/cet4.json",
+      "dataSha256": "f73cf2f8c811215bfa8a12763a0174a9a9d4d80af11801ed76a1ae7fea880086"
+    },
+    {
+      "id": "cet6",
+      "name": "六级词汇",
+      "count": 5371,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "216de305c1838b7dd5d473d80e5606838abdc8d2780509893bf623d37ad60dd5",
+      "path": "vocabulary.html#cet6",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "url": "exam-data/cet6.json",
+      "dataSha256": "6e91a4f2189c7c129b4df4f02c45c36dddbcff142edf4be3eafe22a64b86e556"
+    },
+    {
+      "id": "kaoyan",
+      "name": "考研英语",
+      "count": 4787,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "9948bf0e914010d7e4a125e09224ebebb1a3a1e82f618cd39716070e7eca7c44",
+      "path": "vocabulary.html#kaoyan",
+      "url": "exam-data/kaoyan.json",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "dataSha256": "22cba327c4b819f7992943054038912d9a8b60b97057216336fc01167765f199"
+    },
+    {
+      "id": "ielts_core",
+      "name": "雅思词汇",
+      "count": 4974,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "faf6705f919ae9a6cd6270bdcf6ce47bab314f8d91a74dae6b6d7bac0c76bf3c",
+      "path": "vocabulary.html#ielts_core",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "url": "exam-data/ielts_core.json",
+      "dataSha256": "0738e68b58e7ef6fef57544ff77ec5d58104a3c5c67fe969b5c8d4c14ff293a9"
+    },
+    {
+      "id": "toefl",
+      "name": "托福词汇",
+      "count": 6959,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "f35697c6b396caadce35d8741b9a1dd50651d40d21bf7dee8d965f3ede2d937c",
+      "path": "vocabulary.html#toefl",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "url": "exam-data/toefl.json",
+      "dataSha256": "b6af6aeed510c05d1d2b2663c05020f3dfecadafb84e063706d3a8d53d58bb53"
+    },
+    {
+      "id": "gre",
+      "name": "GRE 词汇",
+      "count": 7485,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "2bb3065cb6f47ee3cf12c4ea87abfcdf2ff7f2e11dd184af208bbeec7e355b25",
+      "path": "vocabulary.html#gre",
+      "description": "开源考试标签参考词表；非官方完整大纲",
+      "url": "exam-data/gre.json",
+      "dataSha256": "acca1d8207dbf4b2b9ea9f3248ff48ba6e7093f25be33160b8a8a7ad600ab3a8"
+    },
+    {
+      "id": "gmat",
+      "name": "GMAT 学术参考",
+      "count": 2996,
+      "version": "2.0.0",
+      "updatedAt": "2026-07-27",
+      "sha256": "7f77a31a304cf860deb6be4e255c60e856c184627cd2d3a770ca45c4a9c79454",
+      "path": "vocabulary.html#gmat",
+      "description": "学术词频参考表；非 GMAC 官方词表",
+      "url": "exam-data/gmat.json",
+      "dataSha256": "eb565f3ad6bb5238acf1a072e22dbfc8910652c52bb252b4cb8f343dcab9ea34"
+    }
+  ],
+  "sourceCommit": "b5790cafcad1795873410e984c834ef1ddac20ac"
+}
