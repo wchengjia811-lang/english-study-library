@@ -1,0 +1,65 @@
+{
+  "generatedAt": "2026-10-26",
+  "corpora": {
+    "bilingualLines": 32028,
+    "englishLines": 1995170
+  },
+  "uniqueWords": 14079,
+  "coveredWords": 14079,
+  "bilingualWords": 4186,
+  "source": "https://tatoeba.org/en/downloads",
+  "parallelSource": "https://www.manythings.org/anki/",
+  "license": "Per-record: Tatoeba CC BY 2.0 FR; Wiktionary CC BY-SA 4.0; site-authored examples separately marked",
+  "books": [
+    {
+      "id": "cet4",
+      "total": 3815,
+      "examples": 3815,
+      "bilingual": 2495,
+      "sha256": "293ea11d4636f1149c5d7da2f1d881e1483a67a2ba3e3ea551446ffd6ad4dd4b"
+    },
+    {
+      "id": "cet6",
+      "total": 5371,
+      "examples": 5371,
+      "bilingual": 2692,
+      "sha256": "fab9b8814410533435a7393e31f8773b599a299b404582a1af853437eac1e9a1"
+    },
+    {
+      "id": "kaoyan",
+      "total": 4787,
+      "examples": 4787,
+      "bilingual": 2760,
+      "sha256": "bbbbaf1824583ada92db8e287cc3d8ba245cf486959f670382d050a394eedd00"
+    },
+    {
+      "id": "ielts_core",
+      "total": 4974,
+      "examples": 4974,
+      "bilingual": 2452,
+      "sha256": "b214d80f1157cac048d1155b87b2f9ad28c55358c441a545a9f2a4006411f85a"
+    },
+    {
+      "id": "toefl",
+      "total": 6959,
+      "examples": 6959,
+      "bilingual": 2169,
+      "sha256": "a942b8bce65d09b35512adf0bdf9a71c9ba2c506a0a54d852f5f693ad09d62a4"
+    },
+    {
+      "id": "gre",
+      "total": 7485,
+      "examples": 7485,
+      "bilingual": 1179,
+      "sha256": "04dbe41318d85ead653a474e6d3e9f9fdb1fbf741668f578d54ba7267c1319a1"
+    },
+    {
+      "id": "gmat",
+      "total": 2996,
+      "examples": 2996,
+      "bilingual": 710,
+      "sha256": "67f866d2046e990c6eb7e9c2dccc18956862e882ef571c393dc07fb039b7d998"
+    }
+  ],
+  "missing": []
+}

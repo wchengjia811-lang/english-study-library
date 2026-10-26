@@ -1,0 +1,18 @@
+
+Example sentences and attribution
+
+Tatoeba: https://tatoeba.org/en/downloads
+Parallel English–Mandarin corpus prepared by ManyThings: https://www.manythings.org/anki/
+Text license: Creative Commons Attribution 2.0 France (some underlying sentences may additionally be CC0).
+License: https://creativecommons.org/licenses/by/2.0/fr/
+Each Tatoeba record contains its original sentence ID and owner; Chinese translations retain their own ID and owner. The website links to each contributor's sentence. Text is reproduced without rewriting. Selection and indexing do not imply sentence-level editorial review.
+
+Wiktionary supplements, where present: Wiktionary contributors, extracted by Wiktextract / Kaikki.org.
+https://en.wiktionary.org/ and https://kaikki.org/dictionary/English/
+Dictionary-authored example text: CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
+Old quotations are separately identified with original citation; no modern third-party quotations are included.
+Per-record attribution and source URLs are retained. Share-alike applies to the Wiktionary-derived text, not to unrelated original site code or the ECDICT vocabulary data.
+
+Authored: the original bilingual examples prepared for this site's 400 IELTS synonym cards, separately marked. Not dictionary quotations or official exam questions.
+
+Pronunciation: generated on demand by the user's device speech engine. No Tatoeba or dictionary audio recordings are redistributed. English voices, accent availability, pronunciation quality and offline/network requirements depend on the device and browser. The website does not send words to a third-party speech API; the device's speech provider may have its own network behavior.

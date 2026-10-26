@@ -1,0 +1,23 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict'),crypto=require('node:crypto');
+const root=path.resolve(__dirname,'..'),context={window:{}};vm.runInNewContext(fs.readFileSync(path.join(root,'exam-books.js'),'utf8'),context);
+const books=context.window.PeaExamBooks,coverage=JSON.parse(fs.readFileSync(path.join(root,'exam-examples/coverage.json'),'utf8'));let total=0,bilingual=0;const unmatched=[];
+for(const b of books){
+ const rows=JSON.parse(fs.readFileSync(path.join(root,b.url),'utf8')),raw=fs.readFileSync(path.join(root,'exam-examples',b.id+'.json')),examples=JSON.parse(raw),stats=coverage.books.find(x=>x.id===b.id);
+ assert.equal(Object.keys(examples).length,b.count,b.id+' example coverage');assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),stats.sha256);assert.equal(stats.examples,stats.total);
+ for(const [term,ex] of Object.entries(examples)){
+  assert(ex.text&&typeof ex.translation==='string');assert(!JSON.stringify(ex).includes('\ufffd'));assert(!/[ſȝꝥþð]/i.test(ex.text),'Historical spelling in '+term);if(ex.translation)assert(/[\u3400-\u9fff]/.test(ex.translation),'Chinese translation missing in '+term);assert(['tatoeba','authored','wiktionary'].includes(ex.kind));
+  if(ex.kind==='tatoeba'){assert(Number.isInteger(ex.id)&&ex.id>0&&ex.author);assert.equal(ex.license,'CC BY 2.0 FR');if(ex.translation)assert(ex.translationId&&ex.translationAuthor);}
+  if(ex.kind==='wiktionary'){assert(ex.url.startsWith('https://en.wiktionary.org/wiki/'));assert(ex.credit);assert.equal(ex.license,'CC BY-SA 4.0');if(ex.exampleType==='quotation')assert(Number(ex.reference.slice(0,4))<1900);}
+  if(ex.kind==='authored')assert(ex.credit.includes('本站'));
+  const used=(ex.matchedForm||term).toLowerCase();if(!ex.text.toLowerCase().includes(used))unmatched.push({term,used,text:ex.text});
+  total++;if(ex.translation)bilingual++;
+ }
+ for(const w of rows)assert(Object.hasOwn(examples,w[0]),b.id+': '+w[0]);
+}
+assert.equal(coverage.missing.length,0);assert.equal(coverage.coveredWords,coverage.uniqueWords);assert.equal(total,36387);assert.equal(unmatched.length,0,JSON.stringify(unmatched.slice(0,12)));
+function speechHarness(voices,supported=true){const spoken=[],events=[],errors=[];let canceled=0;const win={};if(supported){win.SpeechSynthesisUtterance=class{constructor(text){this.text=text;}};win.speechSynthesis={getVoices:()=>voices,cancel:()=>canceled++,resume(){},speak:u=>spoken.push(u)};}vm.runInNewContext(fs.readFileSync(path.join(root,'exam-speech.js'),'utf8'),{window:win});return{S:win.PeaExamSpeech,spoken,events,errors,canceled:()=>canceled,options:{accent:'en-GB',onState:(...s)=>events.push(s),onError:e=>errors.push(e)}};}
+const h=speechHarness([{name:'US voice',lang:'en-US'},{name:'UK voice',lang:'en-GB'}]);assert.equal(h.spoken.length,0,'No autoplay');assert(h.S.speak('hello',h.options));assert.equal(h.spoken[0].voice.lang,'en-GB');h.spoken[0].onstart();assert.equal(h.events[0][0],'playing');h.S.stop();assert.equal(h.events.at(-1)[0],'ended');assert(h.canceled()>0);const before=h.events.length;h.spoken[0].onstart();assert.equal(h.events.length,before,'Canceled event ignored');assert(h.S.speak('A useful sentence.',{...h.options,slow:true}));assert.equal(h.spoken[1].rate,.65);h.spoken[1].onerror({error:'network'});assert(h.errors.length);assert.equal(h.events.at(-1)[0],'ended');
+const fallback=speechHarness([{lang:'en-US'}]);assert(fallback.S.speak('hello',fallback.options));assert.equal(fallback.spoken[0].voice.lang,'en-US');const empty=speechHarness([{lang:'zh-CN'}]);assert.equal(empty.S.speak('hello',empty.options),false);assert.equal(empty.spoken.length,0);assert(empty.errors.length);const unsupported=speechHarness([],false);assert.equal(unsupported.S.speak('hello',unsupported.options),false);assert(unsupported.errors.length);
+const cet4=JSON.parse(fs.readFileSync(path.join(root,'exam-examples/cet4.json')));assert.equal(cet4.reservior.displayTerm,'reservoir');assert(cet4.reservior.usageNote.includes('拼写'));assert.equal(cet4.uptodate.displayTerm,'up-to-date');
+for(const file of ['index.html','vocabulary.html']){const html=fs.readFileSync(path.join(root,file),'utf8');assert(html.includes('id="exam-accent"'));assert(html.indexOf('exam-speech.js')<html.indexOf('src="vocabulary.js'));assert(html.includes('设备英语合成语音'));}
+console.log(JSON.stringify({books:books.length,entriesWithExamples:total,bilingualEntries:bilingual,uniqueWords:coverage.uniqueWords,encodingAndSourceAttribution:'passed',pronunciationVoiceSelectionAndFailures:'passed',autoplay:'disabled',actualDeviceAudio:'not-tested'}));

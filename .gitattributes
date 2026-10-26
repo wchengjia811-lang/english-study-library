@@ -1,1 +1,2 @@
 exam-data/*.json text eol=lf
+exam-examples/*.json text eol=lf

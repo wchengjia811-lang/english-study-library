@@ -19,6 +19,8 @@ jobs:
         run: python3 scripts/validate_static.py
       - name: Check vocabulary data and spaced review
         run: node scripts/check-vocabulary.cjs
+      - name: Check pronunciation and complete example coverage
+        run: node scripts/check-pronunciation-examples.cjs
       - name: Build offline ZIP
         run: python3 scripts/package_offline.py --output "$RUNNER_TEMP/pea-english-offline.zip"
       - name: Publish offline release
