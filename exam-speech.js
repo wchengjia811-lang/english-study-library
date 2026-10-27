@@ -1,19 +1,33 @@
-/* Device speech only. No words or progress are sent to a website by this module. */
+/* Device speech only. An empty voice list does not prove a language is uninstalled. */
 (()=>{'use strict';
-let current=null,notify=null;
+let current=null;
 function supported(){return !!(window.speechSynthesis&&window.SpeechSynthesisUtterance);}
-function stop(){const done=notify;current=null;notify=null;if(supported())window.speechSynthesis.cancel();if(done)done('ended');}
+function voices(){try{return window.speechSynthesis.getVoices().filter(v=>/^en(?:[-_]|$)/i.test(v.lang));}catch{return [];}}
+function cleanup(r){if(!r)return;clearTimeout(r.wait);clearTimeout(r.watch);if(r.listener)window.speechSynthesis.removeEventListener?.('voiceschanged',r.listener);r.listener=null;}
+function stop(){const r=current;current=null;cleanup(r);if(supported())window.speechSynthesis.cancel();if(r)r.onState('ended');}
 function speak(text,{accent='en-US',slow=false,onState=()=>{},onError=()=>{}}={}){
- if(!supported()){onError('当前浏览器不支持朗读，可打开词典听发音。');return false;}
- const voices=window.speechSynthesis.getVoices().filter(v=>/^en(?:[-_]|$)/i.test(v.lang));
- if(!voices.length){onError('英语语音尚未就绪或未安装，请稍后重试；仍不可用时可打开词典听发音。');return false;}
- stop();const utterance=new window.SpeechSynthesisUtterance(String(text));current=utterance;notify=onState;
- utterance.lang=accent;utterance.voice=voices.find(v=>v.lang.replace('_','-').toLowerCase()===accent.toLowerCase())||voices[0];utterance.lang=utterance.voice.lang||accent;utterance.rate=slow?.65:.9;
- utterance.onstart=()=>{if(current===utterance)onState('playing',utterance.voice.lang);};
- utterance.onend=()=>{if(current===utterance){current=null;notify=null;onState('ended');}};
- utterance.onerror=e=>{if(current!==utterance)return;current=null;notify=null;onState('ended');if(!['canceled','interrupted'].includes(e.error))onError('朗读没有成功，请重试，或打开词典听发音。');};
- try{window.speechSynthesis.resume();window.speechSynthesis.speak(utterance);return true;}catch{current=null;notify=null;onState('ended');onError('设备无法播放英语语音，请打开词典听发音。');return false;}
+ if(!supported()){onError('当前浏览器不支持网页朗读，请使用词典发音入口。');return false;}
+ stop();const r={onState,onError,wait:null,watch:null,listener:null,started:false};current=r;
+ function fail(error){if(current!==r)return;current=null;cleanup(r);window.speechSynthesis.cancel();onState('ended');onError(error==='not-allowed'?'浏览器没有开始播放，请再次点击发音按钮。':'网页朗读暂不可用，请使用词典发音入口，或检查浏览器与设备的语音设置。');}
+ function launch(){
+  if(current!==r||r.started)return;r.started=true;cleanup(r);
+  const available=voices(),selected=available.find(v=>v.lang.replace('_','-').toLowerCase()===accent.toLowerCase())||available[0];
+  const u=new window.SpeechSynthesisUtterance(String(text));r.utterance=u;u.lang=selected?.lang||accent;if(selected)u.voice=selected;u.rate=slow?.65:.9;
+  u.onstart=()=>{if(current!==r)return;clearTimeout(r.watch);onState('playing',selected?.lang||null);};
+  u.onend=()=>{if(current!==r)return;current=null;cleanup(r);onState('ended');};
+  u.onerror=e=>{if(current!==r)return;if(['canceled','interrupted'].includes(e.error)){current=null;cleanup(r);onState('ended');}else fail(e.error);};
+  r.watch=setTimeout(()=>fail('start-timeout'),12000);
+  try{window.speechSynthesis.resume();window.speechSynthesis.speak(u);}catch{fail('synthesis-unavailable');}
+ }
+ if(voices().length)launch();
+ else{
+  onState('loading');r.listener=()=>{if(voices().length)launch();};
+  window.speechSynthesis.addEventListener?.('voiceschanged',r.listener);
+  // Wait for late voices, then try language selection without an explicit voice.
+  r.wait=setTimeout(launch,1500);r.listener();
+ }
+ return true;
 }
-if(supported())window.speechSynthesis.getVoices();
+if(supported())voices();
 window.PeaExamSpeech={supported,stop,speak};
 })();
