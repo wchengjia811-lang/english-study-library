@@ -1,4 +1,5 @@
 const editions = window.peaEditions;
+const guides = window.peaReadingGuide;
 const writing = window.peaWriting;
 const byId = (id) => document.getElementById(id);
 const storageKey = "pea-reading-progress-v1";
@@ -27,18 +28,23 @@ function markTerms(text, terms) {
 
 function renderShelf() {
   const country = byId("country").value;
-  byId("articles").innerHTML = editions.filter((item) => !country || item.country === country).map((item) => `
+  byId("articles").innerHTML = [...editions].sort((a, b) => (b.publishedOn || "").localeCompare(a.publishedOn || ""))
+    .filter((item) => !country || item.country === country).map((item) => `
     <article class="card cover-card"><a href="#read/${item.id}" aria-label="${safe(item.title)}">
       <img src="${item.cover}" alt="" loading="lazy"></a>
-      <div class="card-copy"><p class="kicker">${item.country} · 全章 · 约 ${item.minutes} 分钟</p>
+      <div class="card-copy"><p class="kicker">${item.country} · 约 ${item.minutes} 分钟 · ${safe(item.level || guides[item.id]?.level || "难度待标")}</p>
+      ${item.publishedOn ? `<p class="muted"><time datetime="${safe(item.publishedOn)}">${safe(item.publishedOn)}</time> 收录</p>` : ""}
       <h3><a href="#read/${item.id}">${item.title}</a></h3><p>${item.intro}</p>
       <a class="text-link" href="#read/${item.id}">${progress[item.id]?.done ? "重读原文" : progress[item.id] ? "继续精读" : "打开全文"} →</a></div></article>`).join("");
 }
 
 function renderDaily() {
-  const elapsed = Math.floor((Date.now() - Date.parse("2026-11-09T00:00:00+08:00")) / 86400000);
-  const item = editions[((elapsed % editions.length) + editions.length) % editions.length];
-  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">今日精读 · ${item.country}</p><h2>${item.title}</h2>
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const item = editions.filter((entry) => entry.publishedOn && entry.publishedOn <= today)
+    .sort((a, b) => b.publishedOn.localeCompare(a.publishedOn))[0] || editions[0];
+  const label = item.publishedOn === today ? "今日新文" : "往期推荐";
+  const date = item.publishedOn || guides[item.id]?.publishedOn;
+  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">${label} · ${item.country}${date ? ` · <time datetime="${safe(date)}">${safe(date)}</time>` : ""}</p><h2>${item.title}</h2>
     <p>${item.intro}</p><a class="button" href="#read/${item.id}">打开完整章节 →</a></div>
     <img src="${item.cover}" alt="" fetchpriority="high">`;
 }
@@ -58,18 +64,30 @@ function termList(terms) {
     ${exams ? `<span class="exam-labels">${exams.map((exam) => `<span>${safe(exam)}</span>`).join("")}</span>` : ""}</dd>`).join("")}</dl></section>`;
 }
 
+function renderSectionReview(item, guide, section, index) {
+  const text = section.map((block) => block.text || "").join(" ").toLowerCase();
+  const terms = [...(guide?.review[index] || []), ...item.terms.filter(([word]) => text.includes(word.toLowerCase()))];
+  const selected = [...new Map(terms.map(([word, meaning]) => [word.toLowerCase(), [word, meaning]])).values()].slice(0, 4);
+  if (!selected.length) return "";
+  return `<details class="analysis"><summary>本节复习 · ${selected.length} 个表达</summary>
+    <p>先回想意思，再点开核对。</p>${selected.map(([word, meaning]) =>
+      `<details><summary lang="en">${safe(word)}</summary><p>${safe(meaning)}</p></details>`).join("")}</details>`;
+}
+
 function renderEdition(item) {
   const sections = [];
+  const guide = guides[item.id];
   const translations = window.peaTranslations[item.id];
   let paragraph = 0;
   const blocks = item.blocks.map((block) => block.text ? { ...block, translation: translations[paragraph++] } : block);
   for (let index = 0; index < blocks.length; index += 6) sections.push(blocks.slice(index, index + 6));
   const book = byId("reader");
   book.innerHTML = `<a class="text-link" href="./">← 返回旅行书架</a>
-    <header class="article-head"><p class="kicker">${item.country} · 完整章节 · 约 ${item.minutes} 分钟</p>
+    <header class="article-head"><p class="kicker">${item.country} · 完整章节 · 约 ${item.minutes} 分钟 · ${safe(item.level || guide?.level || "难度待标")}</p>
       <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p><p>${item.intro}</p>
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
-      <p class="muted">历史游记。可按节阅读，点蓝色词句看中文用法。逐段中文为机器译文，默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
+      ${item.background || guide?.background ? `<p class="analysis"><strong>阅读背景</strong>　${safe(item.background || guide.background)}</p>` : ""}
+      <p class="muted">点蓝色词句看中文用法。逐段译文默认折叠，部分仍为机器译文。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
       <label><input type="checkbox" id="show-full"> 展开全文</label></div>
@@ -80,7 +98,8 @@ function renderEdition(item) {
         `<p lang="en" class="${block.verse ? "verse" : ""}">${markTerms(block.text, item.terms)}</p>
         <details class="analysis paragraph-translation"><summary>查看中文翻译</summary><p lang="zh-CN">${safe(block.translation)}</p></details>
         ${item.sentences.filter(([quote]) => block.text.includes(quote)).map(([quote, analysis]) =>
-          `<details class="analysis"><summary>拆解这一段的好句</summary><blockquote lang="en">${safe(quote)}</blockquote><p>${analysis}</p></details>`).join("")}`).join("")}</section>`).join("")}</div>
+          `<details class="analysis"><summary>拆解这一段的好句</summary><blockquote lang="en">${safe(quote)}</blockquote><p>${analysis}</p></details>`).join("")}`).join("")}
+      ${renderSectionReview(item, guide, section, i)}</section>`).join("")}</div>
       <nav class="read-controls" aria-label="章节翻页"><button type="button" id="read-prev">← 上一节</button><span id="read-position" role="status"></span><button type="button" id="read-next">下一节 →</button><button type="button" id="read-done">标记读完</button></nav>
       </div>${termList(item.terms)}</div>`;
   const pages = [...book.querySelectorAll("[data-section]")];
