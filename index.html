@@ -11,7 +11,7 @@
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
   <script src="reading.js?v=reading-sync1" defer></script>
-  <script type="module" src="reading-sync.js?v=2"></script>
+  <script type="module" src="reading-sync.js?v=3"></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -30,9 +30,9 @@
     <article id="reader" hidden></article>
     <noscript>请启用 JavaScript 以打开文章和范文。</noscript>
   </main>
-  <button id="open-reading-account" type="button" hidden>同步阅读进度</button>
+  <button id="open-reading-account" type="button" hidden>登录账号</button>
   <dialog id="reading-account" aria-labelledby="reading-account-title">
-    <h2 id="reading-account-title">同步阅读进度</h2>
+    <h2 id="reading-account-title">登录账号</h2>
     <form id="reading-login">
       <p><label>邮箱 <input name="email" type="email" autocomplete="email" required></label></p>
       <p><label>密码 <input name="password" type="password" autocomplete="current-password" minlength="8" required></label></p>

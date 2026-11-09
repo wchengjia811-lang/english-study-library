@@ -19,7 +19,7 @@ async function useSession(session) {
   window.peaReadingProgress.disconnect();
   login.hidden = Boolean(userId);
   logout.hidden = !userId;
-  opener.textContent = userId ? "阅读账号" : "同步阅读进度";
+  opener.textContent = userId ? "阅读账号" : "登录账号";
   if (!userId) {
     status.textContent = "登录同一个账号后，可以在手机和电脑之间续读。";
     return;
