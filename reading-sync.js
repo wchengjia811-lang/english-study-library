@@ -16,6 +16,12 @@ const notesForm = byId("reading-notes-form");
 const notesText = byId("reading-notes-text");
 const notesStatus = byId("reading-notes-status");
 const notesSave = notesForm.querySelector('button[type="submit"]');
+const review = byId("notes-review");
+const reviewSearch = byId("notes-review-search");
+const reviewStatus = byId("notes-review-status");
+const reviewList = byId("notes-review-list");
+let reviewEntries = [];
+let reviewRequest = 0;
 let currentNote = null;
 const noteDrafts = new Map();
 const siteUrl = "https://wchengjia811-lang.github.io/english-study-library/";
@@ -27,6 +33,8 @@ async function useSession(session) {
   if (userId === accountId) return;
   accountId = userId;
   notes.close();
+  review.close();
+  clearReview();
   window.peaReadingProgress.disconnect();
   login.hidden = Boolean(userId);
   logout.hidden = !userId;
@@ -65,6 +73,80 @@ async function useSession(session) {
 document.querySelector(".masthead nav").append(opener);
 opener.hidden = false;
 opener.onclick = () => dialog.showModal();
+
+const reviewButton = document.createElement("button");
+reviewButton.type = "button";
+reviewButton.textContent = "笔记回顾";
+opener.before(reviewButton);
+
+function clearReview() {
+  reviewRequest += 1;
+  reviewEntries = [];
+  reviewList.replaceChildren();
+  reviewSearch.value = "";
+}
+
+function renderReview() {
+  const query = reviewSearch.value.trim().toLowerCase();
+  const matching = reviewEntries.filter(({ title, content }) => (title + "\n" + content).toLowerCase().includes(query));
+  reviewList.replaceChildren();
+  reviewStatus.textContent = matching.length ? "找到 " + matching.length + " 篇文章的笔记。"
+    : query ? "没有符合条件的笔记。" : "你还没有保存笔记。";
+  for (const { title, content, href } of matching) {
+    const row = document.createElement("li");
+    const details = document.createElement("details");
+    const summary = document.createElement("summary");
+    summary.textContent = title;
+    const body = document.createElement("p");
+    body.style.whiteSpace = "pre-wrap";
+    body.style.overflowWrap = "anywhere";
+    body.textContent = content;
+    details.append(summary, body);
+    if (href) {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = "打开原文";
+      link.onclick = () => review.close();
+      details.append(link);
+    }
+    row.append(details);
+    reviewList.append(row);
+  }
+}
+
+reviewSearch.oninput = renderReview;
+review.onclose = () => { if (!review.open) clearReview(); };
+reviewButton.onclick = async () => {
+  if (!accountId) {
+    status.textContent = "登录后即可回顾已保存的笔记。";
+    dialog.showModal();
+    return;
+  }
+  clearReview();
+  const request = reviewRequest;
+  const userId = accountId;
+  reviewSearch.disabled = true;
+  reviewStatus.textContent = "正在读取笔记…";
+  review.showModal();
+  try {
+    const { data, error } = await client.from("reader_notes").select("article_id,content")
+      .eq("user_id", userId).order("article_id");
+    if (!review.open || request !== reviewRequest || userId !== accountId) return;
+    if (error) throw error;
+    const articles = new Map([
+      ...window.peaEditions.map(({ id, title }) => [id, { title, href: "#read/" + encodeURIComponent(id) }]),
+      ...window.peaWriting.map(({ id, title }) => [id, { title, href: "#essay/" + encodeURIComponent(id) }])
+    ]);
+    reviewEntries = data.filter(({ content }) => content.trim()).map(({ article_id, content }) => ({
+      title: article_id, ...articles.get(article_id), content
+    })).sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
+    reviewSearch.disabled = false;
+    renderReview();
+    reviewSearch.focus();
+  } catch {
+    if (review.open && request === reviewRequest) reviewStatus.textContent = "读取失败，请关闭后重新打开。";
+  }
+};
 
 function closeNotes(event) {
   event.preventDefault();

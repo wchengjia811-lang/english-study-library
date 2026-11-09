@@ -11,7 +11,7 @@
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
   <script src="reading.js?v=inline-notes1" defer></script>
-  <script type="module" src="reading-sync.js?v=7"></script>
+  <script type="module" src="reading-sync.js?v=8"></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -57,6 +57,13 @@
     </form>
     <p id="reading-recovery-status" role="status"></p>
     <form method="dialog"><button>返回登录</button></form>
+  </dialog>
+  <dialog id="notes-review" aria-labelledby="notes-review-title" style="width:min(48rem, 90vw);max-height:85vh;overflow:auto">
+    <h2 id="notes-review-title">笔记回顾</h2>
+    <p><label>搜索笔记 <input id="notes-review-search" type="search" placeholder="文章标题或笔记关键词" autofocus></label></p>
+    <p id="notes-review-status" role="status"></p>
+    <ul id="notes-review-list"></ul>
+    <form method="dialog"><button>关闭</button></form>
   </dialog>
   <dialog id="reading-notes" aria-labelledby="reading-notes-title">
     <h2 id="reading-notes-title">我的笔记</h2>
