@@ -87,10 +87,10 @@ function renderEdition(item) {
       <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p><p>${item.intro}</p>
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
       ${item.background || guide?.background ? `<p class="analysis"><strong>阅读背景</strong>　${safe(item.background || guide.background)}</p>` : ""}
-      <p class="muted">点蓝色词句看用法，也可选中正文里的词或短语查词、看背景。中文译文默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
+      ${item.id === "poppi-full" ? '<p class="muted">插图作者 Lucy Du Bois-Reymond</p>' : ""}</header>
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
-      <label><input type="checkbox" id="show-full"> 展开全文</label></div>
+      <label><input type="checkbox" id="show-full"> 展开全文</label><button id="open-lookup-tool" type="button">查词工具</button></div>
       <div id="passage">${sections.map((section, i) => `<section class="prose" data-section="${i}" hidden>
       <h2 tabindex="-1">第 ${i + 1} 节</h2>
       ${section.map((block) => block.image ? `<figure><img src="${block.image}" alt="${safe(block.caption || item.english + " 原书插图")}" loading="lazy">
@@ -133,6 +133,7 @@ function renderEdition(item) {
     update(true);
   }
 
+  byId("open-lookup-tool").onclick = () => byId("lookup-tool").showModal();
   picker.onchange = () => changePage(Number(picker.value));
   full.onchange = () => update();
   byId("read-prev").onclick = () => changePage(page - 1);
@@ -195,6 +196,7 @@ function updateSelectionLookup() {
 }
 
 function route() {
+  if (byId("lookup-tool").open) byId("lookup-tool").close();
   byId("selection-lookup").hidden = true;
   const hash = location.hash;
   if (hash === "#main") return;
@@ -229,6 +231,18 @@ function route() {
 for (const country of new Set(editions.map((item) => item.country))) byId("country").add(new Option(country, country));
 byId("country").addEventListener("change", renderShelf);
 const lookupBar = byId("selection-lookup");
+const lookupQuery = byId("lookup-query");
+byId("lookup-form").onsubmit = (event) => {
+  lookupQuery.value = lookupQuery.value.trim();
+  if (!lookupQuery.reportValidity()) event.preventDefault();
+};
+byId("lookup-tool-background").onclick = () => {
+  lookupQuery.value = lookupQuery.value.trim();
+  if (lookupQuery.reportValidity()) {
+    window.open("https://zh.wikipedia.org/w/index.php?search=" + encodeURIComponent(lookupQuery.value), "_blank", "noopener,noreferrer");
+  }
+};
+byId("lookup-tool-close").onclick = () => byId("lookup-tool").close();
 byId("lookup-close").onclick = () => { lookupBar.hidden = true; };
 document.addEventListener("selectionchange", updateSelectionLookup);
 document.addEventListener("pointerdown", (event) => {

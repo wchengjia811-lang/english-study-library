@@ -10,7 +10,7 @@
   <script src="reading-editions.js?v=2" defer></script>
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
-  <script src="reading.js?v=reading-lookup1" defer></script>
+  <script src="reading.js?v=reading-lookup-tool1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -29,6 +29,14 @@
     <article id="reader" hidden></article>
     <noscript>请启用 JavaScript 以打开文章和范文。</noscript>
   </main>
+  <dialog id="lookup-tool" aria-labelledby="lookup-tool-title">
+    <h2 id="lookup-tool-title">查词工具</h2>
+    <form id="lookup-form" action="https://dictionary.cambridge.org/search/english-chinese-simplified/direct/" method="get" target="_blank" rel="noopener noreferrer">
+      <label for="lookup-query">单词、短语或专有名词</label>
+      <input id="lookup-query" name="q" type="search" maxlength="90" required autofocus>
+      <p><button type="submit">查词</button> <button id="lookup-tool-background" type="button">看背景</button> <button id="lookup-tool-close" type="button">关闭</button></p>
+    </form>
+  </dialog>
   <aside id="selection-lookup" class="selection-lookup" aria-label="选中文字查询" hidden>
     <strong id="lookup-text" lang="en"></strong>
     <a id="lookup-dictionary" target="_blank" rel="noopener noreferrer">查词</a>
