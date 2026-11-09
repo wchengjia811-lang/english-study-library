@@ -80,3 +80,14 @@ footer { margin-top:3rem; border-top:1px solid var(--line); font-size:.85rem; }
 .selection-lookup { position:fixed; z-index:5; bottom:calc(1rem + env(safe-area-inset-bottom)); right:1rem; display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; max-width:calc(100% - 2rem); padding:.55rem .65rem; background:var(--white); border:1px solid var(--line); border-radius:.6rem; box-shadow:0 .25rem 1rem #10284b24; }
 .selection-lookup strong { max-width:15rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .selection-lookup a { padding:.35rem .6rem; border-radius:.35rem; background:#eaf2ff; white-space:nowrap; }
+
+.reading-links { display:flex; flex-wrap:wrap; align-items:center; gap:.65rem 1rem; }
+.quick-link { font-weight:750; }
+.feature .quick-link { color:white; }
+.paragraph-context { display:block; margin:0 0 .55rem auto; padding:.22rem .55rem; font-size:.85rem; }
+.paragraph-context[aria-pressed=true] { background:#dceaff; border-color:#84a8d7; }
+#passage p[id^=paragraph-] { scroll-margin-top:1.25rem; }
+.deep-reading { border-inline-start:3px solid var(--blue); }
+.paragraph-sidebar .term-list { position:static; max-height:none; padding:.4rem 0; border:0; overflow:visible; }
+.paragraph-sidebar .term-list h2, .paragraph-sidebar .term-guide { display:none; }
+.paragraph-sidebar > details { margin-top:1rem; padding-top:.65rem; border-top:1px solid var(--line); }

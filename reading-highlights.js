@@ -1,0 +1,33 @@
+window.peaReadingHighlights = {
+  "malines-full": {
+    quick: 41,
+    recommendation: "跟作者登上钟楼，看水道怎样把远景连成一幅画，再读一段从蓝天写到暮色的长句。",
+    analysis: {
+      0: ["作者怎样把塔楼和屋顶放进同一个画面", "主干是 The immense … spire … was that of St. Rombauld。which dominated 拉开远景，showing here and there 又把视线降到树丛间露出的屋顶。作者先让你看见高度和颜色，最后才报出塔名。"],
+      41: ["从四面远眺收回到脚下的小城", "threaded with 把银色水道写成穿过草地的丝线。下一句 Below … lay Malines 用地点开头，读者先跟着作者往下看，才看到城市。as in the bottom of a bowl 给读者一个容易想象的高低关系。"],
+      42: ["同一个视点怎样写出时间流动", "smoking、ruminating 和 inhaling 让叙述停在塔顶，直到 until 把注意力引向光线变化。molten gold → ruddy flames → fade 写出颜色从金到红再暗下去，读者可以顺着这三个节点看日落。"]
+    },
+    glossary: [["St. Rombauld", "圣隆博尔德。这里是梅赫伦主教座堂及其钟楼的旧拼写。"], ["carillon", "钟乐器，由一组调好音高的钟组成，可演奏旋律。"], ["Cerberus", "希腊神话中的冥府守门犬。作者借这个名字戏称塔楼守望人。"]]
+  },
+  "oudenaarde-full": {
+    quick: 10,
+    recommendation: "先读教堂游行，看白纱与暗色石墙怎样形成反差，再留意人群突然安静下来的前一刻。",
+    analysis: {
+      0: ["用行走路线组织一段街景", "From the … station 给出起点，we crossed 推动行程，faring towards 补上方向。后面的 Here 把镜头落到街上，从房屋和人行道逐渐推进到窗帘、鲜花与橱窗。读这段时可以沿着地点词还原路线。"],
+      10: ["用明暗对比把游行队伍写出来", "gloom 和 daylight 先交代队伍从哪里走到哪里。white veils and gowns 又借 against 把白纱放在灰暗教堂前，最后才用一床白玫瑰来收束画面。"],
+      14: ["声音怎样把注意力引向广场另一端", "All at once 把节奏切快，murmur 和 rustling 让读者先听见人群，再看见集体跪下。and then I saw 把视点越过人群，落到远处华盖下的人物身上。"]
+    },
+    glossary: [["estaminet", "法国北部和比利时一带的小酒馆。"], ["custode", "看守人或管理员，这里指带作者参观的人。"], ["the Host", "这里指弥撒中举起的圣体饼。"]]
+  },
+  "poppi-full": {
+    quick: 28,
+    recommendation: "从城堡前的广场开始读。孩子在旧城墙边玩耍，作者用几处眼前的细节把中世纪和自己的时代并排写出来。",
+    analysis: {
+      1: ["先搭地形，再解释城堡为什么显眼", "第一句从阿尔诺河谷抬升到山坡，第二句才把城堡放到最高处。末句先与佛罗伦萨的旧宫作比较，再用 owing to 回扣地势，让读者明白这座城堡何以看起来更有压迫感。"],
+      23: ["如何跟住一段人名密集的历史叙述", "先抓 Florence 与乡村贵族之间的利益冲突，再抓人物行动的顺序：离城、被放逐、交战、提议毁城、遭到反对。as Dante has it 把河水染红的说法归给但丁，提醒读者这里也有文学转述。"],
+      28: ["用一块广场写出两个时代", "what was formerly an open ground for free fighting 先点明广场原来的用途。分号之后，孩子玩耍、老人晒太阳，用同一个地点的日常画面把前一句抽象的时代对比落到实处。"]
+    },
+    glossary: [["Casentino", "托斯卡纳北部阿尔诺河上游一带的山谷地区。"], ["the Guidi", "中世纪托斯卡纳的圭迪家族，波皮曾是其据点。"], ["Guelf", "圭尔夫派。常与教皇阵营联系，在这段里代表佛罗伦萨城内的一方。"], ["Ghibelline", "吉伯林派。常与皇帝阵营联系，文中的圭迪家族属于这一派。"]]
+  }
+};
+

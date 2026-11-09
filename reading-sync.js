@@ -90,7 +90,7 @@ function renderReview() {
   const query = reviewSearch.value.trim().toLowerCase();
   const matching = reviewEntries.filter(({ title, content }) => (title + "\n" + content).toLowerCase().includes(query));
   reviewList.replaceChildren();
-  reviewStatus.textContent = matching.length ? "找到 " + matching.length + " 篇文章的笔记。"
+  reviewStatus.textContent = matching.length ? "找到 " + matching.length + " 条笔记。"
     : query ? "没有符合条件的笔记。" : "你还没有保存笔记。";
   for (const { title, content, href } of matching) {
     const row = document.createElement("li");
@@ -105,8 +105,18 @@ function renderReview() {
     if (href) {
       const link = document.createElement("a");
       link.href = href;
-      link.textContent = "打开原文";
-      link.onclick = () => review.close();
+      link.textContent = href.startsWith("#read/") && href.split("/").length === 3 ? "回到原段落" : "打开原文";
+      link.onclick = () => {
+        review.close();
+        if (location.hash === href && href.startsWith("#read/")) {
+          const paragraph = byId("paragraph-" + href.split("/")[2]);
+          if (paragraph && !paragraph.closest("[hidden]")) {
+            paragraph.focus();
+          } else {
+            window.dispatchEvent(new Event("hashchange"));
+          }
+        }
+      };
       details.append(link);
     }
     row.append(details);
@@ -137,9 +147,16 @@ reviewButton.onclick = async () => {
       ...window.peaEditions.map(({ id, title }) => [id, { title, href: "#read/" + encodeURIComponent(id) }]),
       ...window.peaWriting.map(({ id, title }) => [id, { title, href: "#essay/" + encodeURIComponent(id) }])
     ]);
-    reviewEntries = data.filter(({ content }) => content.trim()).map(({ article_id, content }) => ({
-      title: article_id, ...articles.get(article_id), content
-    })).sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
+    reviewEntries = data.filter(({ content }) => content.trim()).map(({ article_id, content }) => {
+      const [id, key] = article_id.split(":");
+      const article = articles.get(id);
+      const paragraph = key && window.peaNoteLocation(id, key);
+      return {
+        title: (article?.title || id) + (paragraph ? " · " + paragraph.label : key ? " · 段落笔记" : ""),
+        href: paragraph?.href || article?.href,
+        content
+      };
+    }).sort((a, b) => a.title.localeCompare(b.title, "zh-CN"));
     reviewSearch.disabled = false;
     renderReview();
     reviewSearch.focus();

@@ -1,6 +1,32 @@
 const editions = window.peaEditions;
 const guides = window.peaReadingGuide;
 const writing = window.peaWriting;
+const highlights = window.peaReadingHighlights;
+const sectionSize = 6;
+
+function paragraphKey(block) {
+  let hash = 2166136261;
+  for (const letter of block.text) hash = Math.imul(hash ^ letter.codePointAt(0), 16777619);
+  return (hash >>> 0).toString(36);
+}
+
+window.peaNoteLocation = (articleId, key) => {
+  const item = editions.find(({ id }) => id === articleId);
+  const index = item?.blocks.findIndex((block) => block.text && paragraphKey(block) === key);
+  return index >= 0 ? {
+    label: "第 " + (Math.floor(index / sectionSize) + 1) + " 节 · " + item.blocks[index].text.split(/\s+/).slice(0, 7).join(" ") + "…",
+    href: "#read/" + articleId + "/" + key
+  } : null;
+};
+
+function quickLink(item) {
+  const block = item.blocks[highlights[item.id]?.quick];
+  return block?.text ? '<a class="quick-link" href="#read/' + item.id + '/' + paragraphKey(block) + '/quick">5 分钟先读 →</a>' : "";
+}
+
+function publishedDate(item) {
+  return item.publishedOn || guides[item.id]?.publishedOn || "";
+}
 const byId = (id) => document.getElementById(id);
 const storageKey = "pea-reading-progress-v1";
 let progress = {};
@@ -43,24 +69,21 @@ function markTerms(text, terms) {
 
 function renderShelf() {
   const country = byId("country").value;
-  byId("articles").innerHTML = [...editions].sort((a, b) => (b.publishedOn || "").localeCompare(a.publishedOn || ""))
+  byId("articles").innerHTML = [...editions].sort((a, b) => publishedDate(b).localeCompare(publishedDate(a)))
     .filter((item) => !country || item.country === country).map((item) => `
     <article class="card cover-card"><a href="#read/${item.id}" aria-label="${safe(item.title)}">
       <img src="${item.cover}" alt="" loading="lazy"></a>
       <div class="card-copy"><p class="kicker">${item.country} · 约 ${item.minutes} 分钟 · ${safe(item.level || guides[item.id]?.level || "难度待标")}</p>
-      ${item.publishedOn ? `<p class="muted"><time datetime="${safe(item.publishedOn)}">${safe(item.publishedOn)}</time> 收录</p>` : ""}
-      <h3><a href="#read/${item.id}">${item.title}</a></h3><p>${item.intro}</p>
-      <a class="text-link" href="#read/${item.id}">${progress[item.id]?.done ? "重读原文" : progress[item.id] ? "继续精读" : "打开全文"} →</a></div></article>`).join("");
+      ${publishedDate(item) ? `<p class="muted"><time datetime="${safe(publishedDate(item))}">${safe(publishedDate(item))}</time> 收录</p>` : ""}
+      <h3><a href="#read/${item.id}">${item.title}</a></h3><p>${safe(highlights[item.id]?.recommendation || item.intro)}</p>
+      <div class="reading-links"><a class="text-link" href="#read/${item.id}">${progress[item.id]?.done ? "重读原文" : progress[item.id] ? "继续精读" : "打开全文"} →</a>${quickLink(item)}</div></div></article>`).join("");
 }
 
 function renderDaily() {
-  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-  const item = editions.filter((entry) => entry.publishedOn && entry.publishedOn <= today)
-    .sort((a, b) => b.publishedOn.localeCompare(a.publishedOn))[0] || editions[0];
-  const label = item.publishedOn === today ? "今日新文" : "往期推荐";
-  const date = item.publishedOn || guides[item.id]?.publishedOn;
-  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">${label} · ${item.country}${date ? ` · <time datetime="${safe(date)}">${safe(date)}</time>` : ""}</p><h2>${item.title}</h2>
-    <p>${item.intro}</p><a class="button" href="#read/${item.id}">打开完整章节 →</a></div>
+  const item = [...editions].sort((a, b) => publishedDate(b).localeCompare(publishedDate(a)))[0];
+  const date = publishedDate(item);
+  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">最近更新 · ${item.country}${date ? ` · <time datetime="${safe(date)}">${safe(date)}</time>` : ""}</p><h2>${item.title}</h2>
+    <p>${safe(highlights[item.id]?.recommendation || item.intro)}</p><div class="reading-links">${quickLink(item)}<a class="button" href="#read/${item.id}">打开完整章节 →</a></div></div>
     <img src="${item.cover}" alt="" fetchpriority="high">`;
 }
 
@@ -89,13 +112,19 @@ function renderSectionReview(item, guide, section, index) {
       `<details><summary lang="en">${safe(word)}</summary><p>${safe(meaning)}</p></details>`).join("")}</details>`;
 }
 
-function renderEdition(item) {
+function renderEdition(item, targetKey, quick) {
   const sections = [];
   const guide = guides[item.id];
   const translations = window.peaTranslations[item.id];
   let paragraph = 0;
-  const blocks = item.blocks.map((block) => block.text ? { ...block, translation: translations[paragraph++] } : block);
-  for (let index = 0; index < blocks.length; index += 6) sections.push(blocks.slice(index, index + 6));
+  const highlight = highlights[item.id];
+  const firstMentions = new Map((highlight?.glossary || []).map(([word, meaning]) => [
+    word, { meaning, index: item.blocks.findIndex((block) => block.text?.includes(word)) }
+  ]));
+  const blocks = item.blocks.map((block, index) => block.text ? {
+    ...block, index, key: paragraphKey(block), translation: translations[paragraph++]
+  } : block);
+  for (let index = 0; index < blocks.length; index += sectionSize) sections.push(blocks.slice(index, index + sectionSize));
   const book = byId("reader");
   book.innerHTML = `<a class="text-link" href="./">← 返回旅行书架</a>
     <header class="article-head"><p class="kicker">${item.country} · 完整章节 · 约 ${item.minutes} 分钟 · ${safe(item.level || guide?.level || "难度待标")}</p>
@@ -103,6 +132,7 @@ function renderEdition(item) {
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
       ${item.background || guide?.background ? `<p class="analysis"><strong>阅读背景</strong>　${safe(item.background || guide.background)}</p>` : ""}
       ${item.id === "poppi-full" ? '<p class="muted">插图作者 Lucy Du Bois-Reymond</p>' : ""}</header>
+    ${quick ? `<p class="analysis">5 分钟先读 · ${safe(highlight?.recommendation || item.intro)} <a href="#read/${item.id}/start">从头读完整章节</a></p>` : ""}
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
       <label><input type="checkbox" id="show-full"> 展开全文</label><button id="open-lookup-tool" type="button">查词工具</button></div>
@@ -110,19 +140,59 @@ function renderEdition(item) {
       <h2 tabindex="-1">第 ${i + 1} 节</h2>
       ${section.map((block) => block.image ? `<figure><img src="${block.image}" alt="${safe(block.caption || item.english + " 原书插图")}" loading="lazy">
         ${block.caption ? `<figcaption lang="en">${safe(block.caption)}</figcaption>` : ""}</figure>` :
-        `<p lang="en" class="${block.verse ? "verse" : ""}">${markTerms(block.text, item.terms)}</p>
+        `<p lang="en" id="paragraph-${block.key}" tabindex="-1" class="${block.verse ? "verse" : ""}">${markTerms(block.text, item.terms)}</p>
+        <button type="button" class="paragraph-context" data-context="${block.key}">本段表达与笔记</button>
         <details class="analysis paragraph-translation"><summary>查看中文翻译</summary><p lang="zh-CN">${safe(block.translation)}</p></details>
+        ${[...firstMentions].filter(([, note]) => note.index === block.index).map(([word, note]) =>
+          `<details class="analysis"><summary>背景短注 · ${safe(word)}</summary><p>${safe(note.meaning)}</p></details>`).join("")}
+        ${highlight?.analysis[block.index] ? `<details class="analysis deep-reading"><summary>深读 · ${safe(highlight.analysis[block.index][0])}</summary><p>${safe(highlight.analysis[block.index][1])}</p></details>` : ""}
         ${item.sentences.filter(([quote]) => block.text.includes(quote)).map(([quote, analysis]) =>
           `<details class="analysis"><summary>拆解这一段的好句</summary><blockquote lang="en">${safe(quote)}</blockquote><p>${analysis}</p></details>`).join("")}`).join("")}
       ${renderSectionReview(item, guide, section, i)}</section>`).join("")}</div>
       <nav class="read-controls" aria-label="章节翻页"><button type="button" id="read-prev">← 上一节</button><span id="read-position" role="status"></span><button type="button" id="read-next">下一节 →</button><button type="button" id="read-done">标记读完</button></nav>
-      </div>${termList(item.terms)}</div>`;
+      </div><aside class="term-list paragraph-sidebar" aria-label="重点表达与笔记">
+        <h2>重点表达</h2>
+        <p id="paragraph-label" class="muted"></p>
+        <p><button id="paragraph-note" type="button" data-notes-article="${item.id}">本段笔记</button></p>
+        <div id="paragraph-terms"></div>
+        <details><summary>全文表达与笔记</summary><p><button type="button" data-notes-article="${item.id}" data-notes-title="${safe(item.title)}">全文笔记</button></p>${termList(item.terms)}</details>
+      </aside></div>`;
   const pages = [...book.querySelectorAll("[data-section]")];
   const picker = byId("read-section");
   const full = byId("show-full");
   const last = pages.length - 1;
   const saved = progress[item.id];
-  let page = saved?.done ? 0 : Math.min(last, Math.max(0, saved?.page || 0));
+  const target = blocks.find((block) => block.key && block.key === targetKey);
+  let page = target ? Math.floor(target.index / sectionSize)
+    : targetKey === "start" || saved?.done ? 0 : Math.min(last, Math.max(0, saved?.page || 0));
+
+  function showContext(block) {
+    if (!block) return;
+    const note = byId("paragraph-note");
+    if (note.dataset.notesArticle !== item.id + ":" + block.key && byId("reading-notes").open) {
+      byId("reading-notes-close").click();
+      if (byId("reading-notes").open) return;
+    }
+    const location = window.peaNoteLocation(item.id, block.key);
+    byId("paragraph-label").textContent = location.label;
+    note.dataset.notesArticle = item.id + ":" + block.key;
+    note.dataset.notesTitle = item.title + " · " + location.label;
+    const indexes = new Set([...byId("paragraph-" + block.key).querySelectorAll("[data-term]")].map((term) => Number(term.dataset.term)));
+    const terms = item.terms.filter((_, index) => indexes.has(index));
+    byId("paragraph-terms").innerHTML = terms.length ? termList(terms) : '<p class="muted">本段暂无标注表达。可以使用查词工具，或把疑问记进本段笔记。</p>';
+    for (const button of book.querySelectorAll("[data-context]")) {
+      button.setAttribute("aria-pressed", String(button.dataset.context === block.key));
+    }
+  }
+
+  for (const button of book.querySelectorAll("[data-context]")) {
+    button.onclick = () => {
+      showContext(blocks.find((block) => block.key === button.dataset.context));
+      if (byId("paragraph-note").dataset.notesArticle === item.id + ":" + button.dataset.context) {
+        byId("paragraph-note").focus();
+      }
+    };
+  }
 
   function update(moveFocus = false) {
     byId("selection-lookup").hidden = true;
@@ -134,7 +204,10 @@ function renderEdition(item) {
     byId("read-position").textContent = full.checked ? "全文" : `第 ${page + 1} / ${pages.length} 节`;
     byId("read-done").textContent = progress[item.id]?.done ? "已读完" : "标记读完";
     byId("read-done").disabled = Boolean(progress[item.id]?.done);
-    if (moveFocus) pages[page].querySelector("h2").focus();
+    if (moveFocus) {
+      showContext(sections[page].find((block) => block.text));
+      pages[page].querySelector("h2").focus();
+    }
   }
 
   function save(done) {
@@ -146,6 +219,13 @@ function renderEdition(item) {
   }
 
   function changePage(next) {
+    if (byId("reading-notes").open) {
+      byId("reading-notes-close").click();
+      if (byId("reading-notes").open) {
+        picker.value = String(page);
+        return;
+      }
+    }
     page = next;
     save(Boolean(progress[item.id]?.done));
     update(true);
@@ -158,6 +238,8 @@ function renderEdition(item) {
   byId("read-next").onclick = () => changePage(page + 1);
   byId("read-done").onclick = () => { save(true); update(); };
   update();
+  showContext(target || sections[page].find((block) => block.text));
+  return target && byId("paragraph-" + target.key);
 }
 
 function renderEssay(item) {
@@ -225,7 +307,9 @@ function route() {
   if (hash === "#main") return;
   const old = { "#read/mechelen": "#read/malines-full" };
   if (Object.hasOwn(old, hash)) { location.replace(old[hash]); return; }
-  const edition = editions.find((item) => hash === `#read/${item.id}`);
+  const [, editionId, targetKey, mode] = hash.split("/");
+  const edition = hash.startsWith("#read/") && editions.find((item) => item.id === editionId);
+  let target;
   const essay = writing.find((item) => hash === `#essay/${item.id}`);
   const isWriting = hash === "#writing" || Boolean(essay);
   byId("shelf").hidden = isWriting || Boolean(edition);
@@ -234,18 +318,20 @@ function route() {
   byId("travel-link").setAttribute("aria-current", isWriting ? "false" : "page");
   byId("writing-link").setAttribute("aria-current", isWriting ? "page" : "false");
   if (edition || essay) {
-    if (edition) renderEdition(edition); else renderEssay(essay);
+    if (edition) target = renderEdition(edition, targetKey, mode === "quick"); else renderEssay(essay);
     const article = edition || essay;
     bindTerms(article);
-    const notesButton = document.createElement("button");
-    notesButton.type = "button";
-    notesButton.textContent = "我的笔记";
-    notesButton.dataset.notesArticle = article.id;
-    notesButton.dataset.notesTitle = article.title;
-    const notesRow = document.createElement("p");
-    notesRow.append(notesButton);
-    byId("reader").querySelector(".term-list h2").after(notesRow);
-    byId("reader").querySelector("h1").focus();
+    if (essay) {
+      const notesButton = document.createElement("button");
+      notesButton.type = "button";
+      notesButton.textContent = "我的笔记";
+      notesButton.dataset.notesArticle = article.id;
+      notesButton.dataset.notesTitle = article.title;
+      const notesRow = document.createElement("p");
+      notesRow.append(notesButton);
+      byId("reader").querySelector(".term-list h2").after(notesRow);
+    }
+    if (!target) byId("reader").querySelector("h1").focus();
   } else {
     byId("reader").replaceChildren();
     if (isWriting) {
@@ -257,7 +343,10 @@ function route() {
     }
   }
   document.title = `${(edition || essay)?.title || (isWriting ? "Simon 写作" : "旅行精读")} · 豌豆尖英语`;
-  window.scrollTo(0, 0);
+  if (target) {
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ block: "start" });
+  } else window.scrollTo(0, 0);
 }
 
 for (const country of new Set(editions.map((item) => item.country))) byId("country").add(new Option(country, country));
