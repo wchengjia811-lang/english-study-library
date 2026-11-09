@@ -5,6 +5,21 @@ const byId = (id) => document.getElementById(id);
 const storageKey = "pea-reading-progress-v1";
 let progress = {};
 try { progress = JSON.parse(localStorage.getItem(storageKey)) || {}; } catch {}
+const guestProgress = progress;
+let syncProgress = null;
+
+window.peaReadingProgress = {
+  connect(entries, save) {
+    progress = entries;
+    syncProgress = save;
+    route();
+  },
+  disconnect() {
+    progress = guestProgress;
+    syncProgress = null;
+    route();
+  }
+};
 
 function safe(value) {
   return String(value).replace(/[&<>"']/g, (character) => ({
@@ -124,7 +139,10 @@ function renderEdition(item) {
 
   function save(done) {
     progress[item.id] = { page, done };
-    try { localStorage.setItem(storageKey, JSON.stringify(progress)); } catch {}
+    if (syncProgress) syncProgress(item.id, { page, done });
+    else {
+      try { localStorage.setItem(storageKey, JSON.stringify(guestProgress)); } catch {}
+    }
   }
 
   function changePage(next) {
