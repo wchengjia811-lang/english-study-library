@@ -35,3 +35,8 @@ legend { font-weight: 750; }
 .quiz label { display: block; padding-block: .35rem; }
 footer { margin-top: 3rem; border-top: 1px solid var(--line); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#daily-read { margin-block: 0 2rem; border-left: .3rem solid var(--accent); }
+#daily-read h2 { margin-block: .35rem; }
+mark { padding-inline: .13em; border-radius: .15em; color: #26220d; background: #fbe9a0; }
+.reading-terms dt { font-weight: 700; }
+.reading-terms dd { margin: 0 0 .7rem; }

@@ -25,17 +25,38 @@ function renderShelf() {
     <a class="button" href="#read/${article.id}">${progress[article.id]?.done ? "重读文章" : progress[article.id] ? "继续阅读" : "开始精读"} →</a></article>`).join("");
 }
 
+function renderDailyRead() {
+  const travel = articles.filter((article) => article.source);
+  const elapsed = Math.floor((Date.now() - Date.parse("2026-11-09T00:00:00+08:00")) / 86400000);
+  const article = travel[((elapsed % travel.length) + travel.length) % travel.length];
+  byId("daily-read").innerHTML = `<p class="eyebrow">今日精读 · 欧洲小城</p>
+    <h2><a href="#read/${article.id}">${article.title}</a></h2>
+    <p>${article.intro}</p><a class="button" href="#read/${article.id}">读今天这篇 →</a>
+    <p class="muted">每天从现有旅行选文中轮换一篇。</p>`;
+}
+
+function markTerms(text, terms) {
+  if (!terms) return text;
+  const escaped = terms.map(([term]) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`\\b(${escaped.join("|")})\\b`, "gi");
+  return text.replace(pattern, "<mark>$1</mark>");
+}
+
 function renderReader(article) {
   const reader = byId("reader");
   reader.innerHTML = `<a href="./">← 返回书库</a>
-    <p class="eyebrow">${article.topic} · 约 ${article.minutes} 分钟 · 自编学习短文</p>
+    <p class="eyebrow">${article.topic} · 约 ${article.minutes} 分钟 · ${article.source ? "外刊导读" : "自编学习短文"}</p>
     <h1 tabindex="-1">${article.title}</h1><p class="subtitle" lang="en">${article.english}</p>
+    ${article.source ? `<aside class="card"><p><a href="${article.source}" target="_blank" rel="noopener">打开原刊 ↗</a> · ${article.sourceLabel}</p>
+    <p>原文短引：<q lang="en">${markTerms(article.excerpt, article.terms)}</q></p>
+    <p class="muted">下面是本站编写的英文导读与中文对照。</p></aside>` : ""}
     <div class="passage">${article.paragraphs.map(([english, chinese], index) => `
-      <section class="paragraph"><p lang="en">${english}</p><div class="paragraph-tools">
+      <section class="paragraph"><p lang="en">${markTerms(english, article.terms)}</p><div class="paragraph-tools">
       <button type="button" data-listen="${index}" aria-label="朗读第${index + 1}段">朗读</button>
       <details><summary>查看译文</summary><p>${chinese}</p></details></div></section>`).join("")}</div>
     <p id="audio-note" class="muted" role="status">朗读使用设备提供的英语合成语音。</p>
-    <aside class="card"><h2>文中表达</h2><p><strong lang="en">${article.expression[0]}</strong> · ${article.expression[1]}</p></aside>
+    <aside class="card"><h2>重点词句</h2><dl class="reading-terms">${(article.terms || [article.expression]).map(([term, meaning]) =>
+      `<dt lang="en">${term}</dt><dd>${meaning}</dd>`).join("")}</dl></aside>
     <form class="card quiz"><fieldset><legend>读后练习</legend><p>${article.question}</p>
     ${article.options.map((option, index) => `<label><input type="radio" name="answer" value="${index}" required> ${option}</label>`).join("")}
     </fieldset><button class="button" type="submit">检查答案</button>
@@ -90,6 +111,7 @@ function route() {
       : "<li>还没有阅读记录，先从书库选一篇。</li>";
     byId("records").querySelector("h1").focus();
   } else {
+    renderDailyRead();
     renderShelf();
   }
   window.scrollTo(0, 0);
