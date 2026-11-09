@@ -65,3 +65,8 @@ footer { margin-top:3rem; border-top:1px solid var(--line); font-size:.85rem; }
   .reading-layout { grid-template-columns:1fr; }
   .term-list { position:static; }
 }
+.term-guide { margin:0 0 .65rem; font-size:.83rem; }
+.exam-labels { display:flex; flex-wrap:wrap; gap:.3rem; margin-top:.25rem; }
+.exam-labels span { border:1px solid var(--line); border-radius:.3rem; padding:0 .35rem; background:white; color:var(--blue); font-size:.75rem; }
+.term-list { max-height:calc(100dvh - 2rem); overflow:auto; }
+@media(max-width:700px) { .term-list { max-height:none; } }

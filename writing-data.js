@@ -31,6 +31,37 @@ window.peaWriting = [
       [
         "just over",
         "略高于，图表数据需要近似表述时很实用。"
+      ],
+      [
+        "expenditure",
+        "支出。正式写法，常用 expenditure on + 项目。",
+        [
+          "六级",
+          "雅思"
+        ]
+      ],
+      [
+        "by contrast",
+        "相比之下。用于引出与前文相反的数据变化。",
+        [
+          "六级",
+          "雅思"
+        ]
+      ],
+      [
+        "approximately",
+        "大约。适合读图和描述近似数据。",
+        [
+          "四级",
+          "雅思"
+        ]
+      ],
+      [
+        "the figure for",
+        "……的数据或数值。适合避免重复列出完整项目名称。",
+        [
+          "雅思"
+        ]
       ]
     ]
   },
@@ -66,6 +97,38 @@ window.peaWriting = [
       [
         "reaches full maturity",
         "完全成熟，适合描述生命周期终点。"
+      ],
+      [
+        "illustrates",
+        "展示、说明。illustrate a process 可用于介绍流程图。",
+        [
+          "四级",
+          "雅思"
+        ]
+      ],
+      [
+        "typically",
+        "通常。用来陈述一般规律，允许存在例外。",
+        [
+          "六级",
+          "托福"
+        ]
+      ],
+      [
+        "hatches",
+        "孵化。这里主语是 egg，hatch 也可指动物从卵中孵出。",
+        [
+          "托福",
+          "雅思"
+        ]
+      ],
+      [
+        "emerges from",
+        "从……出现或出来。文中写成蜂完成最后一次蜕皮后出现。",
+        [
+          "六级",
+          "托福"
+        ]
       ]
     ]
   },
@@ -101,6 +164,38 @@ window.peaWriting = [
       [
         "a host of",
         "许多、一系列，后接可数名词复数。"
+      ],
+      [
+        "domestically produced",
+        "国内生产的。domestically 可与 produced、manufactured 等过去分词搭配。",
+        [
+          "雅思",
+          "托福"
+        ]
+      ],
+      [
+        "subsidising",
+        "提供补贴。英式拼写，常搭配 industry 或 public transport。",
+        [
+          "雅思",
+          "托福"
+        ]
+      ],
+      [
+        "established",
+        "成熟的、已站稳脚跟的。这里形容已经发展成熟的电影产业。",
+        [
+          "六级",
+          "托福"
+        ]
+      ],
+      [
+        "an increase in",
+        "……的增长。in 后接发生变化的项目。",
+        [
+          "四级",
+          "雅思"
+        ]
       ]
     ]
   },
@@ -136,6 +231,37 @@ window.peaWriting = [
       [
         "counterproductive",
         "适得其反的，适合总结政策与实际效果的反差。"
+      ],
+      [
+        "depend on",
+        "依靠、依赖。文中指景点依赖政府补贴维持运转。",
+        [
+          "四级"
+        ]
+      ],
+      [
+        "contribute to",
+        "为……作贡献或促成……。to 是介词，后接名词或动名词。",
+        [
+          "四级",
+          "雅思"
+        ]
+      ],
+      [
+        "cultural heritage",
+        "文化遗产，常和 preserve、protect、promote 搭配。",
+        [
+          "六级",
+          "雅思"
+        ]
+      ],
+      [
+        "insufficient funding",
+        "资金不足。insufficient 是形容词，用于说明供给达不到所需水平。",
+        [
+          "雅思",
+          "托福"
+        ]
       ]
     ]
   }

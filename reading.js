@@ -52,8 +52,10 @@ function renderWriting() {
 }
 
 function termList(terms) {
-  return `<section class="term-list"><h2>重点表达</h2><dl>${terms.map(([word, meaning]) =>
-    `<dt lang="en">${safe(word)}</dt><dd>${safe(meaning)}</dd>`).join("")}</dl></section>`;
+  return `<section class="term-list"><h2>重点表达</h2>
+    <p class="muted term-guide">考试标签按用法标注，方便按备考方向挑选。</p>
+    <dl>${terms.map(([word, meaning, exams]) => `<dt lang="en">${safe(word)}</dt><dd>${safe(meaning)}
+    ${exams ? `<span class="exam-labels">${exams.map((exam) => `<span>${safe(exam)}</span>`).join("")}</span>` : ""}</dd>`).join("")}</dl></section>`;
 }
 
 function renderEdition(item) {
@@ -137,7 +139,8 @@ function bindTerms(item) {
       }
       const note = document.createElement("span");
       note.className = "inline-note";
-      note.textContent = item.terms[Number(button.dataset.term)][1];
+      const [, meaning, exams] = item.terms[Number(button.dataset.term)];
+      note.textContent = exams ? `${exams.join(" · ")}｜${meaning}` : meaning;
       button.after(note);
       button.setAttribute("aria-expanded", "true");
     };
