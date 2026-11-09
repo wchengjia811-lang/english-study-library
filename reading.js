@@ -87,7 +87,7 @@ function renderEdition(item) {
       <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p><p>${item.intro}</p>
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
       ${item.background || guide?.background ? `<p class="analysis"><strong>阅读背景</strong>　${safe(item.background || guide.background)}</p>` : ""}
-      <p class="muted">点蓝色词句看中文用法。逐段译文默认折叠，部分仍为机器译文。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
+      <p class="muted">点蓝色词句看中文用法。中文译文已对照原文逐段校订，默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
       <label><input type="checkbox" id="show-full"> 展开全文</label></div>
