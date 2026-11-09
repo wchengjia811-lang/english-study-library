@@ -237,7 +237,9 @@ function route() {
     notesButton.textContent = "我的笔记";
     notesButton.dataset.notesArticle = article.id;
     notesButton.dataset.notesTitle = article.title;
-    byId("reader").querySelector(".article-head").append(notesButton);
+    const notesRow = document.createElement("p");
+    notesRow.append(notesButton);
+    byId("reader").querySelector(".term-list h2").after(notesRow);
     byId("reader").querySelector("h1").focus();
   } else {
     byId("reader").replaceChildren();
