@@ -22,7 +22,7 @@ async function useSession(session) {
   window.peaReadingProgress.disconnect();
   login.hidden = Boolean(userId);
   logout.hidden = !userId;
-  opener.textContent = userId ? "阅读账号" : "登录账号";
+  opener.textContent = userId ? session.user.email?.split("@")[0] || "已登录" : "登录账号";
   byId("reading-account-title").textContent = opener.textContent;
   if (!userId) {
     status.textContent = "登录同一个账号后，可以在手机和电脑之间续读。";
@@ -46,9 +46,8 @@ async function useSession(session) {
         });
         if (accountId !== userId) return;
         status.textContent = saveError ? "这次进度未同步，请联网后再翻一节重试。" : "阅读进度已同步。";
-        opener.textContent = saveError ? "阅读进度未同步" : "阅读账号";
       }).catch(() => {
-        if (accountId === userId) opener.textContent = "阅读进度未同步";
+        if (accountId === userId) status.textContent = "阅读进度未同步。";
       });
     }
   );
@@ -131,7 +130,7 @@ reset.onsubmit = async (event) => {
     }
     reset.reset();
     reset.hidden = true;
-    byId("reading-account-title").textContent = "阅读账号";
+    byId("reading-account-title").textContent = opener.textContent;
     logout.hidden = false;
     status.textContent = "新密码已保存。以后可用邮箱和新密码直接登录。";
   } catch {
