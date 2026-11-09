@@ -3,38 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="欧洲小城旅行外刊导读，配重点词句、中英对照与原刊链接。也可查阅雅思写作和阅读同义替换。">
-  <title>豌豆尖英语 · 精读书库</title>
+  <meta name="description" content="豌豆尖英语。读完整旅行经典，精读重点词句，或按篇查看 Simon 雅思写作范文与分析。">
+  <title>豌豆尖英语 · 旅行精读与 Simon 写作</title>
   <link rel="canonical" href="https://wchengjia811-lang.github.io/english-study-library/">
-  <link rel="stylesheet" href="reading.css?v=travel2">
-  <script src="reading-data.js?v=travel1" defer></script>
-  <script src="reading.js?v=travel1" defer></script>
+  <link rel="stylesheet" href="reading.css?v=blue-edition1">
+  <script src="reading-editions.js?v=1" defer></script>
+  <script src="writing-data.js?v=1" defer></script>
+  <script src="reading.js?v=blue-edition1" defer></script>
 </head>
 <body>
-  <header class="top"><a href="./" class="brand">豌豆尖英语</a><nav aria-label="主导航"><a href="./">旅行外刊</a><a href="#records">学习记录</a><a href="ielts.html">写作与同义替换</a></nav></header>
-  <main id="main">
+  <a class="skip" href="#main">跳到正文</a>
+  <header class="masthead"><a class="brand" href="./">豌豆尖英语 <span>PEA ENGLISH</span></a><nav aria-label="主导航"><a id="travel-link" href="./">旅行精读</a><a id="writing-link" href="#writing">Simon 写作</a></nav></header>
+  <main id="main" tabindex="-1">
     <section id="shelf">
-      <div class="hero">
-        <p class="eyebrow">PEA ENGLISH / THE READING ROOM</p>
-        <h1>读一篇，<em>懂一点。</em></h1>
-        <p>从感兴趣的话题开始。先读英文，遇到卡住的地方再看译文，最后做一道题。</p>
-      </div>
-      <section id="daily-read" class="card" aria-label="今日精读"></section>
-      <h2>旅行外刊</h2>
-      <div class="filters"><label>搜索文章<input id="query" type="search" placeholder="输入中英文标题、主题或词句"></label><label>主题<select id="topic"><option value="">全部主题</option></select></label></div>
-      <p id="count" class="muted" role="status"></p>
+      <div class="hero"><p class="kicker">THE READING EDITION / VOL. 01</p><h1>沿着文字，<br>走进欧洲小城。</h1><p>读完一篇旅行经典，带走几个能写进自己文章的词句。</p></div>
+      <section class="feature" id="daily-read" aria-label="今日精读"></section>
+      <div class="section-title"><div><p class="kicker">THE TRAVEL LIBRARY</p><h2>旅行书架</h2></div><label>筛选地区<select id="country"><option value="">全部地区</option></select></label></div>
       <div id="articles" class="articles"></div>
     </section>
-    <section id="reader" hidden></section>
-    <section id="records" hidden>
-      <a href="./">← 返回书库</a>
-      <h1 tabindex="-1">学习记录</h1>
-      <p class="muted">阅读和练习记录保存在当前浏览器。</p>
-      <ul id="record-list"></ul>
+    <section id="writing" hidden>
+      <div class="hero"><p class="kicker">THE WRITING DESK</p><h1 tabindex="-1">Simon 写作范文</h1><p>一篇一页。读完范文，再看每一段为什么这样写。</p></div>
+      <div id="writing-list"></div>
     </section>
-    <noscript>请启用 JavaScript 以使用精读书库。</noscript>
+    <article id="reader" hidden></article>
+    <noscript>请启用 JavaScript 以打开文章和范文。</noscript>
   </main>
-  <p id="storage-note" class="muted" role="status"></p>
-  <footer><span>豌豆尖英语 · 外刊导读与自编精读</span><a href="feedback.html">反馈纠错</a></footer>
+  <footer><span>豌豆尖英语</span><span>旅行原文与插图来源见各篇。写作分析为本站学习笔记。</span></footer>
 </body>
 </html>
