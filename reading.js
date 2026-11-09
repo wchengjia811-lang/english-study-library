@@ -45,7 +45,7 @@ function renderDaily() {
 
 function renderWriting() {
   byId("writing-list").innerHTML = ["Task 1", "Task 2"].map((task, index) => `
-    <section class="writing-group"><div class="section-title"><h2>${task} · ${index ? "大作文" : "小作文"}</h2></div>
+    <section class="writing-group" id="writing-task-${index + 1}"><div class="section-title"><h2>${task} · ${index ? "大作文" : "小作文"} <small>${writing.filter((item) => item.task === task).length} 题</small></h2></div>
     <div class="articles">${writing.filter((item) => item.task === task).map((item) => `<article class="card card-copy">
     <p class="kicker">${item.type}</p><h3><a href="#essay/${item.id}">${item.title}</a></h3>
     <p>${item.prompt}</p><a class="text-link" href="#essay/${item.id}">读范文与分析 →</a></article>`).join("")}</div></section>`).join("");
@@ -119,12 +119,18 @@ function renderEdition(item) {
 function renderEssay(item) {
   byId("reader").innerHTML = `<a class="text-link" href="#writing">← 返回 Simon 写作</a>
     <header class="article-head"><p class="kicker">${item.task} · ${item.type}</p>
-      <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p>
-      <div class="analysis"><strong>题意</strong><p>${item.prompt}</p></div>
-      <p class="muted">范文来自用户提供的 ${item.source}。段落分析由本站编写。</p></header>
-    <div class="reading-layout"><div class="prose"><h2>范文原文</h2>${item.paragraphs.map((paragraph, i) => `
+      <h1 tabindex="-1">${safe(item.title)}</h1>
+      <p class="muted">${safe(item.source)}</p></header>
+    <div class="reading-layout"><div class="prose"><h2>题目</h2>
+      <p lang="en">${safe(item.prompt)}</p>
+      ${item.task === "Task 1" ? '<p lang="en">Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>' : ""}
+      ${item.chart ? `<figure class="writing-chart"><a href="${item.chart}" target="_blank" rel="noopener"><img src="${item.chart}" alt="${safe(item.title)}的原题图表"></a><figcaption>原题图表 · 点击放大</figcaption></figure>` : ""}
+      ${item.sourceNote ? `<p class="muted">${safe(item.sourceNote)}</p>` : ""}
+      <h2>参考答案</h2>${item.paragraphs.map((paragraph, i) => `
       <p lang="en">${markTerms(paragraph, item.terms)}</p>
-      <details class="analysis"><summary>第 ${i + 1} 段怎么写的</summary><p>${item.notes[i]}</p></details>`).join("")}</div>
+      ${item.notes?.[i] ? `<details class="analysis"><summary>第 ${i + 1} 段怎么写的</summary><p>${safe(item.notes[i])}</p></details>` : ""}`).join("")}
+      <section class="essay-sentences"><h2>好句拆解</h2>${item.goodSentences.map(([sentence, tip]) =>
+        `<div class="analysis"><blockquote lang="en">${safe(sentence)}</blockquote><p>${safe(tip)}</p></div>`).join("")}</section></div>
     ${termList(item.terms)}</div>`;
 }
 
