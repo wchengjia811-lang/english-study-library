@@ -87,7 +87,7 @@ function renderEdition(item) {
       <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p><p>${item.intro}</p>
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
       ${item.background || guide?.background ? `<p class="analysis"><strong>阅读背景</strong>　${safe(item.background || guide.background)}</p>` : ""}
-      <p class="muted">点蓝色词句看中文用法。中文译文已对照原文逐段校订，默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
+      <p class="muted">点蓝色词句看用法，也可选中正文里的词或短语查词、看背景。中文译文默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
       <label><input type="checkbox" id="show-full"> 展开全文</label></div>
@@ -110,6 +110,7 @@ function renderEdition(item) {
   let page = saved?.done ? 0 : Math.min(last, Math.max(0, saved?.page || 0));
 
   function update(moveFocus = false) {
+    byId("selection-lookup").hidden = true;
     for (const [index, section] of pages.entries()) section.hidden = !full.checked && index !== page;
     picker.value = String(page);
     picker.disabled = full.checked;
@@ -176,7 +177,25 @@ function bindTerms(item) {
   }
 }
 
+function updateSelectionLookup() {
+  const selection = window.getSelection();
+  if (!selection || selection.isCollapsed) return;
+  const paragraphFor = (node) => (node?.nodeType === 1 ? node : node?.parentElement)
+    ?.closest('#passage .prose:not([hidden]) > p[lang="en"]');
+  const paragraph = paragraphFor(selection.anchorNode);
+  const bar = byId("selection-lookup");
+  bar.hidden = true;
+  if (!paragraph || paragraph !== paragraphFor(selection.focusNode)) return;
+  const query = selection.toString().trim().replace(/\s+/g, " ").replace(/^[“”"‘'.,!?;:()]+|[“”"‘’'.,!?;:()]+$/g, "");
+  if (!/[a-z]/i.test(query) || query.length > 90 || query.split(" ").length > 10) return;
+  byId("lookup-text").textContent = query;
+  byId("lookup-dictionary").href = "https://dictionary.cambridge.org/search/english-chinese-simplified/direct/?q=" + encodeURIComponent(query);
+  byId("lookup-background").href = "https://zh.wikipedia.org/w/index.php?search=" + encodeURIComponent(query);
+  bar.hidden = false;
+}
+
 function route() {
+  byId("selection-lookup").hidden = true;
   const hash = location.hash;
   if (hash === "#main") return;
   const old = { "#read/mechelen": "#read/malines-full" };
@@ -209,5 +228,14 @@ function route() {
 
 for (const country of new Set(editions.map((item) => item.country))) byId("country").add(new Option(country, country));
 byId("country").addEventListener("change", renderShelf);
+const lookupBar = byId("selection-lookup");
+byId("lookup-close").onclick = () => { lookupBar.hidden = true; };
+document.addEventListener("selectionchange", updateSelectionLookup);
+document.addEventListener("pointerdown", (event) => {
+  if (!lookupBar.contains(event.target)) lookupBar.hidden = true;
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") lookupBar.hidden = true;
+});
 window.addEventListener("hashchange", route);
 route();

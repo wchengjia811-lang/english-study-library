@@ -75,3 +75,6 @@ footer { margin-top:3rem; border-top:1px solid var(--line); font-size:.85rem; }
 .essay-sentences .analysis + .analysis { margin-top:.65rem; }
 .essay-sentences blockquote { margin:.25rem 0; }
 .section-title small { font-size:.65em; color:var(--muted); font-weight:500; }
+.selection-lookup { position:fixed; z-index:5; bottom:calc(1rem + env(safe-area-inset-bottom)); right:1rem; display:flex; align-items:center; flex-wrap:wrap; gap:.5rem; max-width:calc(100% - 2rem); padding:.55rem .65rem; background:var(--white); border:1px solid var(--line); border-radius:.6rem; box-shadow:0 .25rem 1rem #10284b24; }
+.selection-lookup strong { max-width:15rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.selection-lookup a { padding:.35rem .6rem; border-radius:.35rem; background:#eaf2ff; white-space:nowrap; }
