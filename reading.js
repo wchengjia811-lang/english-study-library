@@ -230,7 +230,14 @@ function route() {
   byId("writing-link").setAttribute("aria-current", isWriting ? "page" : "false");
   if (edition || essay) {
     if (edition) renderEdition(edition); else renderEssay(essay);
-    bindTerms(edition || essay);
+    const article = edition || essay;
+    bindTerms(article);
+    const notesButton = document.createElement("button");
+    notesButton.type = "button";
+    notesButton.textContent = "我的笔记";
+    notesButton.dataset.notesArticle = article.id;
+    notesButton.dataset.notesTitle = article.title;
+    byId("reader").querySelector(".article-head").append(notesButton);
     byId("reader").querySelector("h1").focus();
   } else {
     byId("reader").replaceChildren();

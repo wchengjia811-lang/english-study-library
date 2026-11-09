@@ -11,6 +11,12 @@ const reset = byId("reading-reset");
 const recovery = byId("reading-recovery");
 const recoveryForm = byId("reading-recovery-form");
 const recoveryStatus = byId("reading-recovery-status");
+const notes = byId("reading-notes");
+const notesForm = byId("reading-notes-form");
+const notesText = byId("reading-notes-text");
+const notesStatus = byId("reading-notes-status");
+const notesSave = notesForm.querySelector('button[type="submit"]');
+let currentNote = null;
 const siteUrl = "https://wchengjia811-lang.github.io/english-study-library/";
 let accountId = null;
 let pending = Promise.resolve();
@@ -19,6 +25,7 @@ async function useSession(session) {
   const userId = session?.user.id;
   if (userId === accountId) return;
   accountId = userId;
+  notes.close();
   window.peaReadingProgress.disconnect();
   login.hidden = Boolean(userId);
   logout.hidden = !userId;
@@ -57,6 +64,84 @@ async function useSession(session) {
 document.querySelector(".masthead nav").append(opener);
 opener.hidden = false;
 opener.onclick = () => dialog.showModal();
+
+function closeNotes(event) {
+  if (currentNote && notesText.value !== currentNote.content && !window.confirm("笔记还没保存，确定要关闭吗？")) {
+    event.preventDefault();
+    return;
+  }
+  notes.close();
+}
+
+notes.oncancel = closeNotes;
+byId("reading-notes-close").onclick = closeNotes;
+notes.onclose = () => {
+  if (notes.open) return;
+  currentNote = null;
+  notesText.value = "";
+};
+
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-notes-article]");
+  if (!button) return;
+  if (!accountId) {
+    status.textContent = "登录后即可保存和同步笔记。";
+    dialog.showModal();
+    return;
+  }
+  const note = { userId: accountId, articleId: button.dataset.notesArticle, content: "", version: null };
+  currentNote = note;
+  byId("reading-notes-article").textContent = button.dataset.notesTitle;
+  notesText.value = "";
+  notesText.disabled = true;
+  notesSave.disabled = true;
+  notesStatus.textContent = "正在读取笔记…";
+  notes.showModal();
+  try {
+    const { data, error } = await client.from("reader_notes").select("content,version")
+      .eq("user_id", note.userId).eq("article_id", note.articleId).maybeSingle();
+    if (!notes.open || currentNote !== note) return;
+    if (error) throw error;
+    if (data) Object.assign(note, data);
+    notesText.value = note.content;
+    notesText.disabled = false;
+    notesSave.disabled = false;
+    notesStatus.textContent = "";
+    notesText.focus();
+  } catch {
+    if (notes.open && currentNote === note) notesStatus.textContent = "笔记读取失败，请关闭后重新打开。";
+  }
+});
+
+notesForm.onsubmit = async (event) => {
+  event.preventDefault();
+  const note = currentNote;
+  if (!note || note.userId !== accountId || notesSave.disabled) return;
+  const content = notesText.value;
+  const version = (note.version ?? 0) + 1;
+  notesSave.disabled = true;
+  notesStatus.textContent = "正在保存…";
+  try {
+    const table = client.from("reader_notes");
+    const request = note.version === null
+      ? table.insert({ user_id: note.userId, article_id: note.articleId, content, version })
+      : table.update({ content, version }).eq("user_id", note.userId)
+        .eq("article_id", note.articleId).eq("version", note.version);
+    const { data, error } = await request.select("version").maybeSingle();
+    if (!notes.open || currentNote !== note) return;
+    if (error && error.code !== "23505") throw error;
+    if (!data) {
+      notesStatus.textContent = "另一台设备已更新笔记。请先复制这次编辑，再关闭并重新打开，合并后保存。";
+      return;
+    }
+    Object.assign(note, { content, version: data.version });
+    notesStatus.textContent = notesText.value === content ? "笔记已保存并同步。" : "已保存上一版，新的编辑还没保存。";
+  } catch {
+    if (notes.open && currentNote === note) notesStatus.textContent = "保存失败，文字还在，请重试。";
+  } finally {
+    if (notes.open && currentNote === note) notesSave.disabled = false;
+  }
+};
 
 login.onsubmit = async (event) => {
   event.preventDefault();

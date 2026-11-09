@@ -10,8 +10,8 @@
   <script src="reading-editions.js?v=2" defer></script>
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
-  <script src="reading.js?v=reading-sync1" defer></script>
-  <script type="module" src="reading-sync.js?v=5"></script>
+  <script src="reading.js?v=reading-notes1" defer></script>
+  <script type="module" src="reading-sync.js?v=6"></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -57,6 +57,17 @@
     </form>
     <p id="reading-recovery-status" role="status"></p>
     <form method="dialog"><button>返回登录</button></form>
+  </dialog>
+  <dialog id="reading-notes" aria-labelledby="reading-notes-title">
+    <h2 id="reading-notes-title">我的笔记</h2>
+    <p id="reading-notes-article"></p>
+    <form id="reading-notes-form">
+      <p><label for="reading-notes-text">文章笔记</label></p>
+      <textarea id="reading-notes-text" rows="9" cols="45" style="max-width:100%;box-sizing:border-box" maxlength="12000" placeholder="记下生词、句子或自己的想法"></textarea>
+      <p id="reading-notes-status" role="status"></p>
+      <button type="submit">保存笔记</button>
+      <button id="reading-notes-close" type="button">关闭</button>
+    </form>
   </dialog>
   <dialog id="lookup-tool" aria-labelledby="lookup-tool-title">
     <h2 id="lookup-tool-title">查词工具</h2>
