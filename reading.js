@@ -60,13 +60,16 @@ function termList(terms) {
 
 function renderEdition(item) {
   const sections = [];
-  for (let index = 0; index < item.blocks.length; index += 6) sections.push(item.blocks.slice(index, index + 6));
+  const translations = window.peaTranslations[item.id];
+  let paragraph = 0;
+  const blocks = item.blocks.map((block) => block.text ? { ...block, translation: translations[paragraph++] } : block);
+  for (let index = 0; index < blocks.length; index += 6) sections.push(blocks.slice(index, index + 6));
   const book = byId("reader");
   book.innerHTML = `<a class="text-link" href="./">← 返回旅行书架</a>
     <header class="article-head"><p class="kicker">${item.country} · 完整章节 · 约 ${item.minutes} 分钟</p>
       <h1 tabindex="-1">${item.title}</h1><p class="subtitle" lang="en">${item.english}</p><p>${item.intro}</p>
       <p class="muted">${item.sourceLabel} · <a href="${item.source}" target="_blank" rel="noopener">古腾堡原书与插图 ↗</a></p>
-      <p class="muted">历史游记。可按节阅读，点蓝色词句看中文用法。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
+      <p class="muted">历史游记。可按节阅读，点蓝色词句看中文用法。逐段中文为机器译文，默认折叠。波皮篇插图作者为 Lucy Du Bois-Reymond。</p></header>
     <div class="reading-layout"><div><div class="read-controls">
       <label>阅读位置 <select id="read-section">${sections.map((_, i) => `<option value="${i}">第 ${i + 1} 节</option>`).join("")}</select></label>
       <label><input type="checkbox" id="show-full"> 展开全文</label></div>
@@ -75,6 +78,7 @@ function renderEdition(item) {
       ${section.map((block) => block.image ? `<figure><img src="${block.image}" alt="${safe(block.caption || item.english + " 原书插图")}" loading="lazy">
         ${block.caption ? `<figcaption lang="en">${safe(block.caption)}</figcaption>` : ""}</figure>` :
         `<p lang="en" class="${block.verse ? "verse" : ""}">${markTerms(block.text, item.terms)}</p>
+        <details class="analysis paragraph-translation"><summary>查看中文翻译</summary><p lang="zh-CN">${safe(block.translation)}</p></details>
         ${item.sentences.filter(([quote]) => block.text.includes(quote)).map(([quote, analysis]) =>
           `<details class="analysis"><summary>拆解这一段的好句</summary><blockquote lang="en">${safe(quote)}</blockquote><p>${analysis}</p></details>`).join("")}`).join("")}</section>`).join("")}</div>
       <nav class="read-controls" aria-label="章节翻页"><button type="button" id="read-prev">← 上一节</button><span id="read-position" role="status"></span><button type="button" id="read-next">下一节 →</button><button type="button" id="read-done">标记读完</button></nav>
