@@ -106,7 +106,8 @@ function renderEdition(item) {
   const picker = byId("read-section");
   const full = byId("show-full");
   const last = pages.length - 1;
-  let page = Math.min(last, Math.max(0, progress[item.id]?.page || 0));
+  const saved = progress[item.id];
+  let page = saved?.done ? 0 : Math.min(last, Math.max(0, saved?.page || 0));
 
   function update(moveFocus = false) {
     for (const [index, section] of pages.entries()) section.hidden = !full.checked && index !== page;
