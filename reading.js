@@ -14,7 +14,7 @@ function save(id, values) {
 function renderShelf() {
   const query = byId("query").value.trim().toLowerCase();
   const topic = byId("topic").value;
-  const matches = articles.filter((article) =>
+  const matches = articles.filter((article) => article.source &&
     (!topic || article.topic === topic) && JSON.stringify(article).toLowerCase().includes(query)
   );
   byId("count").textContent = matches.length ? `共 ${matches.length} 篇` : "没有找到文章，试试其他关键词或主题。";
@@ -117,7 +117,7 @@ function route() {
   window.scrollTo(0, 0);
 }
 
-for (const topic of new Set(articles.map((item) => item.topic))) byId("topic").add(new Option(topic, topic));
+for (const topic of new Set(articles.filter((item) => item.source).map((item) => item.topic))) byId("topic").add(new Option(topic, topic));
 byId("query").addEventListener("input", renderShelf);
 byId("topic").addEventListener("change", renderShelf);
 window.addEventListener("hashchange", route);
