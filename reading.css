@@ -54,6 +54,8 @@ figcaption { font-size:.84rem; }
 .analysis p:last-child { margin-bottom:0; }
 .term-list { position:sticky; top:1rem; }
 .term-list h2 { font-size:1.15rem; }
+#reading-notes[open] { position:static; box-sizing:border-box; width:100%; max-width:none; margin:0 0 1rem; padding:.65rem; color:inherit; background:var(--white); border:1px solid var(--line); border-radius:.5rem; }
+#reading-notes-text { display:block; width:100%; font:inherit; resize:vertical; }
 .term-list dt { color:var(--blue); font-weight:750; }
 .term-list dd { margin:0 0 .75rem; }
 .inline-term { display:inline; padding:0 .12em; border:0; border-radius:.18em; background:#dceaff; color:#143e7b; text-decoration:underline; text-underline-offset:.15em; font:inherit; }

@@ -17,6 +17,7 @@ const notesText = byId("reading-notes-text");
 const notesStatus = byId("reading-notes-status");
 const notesSave = notesForm.querySelector('button[type="submit"]');
 let currentNote = null;
+const noteDrafts = new Map();
 const siteUrl = "https://wchengjia811-lang.github.io/english-study-library/";
 let accountId = null;
 let pending = Promise.resolve();
@@ -66,10 +67,11 @@ opener.hidden = false;
 opener.onclick = () => dialog.showModal();
 
 function closeNotes(event) {
+  event.preventDefault();
   if (currentNote && notesText.value !== currentNote.content && !window.confirm("笔记还没保存，确定要关闭吗？")) {
-    event.preventDefault();
     return;
   }
+  if (currentNote) noteDrafts.delete(currentNote.draftKey);
   notes.close();
 }
 
@@ -89,29 +91,44 @@ document.addEventListener("click", async (event) => {
     dialog.showModal();
     return;
   }
-  const note = { userId: accountId, articleId: button.dataset.notesArticle, content: "", version: null };
+  if (notes.open) {
+    notesText.focus();
+    return;
+  }
+  const articleId = button.dataset.notesArticle;
+  const note = { userId: accountId, articleId, draftKey: accountId + "/" + articleId, content: "", version: null };
   currentNote = note;
   byId("reading-notes-article").textContent = button.dataset.notesTitle;
   notesText.value = "";
   notesText.disabled = true;
   notesSave.disabled = true;
   notesStatus.textContent = "正在读取笔记…";
-  notes.showModal();
+  button.parentElement.after(notes);
+  notes.show();
   try {
     const { data, error } = await client.from("reader_notes").select("content,version")
       .eq("user_id", note.userId).eq("article_id", note.articleId).maybeSingle();
     if (!notes.open || currentNote !== note) return;
     if (error) throw error;
-    if (data) Object.assign(note, data);
-    notesText.value = note.content;
+    const draft = noteDrafts.get(note.draftKey);
+    if (draft) Object.assign(note, { content: draft.original, version: draft.version });
+    else if (data) Object.assign(note, data);
+    notesText.value = draft?.text ?? note.content;
     notesText.disabled = false;
     notesSave.disabled = false;
-    notesStatus.textContent = "";
+    notesStatus.textContent = draft ? "已恢复本页未保存的笔记。" : "";
     notesText.focus();
   } catch {
     if (notes.open && currentNote === note) notesStatus.textContent = "笔记读取失败，请关闭后重新打开。";
   }
 });
+
+notesText.oninput = () => {
+  if (!currentNote) return;
+  const { draftKey, content, version } = currentNote;
+  if (notesText.value === content) noteDrafts.delete(draftKey);
+  else noteDrafts.set(draftKey, { text: notesText.value, original: content, version });
+};
 
 notesForm.onsubmit = async (event) => {
   event.preventDefault();
@@ -135,6 +152,7 @@ notesForm.onsubmit = async (event) => {
       return;
     }
     Object.assign(note, { content, version: data.version });
+    notesText.oninput();
     notesStatus.textContent = notesText.value === content ? "笔记已保存并同步。" : "已保存上一版，新的编辑还没保存。";
   } catch {
     if (notes.open && currentNote === note) notesStatus.textContent = "保存失败，文字还在，请重试。";

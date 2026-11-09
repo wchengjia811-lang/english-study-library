@@ -214,6 +214,11 @@ function updateSelectionLookup() {
 }
 
 function route() {
+  const notesPanel = byId("reading-notes");
+  if (byId("reader").contains(notesPanel)) {
+    notesPanel.close();
+    document.body.append(notesPanel);
+  }
   if (byId("lookup-tool").open) byId("lookup-tool").close();
   byId("selection-lookup").hidden = true;
   const hash = location.hash;
