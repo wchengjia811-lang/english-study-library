@@ -11,7 +11,7 @@
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
   <script src="reading.js?v=reading-sync1" defer></script>
-  <script type="module" src="reading-sync.js?v=1"></script>
+  <script type="module" src="reading-sync.js?v=2"></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -38,6 +38,11 @@
       <p><label>密码 <input name="password" type="password" autocomplete="current-password" minlength="8" required></label></p>
       <button type="submit">登录</button>
       <button type="submit" value="signup">注册</button>
+      <button id="reading-forgot" type="button">忘记密码</button>
+    </form>
+    <form id="reading-reset" hidden>
+      <p><label>新密码 <input name="password" type="password" autocomplete="new-password" minlength="8" required></label></p>
+      <button type="submit">保存新密码</button>
     </form>
     <button id="reading-logout" type="button" hidden>退出登录</button>
     <p id="reading-sync-status" role="status"></p>

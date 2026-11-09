@@ -7,6 +7,8 @@ const dialog = byId("reading-account");
 const login = byId("reading-login");
 const logout = byId("reading-logout");
 const status = byId("reading-sync-status");
+const reset = byId("reading-reset");
+const siteUrl = "https://wchengjia811-lang.github.io/english-study-library/";
 let accountId = null;
 let pending = Promise.resolve();
 
@@ -62,7 +64,7 @@ login.onsubmit = async (event) => {
   try {
     status.textContent = signup ? "正在注册…" : "正在登录…";
     const result = signup
-      ? await client.auth.signUp({ ...credentials, options: { emailRedirectTo: "https://wchengjia811-lang.github.io/english-study-library/" } })
+      ? await client.auth.signUp({ ...credentials, options: { emailRedirectTo: siteUrl } })
       : await client.auth.signInWithPassword(credentials);
     if (result.error) {
       status.textContent = signup ? "注册未完成。请检查邮箱后再试。" : "登录失败，请检查邮箱、密码和邮箱验证状态。";
@@ -80,14 +82,62 @@ login.onsubmit = async (event) => {
   }
 };
 
+byId("reading-forgot").onclick = async (event) => {
+  const email = login.elements.namedItem("email");
+  if (!email.reportValidity()) return;
+  const button = event.currentTarget;
+  button.disabled = true;
+  try {
+    const { error } = await client.auth.resetPasswordForEmail(email.value.trim(), { redirectTo: siteUrl });
+    status.textContent = error ? "暂时无法发送重置邮件，请稍后再试。" : "请查收密码重置邮件，并用浏览器打开链接。";
+  } catch {
+    status.textContent = "连接失败，请稍后再试。";
+  } finally {
+    button.disabled = false;
+  }
+};
+
+reset.onsubmit = async (event) => {
+  event.preventDefault();
+  const button = event.submitter;
+  if (button) button.disabled = true;
+  try {
+    const { error } = await client.auth.updateUser({ password: new FormData(reset).get("password") });
+    if (error) {
+      status.textContent = error.code === "same_password" ? "请选择一个不同的新密码。" : "密码未保存，请重新发送重置邮件再试。";
+      return;
+    }
+    reset.reset();
+    reset.hidden = true;
+    logout.hidden = false;
+    status.textContent = "新密码已保存。以后可用邮箱和新密码直接登录。";
+  } catch {
+    status.textContent = "连接失败，请稍后再试。";
+  } finally {
+    if (button) button.disabled = false;
+  }
+};
+
 logout.onclick = async () => {
   await pending;
   const { error } = await client.auth.signOut({ scope: "local" });
   if (error) status.textContent = "退出失败，请稍后再试。";
 };
 
-client.auth.onAuthStateChange((_event, session) => {
-  setTimeout(() => { useSession(session).catch(() => {
-    status.textContent = "暂时无法连接云端阅读进度。";
-  }); }, 0);
+client.auth.onAuthStateChange((event, session) => {
+  setTimeout(async () => {
+    try {
+      await useSession(session);
+    } catch {
+      status.textContent = "暂时无法连接云端阅读进度。";
+    }
+    if (event === "PASSWORD_RECOVERY" && session) {
+      login.hidden = true;
+      logout.hidden = true;
+      reset.hidden = false;
+      if (!dialog.open) dialog.showModal();
+      reset.elements.namedItem("password").focus();
+      status.textContent = "请输入至少 8 位的新密码。";
+    }
+  }, 0);
 });
