@@ -11,7 +11,7 @@
   <script src="writing-bank.js?v=1" defer></script>
   <script src="reading-translations.js?v=3" defer></script>
   <script src="reading.js?v=reading-sync1" defer></script>
-  <script type="module" src="reading-sync.js?v=3"></script>
+  <script type="module" src="reading-sync.js?v=4"></script>
 </head>
 <body>
   <a class="skip" href="#main">跳到正文</a>
@@ -42,11 +42,21 @@
     </form>
     <form id="reading-reset" hidden>
       <p><label>新密码 <input name="password" type="password" autocomplete="new-password" minlength="8" required></label></p>
+      <p><label>确认新密码 <input name="confirmation" type="password" autocomplete="new-password" minlength="8" required></label></p>
       <button type="submit">保存新密码</button>
     </form>
     <button id="reading-logout" type="button" hidden>退出登录</button>
     <p id="reading-sync-status" role="status"></p>
     <form method="dialog"><button>关闭</button></form>
+  </dialog>
+  <dialog id="reading-recovery" aria-labelledby="reading-recovery-title">
+    <h2 id="reading-recovery-title">忘记密码</h2>
+    <form id="reading-recovery-form">
+      <p><label>注册邮箱 <input name="email" type="email" autocomplete="email" required autofocus></label></p>
+      <button type="submit">发送重置邮件</button>
+    </form>
+    <p id="reading-recovery-status" role="status"></p>
+    <form method="dialog"><button>返回登录</button></form>
   </dialog>
   <dialog id="lookup-tool" aria-labelledby="lookup-tool-title">
     <h2 id="lookup-tool-title">查词工具</h2>

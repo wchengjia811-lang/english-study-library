@@ -8,6 +8,9 @@ const login = byId("reading-login");
 const logout = byId("reading-logout");
 const status = byId("reading-sync-status");
 const reset = byId("reading-reset");
+const recovery = byId("reading-recovery");
+const recoveryForm = byId("reading-recovery-form");
+const recoveryStatus = byId("reading-recovery-status");
 const siteUrl = "https://wchengjia811-lang.github.io/english-study-library/";
 let accountId = null;
 let pending = Promise.resolve();
@@ -20,6 +23,7 @@ async function useSession(session) {
   login.hidden = Boolean(userId);
   logout.hidden = !userId;
   opener.textContent = userId ? "阅读账号" : "登录账号";
+  byId("reading-account-title").textContent = opener.textContent;
   if (!userId) {
     status.textContent = "登录同一个账号后，可以在手机和电脑之间续读。";
     return;
@@ -82,16 +86,27 @@ login.onsubmit = async (event) => {
   }
 };
 
-byId("reading-forgot").onclick = async (event) => {
-  const email = login.elements.namedItem("email");
-  if (!email.reportValidity()) return;
-  const button = event.currentTarget;
+byId("reading-forgot").onclick = () => {
+  recoveryForm.elements.namedItem("email").value = login.elements.namedItem("email").value;
+  recoveryStatus.textContent = "";
+  dialog.close();
+  recovery.showModal();
+};
+recovery.onclose = () => {
+  if (!dialog.open) dialog.showModal();
+};
+
+recoveryForm.onsubmit = async (event) => {
+  event.preventDefault();
+  const email = recoveryForm.elements.namedItem("email").value.trim();
+  const button = recoveryForm.querySelector("button");
   button.disabled = true;
+  recoveryStatus.textContent = "正在发送重置邮件…";
   try {
-    const { error } = await client.auth.resetPasswordForEmail(email.value.trim(), { redirectTo: siteUrl });
-    status.textContent = error ? "暂时无法发送重置邮件，请稍后再试。" : "请查收密码重置邮件，并用浏览器打开链接。";
+    const { error } = await client.auth.resetPasswordForEmail(email, { redirectTo: siteUrl });
+    recoveryStatus.textContent = error ? "暂时无法发送重置邮件，请稍后再试。" : "如果该邮箱已注册，请查收重置邮件，并用浏览器打开链接。";
   } catch {
-    status.textContent = "连接失败，请稍后再试。";
+    recoveryStatus.textContent = "连接失败，请稍后再试。";
   } finally {
     button.disabled = false;
   }
@@ -99,16 +114,24 @@ byId("reading-forgot").onclick = async (event) => {
 
 reset.onsubmit = async (event) => {
   event.preventDefault();
+  const fields = new FormData(reset);
+  const password = fields.get("password");
+  if (password !== fields.get("confirmation")) {
+    status.textContent = "两次输入的新密码不一致。";
+    reset.elements.namedItem("confirmation").focus();
+    return;
+  }
   const button = event.submitter;
   if (button) button.disabled = true;
   try {
-    const { error } = await client.auth.updateUser({ password: new FormData(reset).get("password") });
+    const { error } = await client.auth.updateUser({ password });
     if (error) {
       status.textContent = error.code === "same_password" ? "请选择一个不同的新密码。" : "密码未保存，请重新发送重置邮件再试。";
       return;
     }
     reset.reset();
     reset.hidden = true;
+    byId("reading-account-title").textContent = "阅读账号";
     logout.hidden = false;
     status.textContent = "新密码已保存。以后可用邮箱和新密码直接登录。";
   } catch {
@@ -132,6 +155,7 @@ client.auth.onAuthStateChange((event, session) => {
       status.textContent = "暂时无法连接云端阅读进度。";
     }
     if (event === "PASSWORD_RECOVERY" && session) {
+      byId("reading-account-title").textContent = "设置新密码";
       login.hidden = true;
       logout.hidden = true;
       reset.hidden = false;
