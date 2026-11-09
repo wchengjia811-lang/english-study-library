@@ -119,8 +119,7 @@ function renderEdition(item) {
 function renderEssay(item) {
   byId("reader").innerHTML = `<a class="text-link" href="#writing">← 返回 Simon 写作</a>
     <header class="article-head"><p class="kicker">${item.task} · ${item.type}</p>
-      <h1 tabindex="-1">${safe(item.title)}</h1>
-      <p class="muted">${safe(item.source)}</p></header>
+      <h1 tabindex="-1">${safe(item.title)}</h1></header>
     <div class="reading-layout"><div class="prose"><h2>题目</h2>
       <p lang="en">${safe(item.prompt)}</p>
       ${item.task === "Task 1" ? '<p lang="en">Summarise the information by selecting and reporting the main features, and make comparisons where relevant.</p>' : ""}
