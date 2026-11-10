@@ -1,4 +1,32 @@
 window.peaReadingHighlights = {
+  "bergues-full": {
+  "quick": 0,
+  "recommendation": "先看作者怎样用一颗镶在原野里的宝石写出小城，再跟他穿过集市，找到长草中的两座旧塔。",
+  "analysis": {
+    "0": [
+      "用宝石比喻给小镇定调",
+      "Belted by 把城墙写成环绕小镇的束带，gem set in … 接着把小城放进绿色原野。直到 offered a resting place，才点出这些景色给旅人带来的安静。"
+    ],
+    "6": [
+      "用平行细节写出双塔的区别",
+      "one … the other … 把两塔并排介绍。第一座用方形和厚重的扶壁写稳重，第二座用八角平面、分层和尖顶写出向上的感觉。"
+    ]
+  },
+  "glossary": [
+    [
+      "Kermesse",
+      "低地地区常见的地方节庆或集市。"
+    ],
+    [
+      "jardin-clos",
+      "法语，指有围墙的花园。"
+    ],
+    [
+      "St. Winoc",
+      "圣维诺克，此处指以他命名的修道院。"
+    ]
+  ]
+},
   "malines-full": {
     quick: 41,
     recommendation: "跟作者登上钟楼，看水道怎样把远景连成一幅画，再读一段从蓝天写到暮色的长句。",

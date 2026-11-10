@@ -591,5 +591,112 @@ window.peaEditions = [
     "cover": "https://www.gutenberg.org/cache/epub/57404/images/i_099_sml.jpg",
     "source": "https://www.gutenberg.org/cache/epub/57404/pg57404-images.html#VI",
     "sourceLabel": "Lina Eckenstein · Through the Casentino · 1902"
-  }
+  },
+{
+  "id": "bergues-full",
+  "title": "贝尔格｜旧城墙与圣维诺克双塔",
+  "english": "Bergues",
+  "country": "法国",
+  "minutes": 6,
+  "level": "中级",
+  "publishedOn": "2026-11-10",
+  "intro": "从一座旅行指南忽略的钟楼出发，穿过热闹的集市，走到长草深处的修道院遗址。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image18.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Bergues",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文及插图由作者创作，Project Gutenberg 标为美国公有领域",
+  "background": "贝尔格位于法国北部的历史佛兰德斯地区。作者记述的是 1910 年的见闻，方括号内是战时补记，反映当时作者的记载。文中部分措辞也保留了那个时代的观察视角。",
+  "blocks": [
+    {
+      "text": "A tiny sleepy town among the fringe of great willow trees which marked the site of the ancient walls. Belted by its crumbling ramparts, and like a quaint gem set in the green enamel of the smiling landscape, it offered a resting place far from the cares and noise of the world."
+    },
+    {
+      "text": "Quite ignored by the guide books, it had, I found, one of the most remarkable belfries to be found in the Netherlands, and a chime of sweet bells, whose melodious sounds haunted our memories for days after our last visit in 1910."
+    },
+    {
+      "text": "There were winding, silent streets bordered by mysteriously closed and shuttered houses, but mainly these were small and of the peasant order. On the Grand' Place, for of course there was one, the tower sprang from a collection of rather shabby buildings, of little or no character, but this did not seem to detract from the magnificence of the great tower. I use the word \"great\" too often, I fear, but can find no other word in the language to qualify these \"Campanili\" of Flanders."
+    },
+    {
+      "text": "This one was embellished with what are known as \"ogival arcatures,\" arranged in zones or ranks, and there were four immense turrets, one at each corner, these being in turn covered with arcatures of the same character. These flanked the large open-work, gilded, clock face. Surmounting this upon a platform was a construction in the purely Flemish style, containing the chime of bells, and the machinery of the carillon, and topping all was a sort of inverted bulb or gourd-shaped turret, covered with blue slate, with a gilded weathervane about which the rooks flew in clouds."
+    },
+    {
+      "text": "The counterpart of this tower was not to be found anywhere in the Netherlands, and one is surprised that it was so little known."
+    },
+    {
+      "text": "Upon the occasion of our visit the town was given up to the heavy and stolid festivities of the \"Kermesse,\" which is now of interest here only to the laboring class and the small farmers of the region. The center of attraction, as we found in several other towns, seemed to be an incredibly fat woman emblazoned on a canvas as the \"Belle Heloise\" who was seated upon a sort of throne draped in red flannel, and exhibited a pair of extremities resembling in size the masts of a ship, to the great wonder of the peasants. There were also some shabby merry-go-rounds with wheezy organs driven by machinery, and booths in which hard-featured show women were frying waffles in evil smelling grease. After buying some of these for the children who stood about with watering mouths, we left the \"Kermesse\" and wandered away down a silent street towards a smaller tower rising from a belt of dark trees."
+    },
+    {
+      "text": "This we found to be the remains of the ancient abbey of St. Winoc. A very civil mannered young priest who overtook us on the road informed us of this, and volunteered further the information that we were in what was undoubtedly the ancient jardin-clos of the Abbey. Of this retreat only the two towers standing apart in the long grass remained, one very heavy and square, supported by great buttresses of discolored brick, the other octangular, in stages, and retaining its high graceful steeple."
+    },
+    {
+      "text": "We were unable to gain entrance to either of these towers, the doorways being choked with weeds and the débris of fallen masonry. [The invaders destroyed both of these fine historical remains in November, 1914, alleging that they were being used for military observation by the Belgian army.] These small towns of Flanders had a simple dignity of their own which was of great attraction to the tourist, who could, without disillusionment, imagine himself back in the dim past. In the wayside inns or estaminets one could extract amusement and profit listening to the peasantry or admiring the sunlight dancing upon the array of bottles and glass on the leaden counters, or watch the peasants kneel and cross themselves before the invariable quaint niched figure of the Virgin and Child under the hanging lighted lantern at a street corner, the evidence of the piety of the village, or the throngs of lace-capped, rosy-cheeked milkmaids with small green carts drawn by large, black, \"slobbering\" dogs of fierce mien, from the distant farms, on their way to market."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image18.jpg",
+      "caption": "The Towers of St. Winoc: Bergues · George Wharton Edwards，1916 年原书插图 · Project Gutenberg，美国公有领域"
+    },
+    {
+      "text": "Thus the everyday life of the region was rendered poetic and artistic, and all with the most charming unconsciousness."
+    }
+  ],
+  "terms": [
+    [
+      "crumbling ramparts",
+      "逐渐坍塌的城防墙。crumbling 也可形容正在衰败的建筑或制度。"
+    ],
+    [
+      "belfries",
+      "钟楼。单数是 belfry，重点在于楼内设钟。"
+    ],
+    [
+      "detract from",
+      "减损、使逊色。例：The noise detracted from the experience.",
+      [
+        "雅思",
+        "托福"
+      ]
+    ],
+    [
+      "flanked",
+      "位于……两侧。常见结构是 be flanked by。"
+    ],
+    [
+      "counterpart",
+      "可与之对应的事物或人。这里指同类的钟楼。",
+      [
+        "雅思",
+        "托福"
+      ]
+    ],
+    [
+      "center of attraction",
+      "最吸引人注意的地方或事物。"
+    ],
+    [
+      "volunteered",
+      "主动提供。此处搭配 information，表示对方主动告知。"
+    ],
+    [
+      "gain entrance to",
+      "得以进入，适合描写因入口或许可受限而难以进入。"
+    ],
+    [
+      "choked with",
+      "被……塞满、堵住。这里描写杂草和碎石堵住门道。"
+    ],
+    [
+      "masonry",
+      "砖石结构或砖石材料。fallen masonry 指掉落的砖石。"
+    ]
+  ],
+  "sentences": [
+    [
+      "Quite ignored by the guide books, it had, I found, one of the most remarkable belfries to be found in the Netherlands, and a chime of sweet bells, whose melodious sounds haunted our memories for days after our last visit in 1910.",
+      "Quite ignored by … 是句首的过去分词短语。先写指南忽略此地，再用 one of the most remarkable 写出亲访所见，两层判断形成反差。"
+    ],
+    [
+      "We were unable to gain entrance to either of these towers, the doorways being choked with weeds and the débris of fallen masonry.",
+      "the doorways being … 带有自己的逻辑主语 the doorways，在主句后补充无法进入的原因。"
+    ]
+  ]
+}
 ];

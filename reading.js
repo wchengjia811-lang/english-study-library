@@ -82,7 +82,8 @@ function renderShelf() {
 function renderDaily() {
   const item = [...editions].sort((a, b) => publishedDate(b).localeCompare(publishedDate(a)))[0];
   const date = publishedDate(item);
-  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">最近更新 · ${item.country}${date ? ` · <time datetime="${safe(date)}">${safe(date)}</time>` : ""}</p><h2>${item.title}</h2>
+  const today = new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  byId("daily-read").innerHTML = `<div class="feature-copy"><p class="kicker">${date === today ? "今日精读" : "最近更新"} · ${item.country}${date ? ` · <time datetime="${safe(date)}">${safe(date)}</time>` : ""}</p><h2>${item.title}</h2>
     <p>${safe(highlights[item.id]?.recommendation || item.intro)}</p><div class="reading-links">${quickLink(item)}<a class="button" href="#read/${item.id}">打开完整章节 →</a></div></div>
     <img src="${item.cover}" alt="" fetchpriority="high">`;
 }
