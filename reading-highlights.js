@@ -1,4 +1,28 @@
 window.peaReadingHighlights = {
+  "douai-full": {
+  "quick": 0,
+  "recommendation": "从节庆巡游读起，留意作者如何把柳编人偶、曲折街巷和钟声放进同一个长句。",
+  "analysis": {
+    "0": [
+      "一个长句怎样带着游行队伍向前走",
+      "in which 接在节庆之后，引出庆典中的具体活动。made of 与 clad in 先让人偶有形有色，followed by 再带出队伍，最后用 to the music of 给画面加上声音。"
+    ],
+    "6": [
+      "用一个远景收住全文",
+      "前文写近处的争执和大雨，结尾把视角放回车窗。as we recrossed 给出远离城镇的动作，dim and gray 则把情绪落在钟楼的轮廓上。"
+    ]
+  },
+  "glossary": [
+    [
+      "Gayant",
+      "杜埃节庆游行中的传统巨人形象。"
+    ],
+    [
+      "Hôtel de Ville",
+      "法语，意为市政厅。"
+    ]
+  ]
+},
   "bergues-full": {
   "quick": 0,
   "recommendation": "先看作者怎样用一颗镶在原野里的宝石写出小城，再跟他穿过集市，找到长草中的两座旧塔。",

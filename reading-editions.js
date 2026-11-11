@@ -698,5 +698,95 @@ window.peaEditions = [
       "the doorways being … 带有自己的逻辑主语 the doorways，在主句后补充无法进入的原因。"
     ]
   ]
+},
+{
+  "id": "douai-full",
+  "title": "杜埃｜跟着柳编巨人走过法国小城",
+  "english": "Douai",
+  "country": "法国",
+  "minutes": 6,
+  "level": "中级",
+  "publishedOn": "2026-11-11",
+  "intro": "循着钟声看巨人游行，再从驶离杜埃的列车上回望雨中的市政厅钟楼。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image28.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Douai",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文和原书插图均由作者创作，Project Gutenberg 标为美国公有领域",
+  "background": "这篇游记回忆一战前到访杜埃的见闻。文中的年代、历史判断和人物评价按原文呈现。",
+  "blocks": [
+    {
+      "text": "Although across the border in France, Douai must still be called a Flemish town, because of its history and affiliations. The town is quaint in the extreme and of great antiquity, growing up originally around a Gallo-Roman fort. In the many wars carried on by the French against the English, the Flemish and the Germans, not to mention its sufferings from the invading Spaniards, it suffered many sieges and captures. Resisting the memorable attack of Louis the Eleventh, it has regularly celebrated the anniversary of this victory each year in a notable Fête or Kermesse, in which the effigies of the giant Gayant and his family, made of wickerwork and clad in medieval costumes, are paraded through the town by order of the authorities, followed by a procession of costumed attendants through the tortuous streets, to the music of bands and the chimes from the belfry of the Hôtel de Ville."
+    },
+    {
+      "text": "This, the most notable edifice in the town, is a fine Gothic tower one hundred and fifty feet high, with a remarkable construction of tower and turrets, supported by corbels of the fifteenth century, containing a fine chime of bells made by the Van den Gheyns. The bells are visible from below, hanging sometimes well outside the turret of the bell chamber, and, ranging tier upon tier, from those seemingly the size of a gallon measure, to those immense ones weighing from fifteen hundred to two thousand pounds. This great tower witnessed the attack and occupation of the Spaniards, the foundation by the Roman Catholics of the great University in 1652 to counter-act the Protestantism of the Netherlands, which had but a brief career, and the capture of the town by Louis the Fourteenth. Here was published in 1610 an English translation of the Old Testament for Roman Catholics, as well as the English Roman Catholic version of the scriptures, and the New Testament translated at Rheims in 1582, and known as the \"Douai Bible.\" This was also the birthplace of Jean Bellgambe, the painter (1540) surnamed \"Maître des Couleurs,\" whose nine great oaken panels form the wonderful altarpiece in the church of Notre Dame."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image28.jpg",
+      "caption": "The Town Hall: Douai · George Wharton Edwards 原书插图 · Project Gutenberg，美国公有领域"
+    },
+    {
+      "text": "Douai was, before the great war, a peaceful industrial center of some importance, of some thirty thousand inhabitants. It has been said that the Fleming worked habitually fifty-two weeks in the year. An exception, however, must be made for fête days, when no self-respecting Fleming will work. On these days the holiday makers are exceedingly boisterous, and the streets are filled with the peasants clad in all their holiday finery. But it is on the day of the Kermesse that your Fleming can be seen to the best advantage. There are merry-go-rounds, shooting galleries, swings, maybe a traveling circus or two, and a theatrical troupe which shows in a much bespangled and mirrored tent, decorated with tinsel and flaming at night with naphtha torches. Bands of music parade the streets, each carrying a sort of banneret hung with medals and trophies awarded by the town authorities at the various \"séances.\""
+    },
+    {
+      "text": "But the greatest noise comes from the barrel organs of huge size and played by steam, or sometimes by a patient horse clad in gay apparel who trudges a sort of treadmill which furnishes the motive power. In even these small towns of Ancient Flanders such as Douai, the old allegorical representations, formerly the main feature of the event, are now quite rare, and therefore this event of the parade of the wicker effigies of the fabulous giant Gayant and his family was certainly worth the journey from Tournai. The day was made memorable also to the writer and his companion because of the following adventure."
+    },
+    {
+      "text": "There had been, it seems, considerable feeling against England among the lower orders in this border town over the Anglo-Boer War, so that overhearing us speaking English, some half grown lads began shouting out at us \"Verdamt Engelsch\" and other pleasantries, and in a moment a crowd gathered about us."
+    },
+    {
+      "text": "With the best Flemish at his command the writer addressed them, explaining that we were Americans, but what the outcome would have been, had it not been for the timely arrival of a gendarme, I know not; but under his protection we certainly beat a hasty retreat. The lower classes of Flemings in their cups are unpleasant people to deal with, and it were well not to arouse them. But for this incident, and the fact that the afternoon brought on a downpour of rain, which somewhat dampened the ardor of the people and the success of the fête, our little trip over the border to this historic town would be considered worth while. Our last view of Douai was from the train window as we recrossed the river Scarpe, with the massive tower of the Hôtel de Ville showing silhouetted dim and gray against a streaming sky."
+    }
+  ],
+  "terms": [
+    [
+      "affiliations",
+      "联系或归属，此处指文化和历史渊源。"
+    ],
+    [
+      "effigies",
+      "为某人制作的塑像，此处指游行用的巨型人偶。"
+    ],
+    [
+      "wickerwork",
+      "用柳条等枝条编成的制品。"
+    ],
+    [
+      "clad in",
+      "穿着，较常见于书面描写。"
+    ],
+    [
+      "tier upon tier",
+      "一层叠一层。"
+    ],
+    [
+      "to the best advantage",
+      "以最能展示特点的方式。"
+    ],
+    [
+      "worth the journey",
+      "值得特意跑一趟。"
+    ],
+    [
+      "at his command",
+      "他能运用的，此处指他会说的佛兰德斯语。"
+    ],
+    [
+      "beat a hasty retreat",
+      "匆忙离开。"
+    ],
+    [
+      "silhouetted",
+      "在背景映衬下呈现为剪影，常与 against 搭配。"
+    ]
+  ],
+  "sentences": [
+    [
+      "Although across the border in France, Douai must still be called a Flemish town, because of its history and affiliations.",
+      "Although 引出地理上的让步，because 再说明文化归属的判断依据。"
+    ],
+    [
+      "Our last view of Douai was from the train window as we recrossed the river Scarpe, with the massive tower of the Hôtel de Ville showing silhouetted dim and gray against a streaming sky.",
+      "视点从火车车窗移到远处的钟楼。with 引出的补充结构让钟楼以剪影留在画面中。"
+    ]
+  ]
 }
 ];
