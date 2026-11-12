@@ -788,5 +788,95 @@ window.peaEditions = [
       "视点从火车车窗移到远处的钟楼。with 引出的补充结构让钟楼以剪影留在画面中。"
     ]
   ]
+},
+{
+  "id": "alost-full",
+  "title": "阿尔斯特｜钟楼、印刷师与雨中的旅店",
+  "english": "Alost",
+  "country": "比利时",
+  "minutes": 8,
+  "level": "进阶",
+  "publishedOn": "2026-11-12",
+  "intro": "从砖色斑驳的钟楼走进集市，再读一段雨中旅店里出乎意料的对话。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image22.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Alost",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与插图均为作者创作，Project Gutenberg 标注为美国公有领域",
+  "background": "Alost 是比利时阿尔斯特（Aalst）的法语名称。文中的年代和战时判断按作者在 1916 年出版的原书呈现。",
+  "blocks": [
+    {
+      "text": "The ancient Hôtel de Ville on the Grand' Place was unique, not for its great beauty, for it had none, but for its quaintness, in the singular combination of several styles of architecture. Without going into any details its attraction was in what might be called its venerable coquettishness,—bizarre, one might have styled it, but that the word conveys some hint of lack of dignity. One is at a loss just how to characterize its attractiveness. Against the sky its towers and minarets held one's fancy by their very lightness and airiness, the lanterns and fleches presupposing a like grace and proportion in the edifice below. The great square belfry at one side seemed to shoulder aside the structure with its beautiful Renaissance façade and portal and quite dominate it."
+    },
+    {
+      "text": "My note book says that it dated from the fifteenth century, and its appearance certainly bore evidence of this statement. It had been erected in sections at various periods, and these periods were marked in the various courses of brick, showing every variety of tone of dull reds, buffs, and mellow purplish browns. The effect was quite delightful. The tower contained a fine carillon of bells arranged on a rather bizarre platform, giving a most quaint effect to the turret which surmounted it. The face of the tower bore four niches, two at each side of the center and upper windows, and these contained time worn statues of the noble counts of Alost. On the wall below was a tablet bearing the inscription \"Ni Espoir, Ni Craint,\" and this I was told referred either to the many sieges which the town suffered, or a pestilence which depopulated the whole region. A huge gilt clock face shone below the upper gallery, at each corner of which sprang a stone gargoyle."
+    },
+    {
+      "text": "The old square upon which this tower was placed was quite in keeping with it. There were rows of gabled stone houses of great antiquity, still inhabited, stretching away in an array of façades, gables, and most fantastic roofs, all of mellow toned tile, brick and stone."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image22.jpg",
+      "caption": "The Town Hall: Alost · George Wharton Edwards · 原书插图，美国公有领域"
+    },
+    {
+      "text": "Thierry Moertens, who was a renowned master printer of the Netherlands, was born here, and is said to have established in Alost the \"very first printing house in Flanders.\" From this press issued a translation of the Holy Bible, which was preserved in the Museum of Brussels, together with other fine specimens of his skill. A very good statue in bronze to this master printer was in the center of the market place, and on the occasion of my last visit, there was a sort of carnival in the town, with a great gathering of farmers and merchants and their families from the surrounding country all gathered about the square, which was filled with wagons, horses, booths, and merry-go-rounds, above which the statue of the old master printer appeared in great dignity. There was a great consumption of beer and waffles at the small estaminets, and the chimes in the belfry played popular songs at intervals to the delight of these simple happy people, all unaware of the great catastrophe of the war into which they were about to be plunged."
+    },
+    {
+      "text": "A disastrous conflagration destroyed most of Alost in 1360, and thereafter history deals with the fury of the religious wars conducted by the Spanish against Alost, a most strongly fortified town. The story of the uniting of these Spanish troops under the leadership of Juan de Navarese is well known. Burning and sacking and murder were the sad lot of Alost and its unfortunate citizens, who had hardly recovered, ere the Duke d'Alençon arrived before the walls with his troops, bent upon mischief. The few people remaining after his onslaught died like flies during the plague which broke out the following year, and the town bid fair to vanish forever."
+    },
+    {
+      "text": "Rubens painted a large and important picture based upon the destruction of Alost, and this work was hanging in the old church of St. Martin just before the outbreak of the war in 1914. Its fate is problematical, for St. Martin's Church was razed to the ground in the bombardment in 1914–15, the charge being the usual one that the tower was used for military purposes by the French."
+    },
+    {
+      "text": "This old church with its curious bulbous tower cap was at the end of a small street, and my last view of it was on the occasion of a church fête in which some dignitaries were present, for I saw them all clad in scarlet and purple walking beneath silken canopies attended by priests bearing lighted lanterns (although the sun was shining brightly at the time) and acolytes swinging fragrant smoking censers. We were directed to a rather shabby looking hostelry, over the door of which was an emblazoned coat of arms of Flanders, where we were assured we could get \"déjeuner\" before leaving the town."
+    },
+    {
+      "text": "As usual, a light drizzle came on, and the streets became deserted. The hotel was a wretched one and the meal furnished us was in character with it. We were waited on by a sour, taciturn old man who bore a dirty towel on his arm, as a sort of badge of office, I presume. He nodded or shook his head as the case might demand, but not a word could I extract from him. At the close of our meal, which we dallied over, waiting for the rain to cease, I called for the bill, which was produced after a long wait, and proved to be, as I anticipated, excessive. We had coffee and hot milk and some cold chicken and salad. This repast, for two, came to twelve francs. And as the \"chicken\" had reached its old age long before, and the period of its roasting must have taken place at an uncertain date, this, together with the fact that the lettuce was wilted, placed these items upon the proscribed list for us. The coffee and hot milk, however, was good and, thus revived and rested, I paid the bill without protest, and having retained the carriage which we hired at the station, I bundled our belongings into it. I had resolved not to tip the surly old fellow, but a gleam in his eye made me hesitate. Then I weakened and gave him a franc."
+    },
+    {
+      "text": "To my amazement he said in excellent English: \"I thank you, sir; you are a kind, good and patient man, and madam is a most charming and gracious lady. I am sorry your breakfast was so bad, but I can do nothing here; these people are impossible; but it is no fault of mine.\" And shaking his head he vanished into the doorway of the hotel. Driving away, I glanced up at the windows, where behind the curtains I thought I saw several faces watching us furtively. It might be that we had missed an adventure in coming away. Had I been alone I should have chanced it, for the old waiter interested me with his sudden confidence and his command of English. But whatever his story might have been, it must ever be to me a closed book. Quaint Alost among the trees is now a heap of blackened ruins."
+    }
+  ],
+  "terms": [
+    [
+      "at a loss",
+      "不知如何是好。这里指一时找不出合适的词来形容。"
+    ],
+    [
+      "bore evidence of",
+      "显出……的迹象。bore 是 bear 的过去式。"
+    ],
+    [
+      "in keeping with",
+      "和……相协调。这里描写广场与钟楼相称。",
+      [
+        "雅思"
+      ]
+    ],
+    [
+      "at intervals",
+      "间隔一段时间。这里说钟楼时不时奏响。"
+    ],
+    [
+      "outbreak",
+      "爆发，常与 war 或 disease 搭配。"
+    ],
+    [
+      "taciturn",
+      "沉默寡言的。语气比 quiet 更强调不爱开口。"
+    ],
+    [
+      "without protest",
+      "没有提出异议。"
+    ],
+    [
+      "furtively",
+      "偷偷地，带有避免被察觉的意味。"
+    ]
+  ],
+  "sentences": [
+    [
+      "The old square upon which this tower was placed was quite in keeping with it.",
+      "主语是 The old square，upon which 引出的关系从句说明钟楼位于哪里，主句再说广场与它相称。"
+    ]
+  ]
 }
 ];
