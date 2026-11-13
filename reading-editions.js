@@ -878,5 +878,93 @@ window.peaEditions = [
       "主语是 The old square，upon which 引出的关系从句说明钟楼位于哪里，主句再说广场与它相称。"
     ]
   ]
+},
+{
+  "id": "commines-full",
+  "title": "科米讷｜雨巷里的钟楼",
+  "english": "Commines",
+  "country": "法国",
+  "minutes": 9,
+  "level": "进阶",
+  "publishedOn": "2026-11-13",
+  "intro": "从雨中的石巷走进钟楼，看看商贸城镇怎样把公共生活写进建筑。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image17.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Commines",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原书及插图在美国为公有领域",
+  "background": "本文保留作者在一战时期的观察与判断。",
+  "blocks": [
+    {
+      "text": "It was not hard to realize that here we were in the country of Bras-de-Fer, of Memling, of Cuyp, and Thierry d'Alsace, for, on descending from the halting, bumping train at the small brick station, we were face to face with a bizarre, bulbous-topped tower rising above the houses surrounding a small square, and now quite crowded with large, hollow-backed, thick-legged Flemish horses, which might have been those of the followers of Thierry gathered in preparation for an onslaught upon one of the neighboring towns."
+    },
+    {
+      "text": "It seemed as though any turning might bring us face to face with a grim cohort of mounted armed men in steel corselet and morion, bearing the banner of Spanish Philip, so sinister were the narrow, ill-paved streets, darkened by the projecting second stories of the somber, gray-stone houses. Rarely was there an open door or window. As we passed, our footsteps on the uneven stones awakened the echoes. A fine drizzle of rain which began to fall upon us from the leaden sky did not tend to enliven us, and we hastened toward the small Grand' Place, where I noted on a sign over a doorway the words, \"In de Leeuw Van Vlanderen\" (To the Flemish Lion), which promised at least shelter from the rainfall. Here we remained until the sun shone forth."
+    },
+    {
+      "text": "Commines (Flemish, Komen) was formerly a fortified town of some importance in the period of the Great Wars of Flanders. It was the birthplace of Philip de Commines (1445–1509). It was, so to say, one of the iron hinges upon which the great military defense system of the burghers swung and creaked in those dark days. To-day, in these rich fields about the small town, one can find no traces of the old-time bastions which so well guarded the town from Van Artevelde's assaults. Inside the town were scarcely any trees, an unusual feature for Flanders, and on the narrow waterways floated but few craft."
+    },
+    {
+      "text": "The only remarkable thing by virtue of its Renaissance style of architecture was the belfry and clock tower, although some of the old Flemish dwelling houses in the market square, projecting over an ogival Colonnade extending round one end of the square, and covering a sort of footway, were of interest, uplifting their step-like gables as a silent but eloquent protest against a posterity devoid of style, all of them to the right and left falling into line like two wings of stone in order to allow the carved front of the belfry to make a better show, and its pinnacled tower to rise the prouder against the sky."
+    },
+    {
+      "text": "One was struck with the ascendency of the religious element over all forms of art, and this was a characteristic of the Flemings. One was everywhere confronted with a curious union of religion and war, representations peopled exclusively by seraphic beings surrounded or accompanied by armed warriors. Everything is adoration, resignation, incense fumes, psalmody, and crusaders. The greatest buildings we saw were ecclesiastical, the richest dresses were church vestments, even \"the princes and burghers accompanied by armed knights remind one of ecclesiastics celebrating the Mass. All the women are holy virgins, seemingly. The chasm between the ideal and the reality itself, however idealized, but by meditation manifested pictorially.\" (\"The Land of Rubens,\" C.B. Huet)."
+    },
+    {
+      "text": "We sat for an hour in the small, sooty, tobacco-smelling estaminet (from the Spanish estamento—an inn), and then the skies clearing somewhat we fared forth to explore the belfry, which in spite of its sadly neglected state was still applied to civic use. Some dark, heavy, oaken beams in the ceiling of the principal room showed delicately carved, fancy heads, some of them evidently portraits. At the rear of the tower on the ground floor, I came upon a vaulted apartment supported on columns, and being used as a storehouse. Its construction was so handsome, it was so beautifully lighted from without, as to make one grieve for its desecration; it may have served in the olden time as a refectory, and if so was doubtless the scene of great festivity in the time of Philip de Commines, who was noted for the magnificence of his entertainments."
+    },
+    {
+      "text": "The Flemish burghers of the Middle Ages first built themselves a church; when that was finished, a great hall. That of Ypres took more than two hundred years to complete. How long this great tower of Commines took, I can only conjecture. Its semi-oriental pear-shaped (or onion-shaped, as you will) tower was certainly of great antiquity; even the unkempt little priest whom I questioned in the Grand' Place could give me little or no information concerning it. Indeed, he seemed to be on the point of resenting my questions, as though he thought that I was in some way poking fun at him. I presume that it was the scene of great splendor in their early days. For here a count of Flanders or a duke of Brabant exercised sovereign rights, and at such a ceremony as the laying of a corner-stone assumed the place of honor, although the real authority was with the burghers, and founded upon commerce. While granting this privilege, the Flemings ever hated autocracy. They loved pomp, but any attempt to exercise power over them infuriated them."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image17.jpg",
+      "caption": "The Belfry: Commines · George Wharton Edwards 原书插图 · 美国公有领域"
+    },
+    {
+      "text": "\"The architecture of the Fleming was the expression of aspiration,\" says C.B. Huet (\"The Land of Rubens\")."
+    },
+    {
+      "text": "\"The Flemish hall has often the form of a church; art history, aiming at classification, ranges it among the Gothic by reason of its pointed windows. The Hall usually is a defenceless feudal castle without moats, without porticullis, without loopholes. It occupies the center of a market-place. It is a temple of peace, its windows are as numerous as those in the choirs of that consecrated to the worship of God."
+    },
+    {
+      "text": "\"From the center of the building uprises an enormous mass, three, four, five stories high, as high as the cathedral, perhaps higher. It is the belfry, the transparent habitation of the alarm bell (as well as the chimes). The belfry cannot defend itself, a military character is foreign to it. But as warden of civic liberty it can, at the approach of domination from without, or autocracy uplifting its head within, awaken the threatened ones, and call them to arms in its own defence. The belfry is thus a symbol of a society expecting happiness from neither a dynasty nor from a military despotism, but solely from common institutions, from commerce and industry, from a citizen's life, budding in the shadow of the peaceful church, and borrowing its peaceful architecture from it. To the town halls of Flanders belonged the place of honor among the monuments of Belgian architecture. No other country of Europe offered so rich a variety in that respect."
+    },
+    {
+      "text": "\"Courtrai replaces Arras; Oudenaarde and Ypres follow suit. Then come Tournai, Bruges, Ghent, Antwerp, Brussels, Louvain. Primary Gothic, secondary Gothic, tertiary Gothic, satisfying every wish. Flanders and Brabant called the communal style into life. If ever Europe becomes a commune, the communards have but to go to Ypres to find motifs from their architects.\""
+    },
+    {
+      "text": "Since this was written, in 1914, many, if not most, of these great buildings thus enumerated above, are now in ruins, utterly destroyed for all time!"
+    }
+  ],
+  "terms": [
+    [
+      "face to face with",
+      "迎面遇见，也可指直面某种情况。"
+    ],
+    [
+      "in preparation for",
+      "为……做准备。"
+    ],
+    [
+      "by virtue of",
+      "凭借，由于。"
+    ],
+    [
+      "in spite of",
+      "尽管，后接名词或动名词。"
+    ],
+    [
+      "follow suit",
+      "照样做，效仿。"
+    ],
+    [
+      "call them to arms",
+      "召集他们拿起武器。"
+    ]
+  ],
+  "sentences": [
+    [
+      "Rarely was there an open door or window.",
+      "否定色彩的副词 Rarely 放句首，引起部分倒装，强调街巷几乎家家门窗紧闭。"
+    ]
+  ]
 }
 ];
