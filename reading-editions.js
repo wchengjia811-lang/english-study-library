@@ -966,5 +966,115 @@ window.peaEditions = [
       "否定色彩的副词 Rarely 放句首，引起部分倒装，强调街巷几乎家家门窗紧闭。"
     ]
   ]
+},
+{
+  "id": "furnes-full",
+  "title": "弗尔讷｜沙丘尽头的小城与广场",
+  "english": "Furnes",
+  "country": "比利时",
+  "minutes": 10,
+  "level": "进阶",
+  "publishedOn": "2026-11-15",
+  "intro": "沿着海岸沙丘走进弗尔讷，看看流动影院、宗教游行与一张出人意料的旅馆账单。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image31.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Furnes",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文和作者插图在美国为公有领域",
+  "background": "Furnes 是今比利时城市 Veurne 的法语名。文中的历史说法按作者原文呈现。原书此处配的是邻城伊普尔的鱼市插图。",
+  "blocks": [
+    {
+      "text": "The old red brick, flat topped, tower of St. Nicholas was the magnet which drew us to this dear sleepy old town, in the southwest corner of the Belgian littoral; and here, lodged in the historic hostel of the \"Nobèle Rose\" we spent some golden days. The name of the town is variously pronounced by the people Foorn, Fern, and even Fearn. I doubt if many travelers in the Netherlands ever heard of it. Yet the town is one of great antiquity and renown, its origin lost in the dimness of the ages."
+    },
+    {
+      "text": "According to the chronicles in the great Library at Bruges, as early as A.D. 800 it was the theatre of invasions and massacres by the Normans. That learned student of Flemish history, M. Leopold Plettinck, has made exhaustive researches among the archives in both Brussels and Bruges, and while he has been unable to trace its beginnings he has collected and assorted an immense amount of detailed matter referring to Baudoin (or Baldwin) Bras de Fer, who seems to have been very active in harassing the people who had the misfortune to come under his hand."
+    },
+    {
+      "text": "The War of the \"Deux Roses\" was fought outside the walls here, likewise the Battle of the Spurs took place on the plains between Furnes and Ypres. Following the long undulations of the dunes from Dunkerque, overgrown here and there with a rank coarse grass sown by the authorities to protect them from the wind and the encroachments of the ever menacing sea, dune succeeds dune, forming a landscape of most unique character. Passing the small hamlet of Zuitcote, marked by the sunken tower of its small church, which now serves as a sort of semaphore for the fishing boats off the coast, one reached the canal which crosses the plain picturesquely. This led one along the path to the quaint old town of Furnes, showing against the heavy dark green of the old trees, its dull red and pink roofs with the bulk of the tower forming a picture of great attractiveness."
+    },
+    {
+      "text": "The town before the war had about six thousand population which seemed quite lost in the long lines of silent grass grown streets, and the immense Grand' Place, around which were ranged large dark stone Flemish houses of somewhat forbidding exteriors. All the activity of the town, however, was here in this large square, for the lower floors had been turned into shops, and also here was the hotel, before which a temporary moving picture theatre had been put up."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image31.jpg",
+      "caption": "伊普尔鱼市（原书在本章所配插图） · George Wharton Edwards · 美国公有领域"
+    },
+    {
+      "text": "These are very popular in Flanders, and are called \"Cinema-Américain.\" The portable theatres are invariably wooden and are carried \"knocked down\" in large wagons drawn by hollow-backed, thick-legged Flemish horses. As a rule they have steam organs to furnish the \"music\" and the blare of these can be heard for miles across the level plains."
+    },
+    {
+      "text": "The pictures shown are usually of the lurid sort to suit the peasants, and the profits must be considerable, as the charge is ten and twenty-five cents for admission. On this square is the Hôtel de Ville, the Palace of Justice, and Conciergerie. This latter is a sort of square \"donjon\" of great antiquity, crenelated, with towers at each corner and the whole construction forming an admirable specimen of Hispano-Flemish architecture."
+    },
+    {
+      "text": "The angle of the \"Place\" opposite the pavilion of the officers is occupied by the Hôtel de Ville and the \"Palais de Justice,\" very different in style, for on one side is a massive façade of severe aspect and no particular period, while on the other is a most graceful Flemish Renaissance construction, reminding one of a Rubens opposed, in all its opulence, to a cold classic portrait by Gainsborough."
+    },
+    {
+      "text": "The Hôtel de Ville, of 1612, exhibits in its \"Pignons,\" its columns and Renaissance motifs, a large high tower of octagonal form surmounted by a small cupola. Its frontage pushes forward a loggia of quite elegant form, with balustrades in the Renaissance style."
+    },
+    {
+      "text": "Above this grave looking gray building rises the tower of the \"Beffroi,\" part Gothic in style."
+    },
+    {
+      "text": "All the houses on the \"Place\" have red tiled roofs, and gables in the Renaissance style very varied in form, and each one with a characteristic window above, framed richly en coquille, and decorated with arabesques."
+    },
+    {
+      "text": "Behind these houses is what remains of the ancient Church of St. Walburga, half buried in the thick verdure of the garden. After considerable difficulty we gained admittance to the ruin, because it is not considered safe to walk beneath its walls. Even in its ruin it was most imposing and majestic. We would have tarried here, but the custode was very nervous and hurried us through the thickets of bushes growing up between the stones of the pavement, and fairly pushed us out again into the small parkway, accepting the very generous fee which I gave him with what I should call surliness. But we ignored this completely, after the manner of old travelers, which we had been advised to adopt."
+    },
+    {
+      "text": "At one side were stored some rather dilapidated and dirty wax figures which reclined in various postures, somewhat too lifelike in the gloom of the chamber, and entirely ludicrous, so much so that it was with much difficulty that we controlled our smiles. The roving eye of the surly custode, however, warned us against levity of any sort. These wax figures, he explained, gruffly enough, were those of the most sacred religious personages, and the attendant saints and martyrs, used in the great procession and ceremony of the \"Sodalité,\" which is a sort of Passion Play, shown during the last Sunday in July of each year in the streets of the town. The story relates an adventure of a Count of Flanders, who brought to Furnes, during the first years of the Holy Crusades, a fragment of the True Cross. Assailed by a tempest in the Channel off the coast, he vowed the precious object to the first church he came to, if his prayers for succor were answered. \"Immediately the storm abated, and the Count, bearing the fragment of the Cross aloft, was miraculously transported over the waves to dry land.\""
+    },
+    {
+      "text": "This land proved to be the sand dunes of Flanders, and the church tower was that of St. Walburga. After a conference with his followers, who also were saved, he founded the solemn annual procession in honor of the True Cross, in which was also introduced the representation of the \"Mysteries of the Passion.\"[2]"
+    },
+    {
+      "text": "This procession was suppressed during the religious troubles of the Reform, but afterwards was revived by the church authorities, and now all of the episodes of the life of Christ pass yearly through the great Grand' Place—the stable in Bethlehem; the flight into Egypt; down to the grand drama of the Calvary and the Resurrection, all are shown and witnessed with great reverence by the crowds of devout peasants from the surrounding country. And these pathetic waxen figures were those of Prophets, Apostles, Jews, Angels, Cavaliers and Roman Soldiers, lying all about the dim dusty chamber in disorder. Afterwards, from the window of the quaint Hôtel of the \"Nobèle Rose,\" we saw this procession passing through the crowded streets of Furnes, and almost held our breaths with awe at the long line of black cloaked, hooded penitents, bare-footed, the faces covered so that one could hardly tell whether they were men or women, save for the occasional delicate small white foot thrust forward beneath the black shapeless gown."
+    },
+    {
+      "text": "And finally One Figure, likewise black gowned and with concealed face, staggering along painfully—feebly—and bearing a heavy wooden cross, the end of which dragged along on the stones of the street.[3]"
+    },
+    {
+      "text": "Outside of this, the Grand' Place, and the old red brick tower of St. Nicholas, so scorched by the sun and beaten by the elements, and the rows of quaint gabled houses beneath, Furnes has little to offer to the seeker after antiquity. The bells in the tower are of sweet tone, but the chimes which hung there were silent, and no amount of persuasion could induce the custode to admit me to the bell chamber. Madame at the \"Nobèle Rose\" had assured me that I could go up there into the tower whenever I wished, but somehow that pleasure was deferred, until finally we were forced to give it up. Of course Madame did rob me; when the bill was presented, it proved to be fifty per cent. more than the price agreed upon, but she argued that we had \"used\" the window in our apartment overlooking the procession, so we must pay for that privilege. The point was so novel that I was staggered for a suitable reply to it,—the crucial moment passed,—I was lost. I paid!"
+    },
+    {
+      "text": "[2] This passion play is described in detail in \"Some Old Flemish Towns.\" (Same author. Moffat, Yard & Co., New York, 1911.)"
+    },
+    {
+      "text": "[3] See \"Some Old Flemish Towns.\""
+    }
+  ],
+  "terms": [
+    [
+      "encroachments",
+      "逐步侵入，此处指海水对陆地的侵蚀。"
+    ],
+    [
+      "as a rule",
+      "通常，一般来说。"
+    ],
+    [
+      "gained admittance to",
+      "获准进入。书面语中也可用 gain admission to。"
+    ],
+    [
+      "hold our breaths",
+      "屏住呼吸。文中用过去式 held。"
+    ],
+    [
+      "held our breaths",
+      "屏住了呼吸，常用于描写紧张或惊叹。"
+    ],
+    [
+      "looking gray",
+      "看起来灰暗的。"
+    ],
+    [
+      "agreed upon",
+      "商定的。price agreed upon 指双方约定的价格。"
+    ]
+  ],
+  "sentences": [
+    [
+      "The point was so novel that I was staggered for a suitable reply to it",
+      "so … that … 表示程度及其结果。作者用这处结构说明旅馆老板的说法有多出乎意料。"
+    ]
+  ]
 }
 ];
