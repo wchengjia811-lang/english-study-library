@@ -1076,5 +1076,127 @@ window.peaEditions = [
       "so … that … 表示程度及其结果。作者用这处结构说明旅馆老板的说法有多出乎意料。"
     ]
   ]
+},
+{
+  "id": "dixmude-full",
+  "title": "迪克斯迈德｜素描本里的旧广场",
+  "english": "Dixmude",
+  "country": "比利时",
+  "minutes": 12,
+  "level": "进阶",
+  "publishedOn": "2026-11-16",
+  "intro": "从一场街头误会读起，跟作者走进老教堂，看一幅素描怎样留下战前小城的样子。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image11.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Dixmude",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文及作者插图在美国为公有领域",
+  "background": "Dixmude 是今比利时城市 Diksmuide 的法语名称。本文把 1910 年的游历与作者出版时描写的战时废墟并置。",
+  "blocks": [
+    {
+      "text": "There is no longer a Grand' Place at Dixmude. Of the town, the great squat church of St. Martin, and the quaint town hall adjoining it, now not one stone remains upon another. The old mossy walls and bastion are level with the soil, and even the course of the small sluggishly flowing river Yser is changed by the ruin that chokes it."
+    },
+    {
+      "text": "I found it to be a melancholy, faded-out kind of place in 1910, when I last saw it. I came down from Antwerp especially to see old St. Martin's, which enshrined a most wondrous Jube, or altar screen, and a chime of bells from the workshop of the Van den Gheyns. There was likewise on the Grand' Place, a fine old prison of the fourteenth century, its windows all closed with rusty iron bars, most of which were loose in the stones. I tried them, to the manifest indignation of the solitary gendarme, who saw me from a distance across the Grand' Place and hurried over to place me under arrest. I had to show him not only my passport but my letter of credit and my sketch book before he would believe that I was what I claimed to be, a curious American, and something of an antiquary. But it was the sketch book that won him, for he told me that he had a son studying painting in Antwerp at the academy. So we smoked together on a bench over the bridge of the \"Pape Gaei\" and he related the story of his life, while I made a sketch of the silent, grass-grown Grand' Place and the squat tower of old St. Martin's, and the Town Hall beside it."
+    },
+    {
+      "text": "While we sat there on the bench only two people crossed the square, that same square that witnessed the entry of Charles the Fifth amid the silk-and velvet-clad nobles and burghers, and the members of the great and powerful guilds, which he regarded and treated with such respect. In those days the town had a population of thirty thousand or more. On this day my friend the gendarme told me that there were about eleven hundred in the town. Of this eleven hundred I saw twelve market people, the custode of the church of St. Martin; ditto that of the Town Hall; the gendarme; one baby in the arms of a crippled girl, and two gaunt cats."
+    },
+    {
+      "text": "The great docks to which merchantmen from all parts of the earth came in ships in the sixteenth and seventeenth centuries had now vanished, and long green grass waved in the meadows where the channel had been."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image11.jpg",
+      "caption": "The Ancient Place: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
+    },
+    {
+      "text": "The ancient corporations and brotherhood, formerly of such power and renown, had likewise long since vanished, and nought remained but here and there on the silent, grass-grown streets gray, ancient palaces with barred and shuttered windows. The very names of those who once dwelt there could be found only in the musty archives in Bruges or Brussels. A small estaminet across the bridge bore the sign \"In den Pape Gaei,\" and to this I fared and wrote my notes, while the crippled girl carrying the baby seated herself where she could watch me, and then lapsed into a sort of trance, with wide open eyes which evidently saw not."
+    },
+    {
+      "text": "In company with a large, black, savage-looking dog which traveled side-ways regarding me threateningly, I thought, and gloweringly refused my offers of friendship, I crossed the Grand' Place to the Hôtel de Ville, or Town Hall, the door of which stood open. Inside, no living soul responded to my knock. The rooms were rather bare of furniture, many of them of noble proportions, and a few desks and chairs showed that they were used by the town officers, wherever they were."
+    },
+    {
+      "text": "St. Martin's was closed, and I skirted its walls, hoping to find somewhere a door unfastened that I might enter and see the great Jube or altar screen. In a small, evil-smelling alley-way, where there was a patch of green grass, I saw low down in the wall a grated window, which I fancied must be at the back of the altar. I got down on my knees and, parting the grass which grew there rankly, I put my face in against the iron bars that closed it. For a moment I could see nothing, then when my eyes became accustomed to the light I saw a tall candle burning on an iron ring on the wall; then a heavy black cross beside it, and finally a figure in some sort of heavy dark robe kneeling prostrate before it, only the tightly clasped white hands gleaming in the dim candle light; almost holding my breath I withdrew my head, feeling that I was almost committing sacrilege. Unfortunately for me, I dislodged some loose mortar, and I heard this rattle noisily into the chamber below. Then I fled as rapidly as I could down the dim alley-way to the silent sunlit Grand' Place. Here I found the verger, and he admitted me to the great old church, in return for a one-franc piece, and brought me a rush-bottom chair to a choice spot before the wondrous Jube, where I made my drawing."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image12.jpg",
+      "caption": "The Great Jube, or Altar Screen: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
+    },
+    {
+      "text": "In the silence of the great gray old church I labored over the exquisite Gothic detail, all unmindful of the passing time, when all at once I became conscious that a small green door beside the right hand low retable was moving outward. I ceased working and watched it; then the solitary candle before the statue of the Virgin guttered and flared up; then the small door opened wide and forth came an old man in a priest's cassock, with a staff in his hand. The small, green, baize-covered door closed noiselessly; the old man slowly opened the gate before the altar and came down the step toward me. Without a word he walked behind my chair and peered over my shoulder at the drawing I was making of the great Jube."
+    },
+    {
+      "text": "He tapped the floor with his staff, placed it under his arm, sought his pocket somewhere beneath his cassock, from which he produced a snuff box. From this he took a generous pinch, and a moment later was blowing vigorously that note of satisfaction that only a devotee of the powder can render an effective adjunct of emotion."
+    },
+    {
+      "text": "\"Bien faite, M'sieur,\" he exclaimed at length, wiping his eyes on a rather suspicious looking handkerchief. \"T-r-r-r-r-es bien faite! J'vous fais mes compliments.\" \"Admirable! You have certainly rendered the spirit of our great and wondrous altar screen.\""
+    },
+    {
+      "text": "A little later we passed out of the old church through a side door leading into a small green enclosure, now gloomy in the shade of the old stone walls. At one end was a tangle of briar, and here were some old graves, each with a tinsel wreath or two on the iron cross. And presiding over these was the limp figure of a one-legged man on two crutches, who saluted us. We passed along to the end of the inclosure, where lay a chance beam of sunshine like a bar of dusty gold against the rich green grass."
+    },
+    {
+      "text": "\"Oui, M'sieur,\" said the priest, as if continuing a sentence he was running over in his mind. \"Cassé! Pauvre Pierre, un peu cassé, le pauvre bonhomme, but then, he's good for several years yet; cracked he is, but only cracked like a good old basin, and (in the idiom) he'll still hold well his bowl of soup.\""
+    },
+    {
+      "text": "He laughed at his wit, became grave, then shook out another laugh."
+    },
+    {
+      "text": "\"See,\" he added, pointing to the ground all about us strewn with morsels of tile; \"the roof cracks, but it still holds,\" he added, pointing upwards at the old tower of St. Martin's. \"And now, M'sieur, I shall take you to my house; tenez, figure to yourself,\" and he laid a fine, richly veined, strong old hand upon my arm with a charming gesture. \"I have been here twenty-five years; I bought all the antique furniture of my predecessor. I said to myself, 'Yes, I shall buy the furniture for five hundred francs, and then, later I shall sell to a wealthy amateur for one thousand francs, perhaps in a year or two.' Twenty-five years ago, and I have it yet. And now it creaks and creaks and snaps in the night. We all creak and creak thus as we grow old; ah, you should hear my wardrobes. 'Elles cassent les dos,' and I lie in my warm bed in the winter nights and listen to my antiques groan and complain. Poor old things, they belonged to the 'Empire' Period; no wonder they groan."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image13.jpg",
+      "caption": "The Fish Market: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
+    },
+    {
+      "text": "\"And when my friend the notaire comes to play chess with me, you should see him eye my antiques, ah, so covetously; I see him, but I never let on. Such a collection of antiques as we all are, M'sieur.\" Then he became serious, and lifting his cane he pointed to a gravestone at one side, \"My old servant lies there, M'sieur; we are all old here now, but still we do not die. Alas! we never die. There is plenty of room here for us, but we die hard. See, myotis, heliotrope, hare bells, and mignonette, a bed of perfume, and there lies my old servant. A restless old soul she was, and she took such a long time to die. She was eighty-five when she finally made up her mind.\""
+    },
+    {
+      "text": "I had a cup of wine with the old man in his small salle à manger. His house was indeed a mine of wealth for the antiquary and collector, more like a shop than a house. I lingered with him for nearly an hour, telling him of the great world lying beyond Dixmude, of London and Paris, and of New York and some of its wonders, of which I fancied he was rather sceptical. And then I came away, after shaking hands with him at his doorstep in the dim alley-way, with the bar of golden sunlight shining at the entrance to the Grand' Place and the noise of the rooks cawing on the roof."
+    },
+    {
+      "text": "\"Au revoir, M'sieur le Peintre, et bon voyage, and remember, 'Ask, and it shall be given, seek and you shall find,'\" and with these cryptic words, he stood with uplifted hands, a smile irradiating his fine ascetic face glowing like that of a saint. Behind the faded black of his old soutane I could see his treasures of blue china and ancient cabinets, and a chance light illumined a mirror behind his head, and aureoled him like unto one of the saints behind the great \"Jube,\" and thus I left him."
+    },
+    {
+      "text": "And now Dixmude is in formless heaps of ashes and burnt timbers. Hardly one stone now remains upon another. There is no longer a Grand' Place—and the very course of the river Yser is changed."
+    }
+  ],
+  "terms": [
+    [
+      "to the manifest indignation of",
+      "惹得……明显恼火。to 在此引出动作造成的情绪反应。"
+    ],
+    [
+      "became accustomed to",
+      "逐渐适应，后接名词或动名词。"
+    ],
+    [
+      "in return for",
+      "作为……的交换或回报。"
+    ],
+    [
+      "unmindful of",
+      "没有留意，偏书面。"
+    ],
+    [
+      "all at once",
+      "突然，一下子。"
+    ],
+    [
+      "peered over my shoulder",
+      "从我肩后探头细看。peer 强调努力看清。"
+    ],
+    [
+      "let on",
+      "流露、透露自己知道某事，常见于否定句。"
+    ],
+    [
+      "not one stone remains upon another",
+      "连一块石头都没留在另一块上，形容彻底毁坏。"
+    ]
+  ],
+  "sentences": [
+    [
+      "But it was the sketch book that won him, for he told me that he had a son studying painting in Antwerp at the academy.",
+      "it was … that … 强调真正打消宪兵疑虑的是素描本。for 接着补出原因。"
+    ]
+  ]
 }
 ];
