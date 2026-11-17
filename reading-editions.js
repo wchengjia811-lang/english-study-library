@@ -1198,5 +1198,110 @@ window.peaEditions = [
       "it was … that … 强调真正打消宪兵疑虑的是素描本。for 接着补出原因。"
     ]
   ]
+},
+{
+  "id": "louvain-full",
+  "title": "鲁汶｜教堂灰墙前的红屋顶",
+  "english": "Louvain",
+  "country": "比利时",
+  "minutes": 10,
+  "level": "进阶",
+  "publishedOn": "2026-11-17",
+  "intro": "从教堂前的街边咖啡座读起，看作者怎样把战前街景、战争报道与地方传说写进同一章。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image27.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Louvain",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与作者插图由 Project Gutenberg 标注为美国公有领域",
+  "background": "Louvain 是鲁汶的法语名称。文中关于战时毁损的说法反映作者成书时得到的消息，后半章是当地神父口述的传说。",
+  "blocks": [
+    {
+      "text": "It was in the great Gothic Church of St. Peter that Mathias Van den Gheyn delighted to execute those wonderful \"morceaux fugues\" now at once the delight and the despair of the musical world, upon the fine chime of bells in the tower. This venerable tower was entirely destroyed in the terrible bombardment of the town in 1914. It is probable that no town in Belgium was more frequented by learned men of all professions, since its university enjoyed such a high reputation the world over, and certainly its library, likewise entirely destroyed, with its precious tomes and manuscripts, was considered second to none."
+    },
+    {
+      "text": "The old Church of St. Peter, opposite the matchless Hôtel de Ville, was a cruciform structure of noble proportions and flanked with remarkable chapels; it was begun, according to the archives in Brussels, in 1423, to replace an earlier building of the tenth century, and was \"finished\" in the sixteenth century. There was, it seems, originally a wooden spire on the west side of the structure but \"it was blown down in a storm in 1606.\""
+    },
+    {
+      "text": "When I saw it in 1910, the church was in process of restoration, and the work was being very intelligently done by competent men. Before the façade was a most curious row of bizarre small houses of stucco, nearly every one of which was a sort of saloon or café, and the street before them was quite obstructed by small round tables and chairs at which, in the afternoon from four to five, the shopkeepers and bourgeois of the town gathered for the afternoon \"aperitif,\" whatever it might be, and to discuss politics. For be it known that this period before the outbreak of the war, was in Belgium a troublous one for the Flemings, because of the continued friction between the clerical and the anti-clerical parties. These bizarre houses, I was told by one of the priests with whom I talked, were owned by the church, and were very profitable holdings, but tourists and others had made such sport of them, and even entered such grave protests to the Bishop, that the authorities finally concluded to tear them down. But they were certainly very picturesque, as my picture shows, their red tiled roofs and green blinds, making most agreeable notes of color against old St. Peter's gray wall."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image26.jpg",
+      "caption": "The Cathedral: Louvain · George Wharton Edwards 原书插图 · 美国公有领域"
+    },
+    {
+      "text": "The church so wantonly destroyed in 1914 contained some most remarkable works of art in the nine chapels. Among these were the \"Martyrdom of St. Erasmus,\" by Dierick Bouts, long thought to be a work of Memling. Another painting, \"The Last Supper,\" was also considered one of Memling's works, until its authenticity was established by the finding of the receipt by Bouts for payment, discovered in the archives of the Library in Louvain in 1870. Formerly the church owned a great treasure in Quentin Matsys' \"Holy Family,\" but this was sold to the Brussels Museum for something less than £10,000, and upon the outbreak of the war was in that collection. It is said that most of these great paintings owned in Belgium were placed in zinc and leaden cases and sent over to England for safety. It is to be hoped that this is true."
+    },
+    {
+      "text": "The custode showed, with most impressive manner, a quaint image of the Savior which, he related, was connected with a miraculous legend to the effect that the statue had captured and held a thief who had broken into the church upon one occasion! The townspeople venerate this image, and on each occasion when I visited the church, I noted the number of old women on their knees before it, and the many lighted waxen candles which they offered in its honor. A wave of indignation passed over the world of art when the newspapers reported the destruction of the beautiful Hôtel de Ville, just opposite old St. Peter's. This report was almost immediately followed by a denial from Berlin that it had suffered any harm whatever, and it would seem that this is true."
+    },
+    {
+      "text": "The Library, however, with its hundreds of thousands of priceless records, and masterpieces of printing is, it is admitted, entirely destroyed! This great building, black and crumbling with age, was situated in a small street behind the Hôtel de Ville. The town itself was bright and clean looking, and there was a handsome boulevard leading from the new Gothic railway station situated in a beflowered parkway, which was lined with prosperous looking shops. This whole district was \"put to the torch\" and wantonly destroyed when the town was captured in 1914. Late photographs show the new station levelled to the ground, and the parkway turned into a cemetery with mounds and crosses showing where the soldiers who lost their lives in the bombardment, and subsequent sacking, are buried."
+    },
+    {
+      "text": "Remembering the complete destruction of Ypres, one can only believe that the preservation of the Hôtel de Ville was entirely miraculous and unintentional."
+    },
+    {
+      "text": "P.J. Verhaegan, a Flemish painter of considerable reputation and ability, had decorated one of the two \"absidiole\" chapels which contained a very richly carved tomb over a certain lady of the thirteenth century whose fame is known all over Flanders. The legend was most dramatically told to me by one of the young priests of St. Peter's, and this is the story of the beautiful Margaret, called \"the Courageous,\" (La Fière)."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image27.jpg",
+      "caption": "The Town Hall: Louvain · George Wharton Edwards 原书插图 · 美国公有领域"
+    },
+    {
+      "text": "By the Grace of God, there lived in Louvain, in the year 1235, one Armand and his wife, both devout Catholics and the keepers of a travelers' \"ordinary\" on the road to the coast, called Tirlemont. These two at length decided to retire from their occupation as \"Hôteliers,\" and devote and consecrate the remainder of their lives to God, and the blessed saints."
+    },
+    {
+      "text": "Now they had a niece who was a most beautiful girl and whose name was Margaret, and she had such disdain for the young gallants of Louvain that they bestowed upon her the name of \"La Fière.\" Although but eighteen years of age she determined to follow the example of her uncle and aunt, and later become a \"Beguine,\" thus devoting her life to charity and the care of the sick and unfortunate, for this is the work of the order of \"Beguines.\""
+    },
+    {
+      "text": "They realized a large sum of money from the sale of the hotel, and this became known throughout the countryside. It was said that the money was hidden in the house in which they lived, and at length eight young men of evil lives, pondering upon this, resolved that they would rob this noble couple. Upon a stormy night they demanded admittance, saying that they were belated travelers."
+    },
+    {
+      "text": "The young girl Margaret was absent from the room for a moment, when these ruffians seized the old couple and murdered them. On her return to the upper room from the cellar, Margaret surprised them ransacking the strong box beside the fireplace. So they overpowered her also, but at once there ensued an argument as to what should be done with her, when the chief rogue, admiring her great beauty, proposed to her that she accept him as her lover and depart with him for France, where they could live happily. This she scornfully refused, whereupon \"one of the ruffians strangled her for ten marcs of silver; and her soul, white and pure as the angels, ascended to the throne of Jesus, in whom she so well believed, and there became 'l'unique espoux dont elle ambitionait l'Amour.'\""
+    },
+    {
+      "text": "It is said that Henry the First sitting in a window of his château on the river Dyle one night, saw floating on the dark water the corpse of this young martyr, where the ruffians had thus thrown her, and \"the pale radiance from her brow illuminated the whole valley.\" Calling to his consort, Marguerite of Flanders, he pointed out to her the wondrous sight, and hastening forth they drew her dripping body from the dark slimy water and bore it tenderly to the château. The news spread far and wide, and for days came throngs to view the \"sweet martyr's\" body, for which the priests had prepared a costly catafalque, and for her a grand mass was celebrated in St. Peter's where she was laid at rest in a tomb, the like of which for costliness was never seen in Flanders."
+    },
+    {
+      "text": "And this is the legend of Margaret, called \"La Fière,\" whose blameless life was known throughout the land."
+    },
+    {
+      "text": "I wish that I had made a drawing of this tomb while I was in the church, but I neglected unfortunately to do so. It was of simple lines, but of great richness of detail. Of course both it and the beautiful wax paintings of M. Verhaegan are now entirely destroyed in the ruins of St. Peter's."
+    }
+  ],
+  "terms": [
+    [
+      "second to none",
+      "首屈一指，不逊于任何同类。"
+    ],
+    [
+      "flanked",
+      "两侧有……，常用 be flanked by 或 be flanked with。"
+    ],
+    [
+      "in process of restoration",
+      "正在修复。现代英语常说 in the process of being restored。"
+    ],
+    [
+      "made such sport of",
+      "取笑。原文用 made such sport of。"
+    ],
+    [
+      "upon the outbreak of",
+      "在……爆发之际。"
+    ],
+    [
+      "put to the torch",
+      "纵火焚毁，常见于战争叙述。"
+    ],
+    [
+      "ransacking",
+      "翻箱倒柜地搜寻。"
+    ]
+  ],
+  "sentences": [
+    [
+      "It is probable that no town in Belgium was more frequented by learned men of all professions",
+      "no … more … 用否定结构表达最高程度。It is probable that 又把这个印象写成推测。"
+    ]
+  ]
 }
 ];
