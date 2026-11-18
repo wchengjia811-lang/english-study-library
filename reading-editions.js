@@ -1303,5 +1303,130 @@ window.peaEditions = [
       "no … more … 用否定结构表达最高程度。It is probable that 又把这个印象写成推测。"
     ]
   ]
+},
+{
+  "id": "nieuport-full",
+  "title": "尼乌波特｜从渔港望向北海沙丘",
+  "english": "Nieuport",
+  "country": "比利时",
+  "minutes": 13,
+  "level": "进阶",
+  "publishedOn": "2026-11-18",
+  "intro": "沿伊瑟河走到渔港，看看一座旧塔如何把海岸地貌、战事与小镇日常连起来。",
+  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image19.jpg",
+  "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Nieuport",
+  "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与作者插图在美国为公有领域",
+  "background": "Nieuport 是今比利时海滨小城 Nieuwpoort 的法语名称。作者把 1910 年游历和一战时所获消息并置，文中对当地居民的评价反映其个人视角。",
+  "blocks": [
+    {
+      "text": "In the midst of a level field to the east of the town of Nieuport in 1914 was a high square weather-beaten tower, somewhat ruinous, built of stone and brick in strata, showing the different eras of construction in the various colors of the brick work ranging from light reds to dark browns and rich blacks. This tower, half built and square topped, belonged to a structure begun in the twelfth century, half monastery, half church, erected by the Templars as a stronghold. Repeatedly attacked and set on fire, it escaped complete destruction, although nearly laid in ruins by the English and burghers of Ghent in 1383, the year of the famous siege of Ypres. During the Wars of 1600, it was an important part of the fortifications, and from the platform of its tower the Spanish garrison commanded a clear view of the surrounding country and the distance beyond the broad moat, which then surrounded the strong walls of Nieuport."
+    },
+    {
+      "text": "In plain view from this tower top were the houses of Furnes, grouped about the church of Saint Nicolas to the southwest, while to the north the wide belt of dunes, or sand hills, defended the plains from the North Sea. Nearer were the populous villages of Westende and Lombaerd-Zyde, connected with Nieuport by numerous small lakes and canals derived from the channel of the Yser river, which flowed past the town on its way to the sea."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image19.jpg",
+      "caption": "The Tower of the Templars: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
+    },
+    {
+      "text": "The history of Nieuport, from the terrible days of the Spanish invasion down to these days of even worse fate, has been pitiable. Its former sea trade after the Spanish invasion was never recovered, and its population, which was beginning to be thrifty and prosperous up to 1914, has now entirely disappeared. Nieuport is now in ashes and ruins. When I passed the day there in the summer of 1910, it was a sleepy, quiet spot, a small fishing village, with old men and women sitting in doorways and on the waysides, mending nets, and knitting heavy woolen socks or sweaters of dark blue. In the small harbor were the black hulls of fishing boats tied up to the quaysides, and a small steamer from Ghoole was taking on a cargo of potatoes and beets. Some barges laden with wood were being pulled through the locks by men harnessed to a long tow rope, and a savage dog on one of these barges menaced me with dripping fangs and bloodshot eyes when I stopped to talk to the steersman, who sat on the tiller smoking a short, evil-smelling pipe, while his \"vrouwe\" was hanging out a heavy wash of vari-colored garments on a line from the staff on the bow to a sweep fastened upright to the cabin wall."
+    },
+    {
+      "text": "The ancient fortification had long since disappeared—those \"impregnable walls of stone\" which once defended the town from the assaults of Philip the Second. I found with some difficulty a few grass-grown mounds where they had been, and only the gray, grim tower of the Templars, standing solitary in a turnip field, remained to show what had been a mighty stronghold. In the town, however, were souvenirs enough to occupy an antiquary for years to his content and profit. There was the Cloth Hall, with its five pointed low arched doorways from which passed in and out the Knights of the Temple gathered for the first pilgrimage to the Holy Land. On this market square too was the great Gothic Church, one of the largest and most important in all Flanders, and on this afternoon in the summer of 1910, I attended a service here, while in the tower a bell ringer played the chime of famous bells which now lie in broken fragments amid the ashes of the fallen tower."
+    },
+    {
+      "text": "Here was fought the bloody \"Battle of the Dunes,\" between the Dutch and the Spaniards in those dim days of long ago, when the stubborn determination of the Netherlanders overcame the might and fiery valor of the Spanish invaders."
+    },
+    {
+      "text": "From time to time the peasants laboring in the fields uncovered bones, broken steel breast-plates, and weapons, which they brought to the museum on the Grand' Place, and which the sleepy custode showed me with reluctance, until I offered him a franc. It is curious that famous Nieuport, for which so much blood was shed in those early days, should again have been a famous battle ground between the handful of valiant soldiers of the heroic King Albert and a mighty Teutonic foe."
+    },
+    {
+      "text": "The dim gray town with its silent streets, the one time home of romance and chivalry, the scene of deeds of knightly valor, is now done for forever. It is not likely that it can ever again be of importance, for its harbor is well-nigh closed by drifting sand. But I shall always keep the vision I had of it that summer day, in its market place, its gabled houses against the luminous sky, its winding streets, and narrow byways across which the roofs almost touch each other. The ancient palaces are now in ruins, and the peaceful population scattered abroad, charges upon the charity of the world. Certainly a woeful picture in contrast to the content of other days."
+    },
+    {
+      "text": "The vast green plains behind the dunes, or sand hills, extend unbrokenly from here to the French frontier, spire after spire dominating small towns, and windmills, are the objects seen. To some the flatness is most monotonous, but to those who find pleasure in the paintings of Cuyp, the country is very picturesque. The almost endless succession of green, well-cultivated fields and farmsteads is most entertaining, and the many canals winding their silvery ways through the country, between rows of pollards; the well kept though small country houses embowered in woody enclosures; the fruitful orchards in splendid cultivation; the gardens filled with fair flowers and the \"most compact little towns\"—these give the region a romance and attraction all its own."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image20.jpg",
+      "caption": "The Town Hall—Hall of the Knights Templars: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
+    },
+    {
+      "text": "Here and there is a hoary church erected in forgotten times on ground dedicated to Thor or Wodin. This part of the country bordering the fifty mile stretch of coast line on the North Sea was given over latterly to the populous bathing establishments and their new communities, but the other localities, such as Tournai, Courtrai, Oudenaarde or Alost, were seldom visited by strangers, whose advent created almost as much excitement as it would in Timbuctoo. It was not inaccessible, but the roads were not good for automobiles; they were mainly paved with rough \"Belgian\" blocks of stone, high in the center, with a dirt roadway on either side, used by the peasants and quite rutty."
+    },
+    {
+      "text": "A walking tour for any but the hardiest pedestrian was out of the question, so I was told that the best way for a \"bachelor\" traveler was to secure transportation on the canal boats. This was the warning that our kind hearted landlord in Antwerp gave us, after vainly endeavoring to discourage us from leaving him for such a tour."
+    },
+    {
+      "text": "The canals, however, are not numerous enough in this region, I found, and besides there are various other disadvantages which I leave to the reader's imagination."
+    },
+    {
+      "text": "In addition to the main lines of the State Railway, there were what are called \"Chemins-de-fer-vicinaux,\" small narrow gauge railways which traversed Belgium in all directions. On these the fares were very reasonable, and they formed an ideal way in which to study the country and the people. There were first, second and third class carriages on these, hung high on tall wheels, which looked very unsafe, but were not really so. The classes varied only in the trimming of the windows, and quality of the cushions on the benches. Rarely if ever, were those marked \"I Klasse\" used. Those of the second class were used sometimes; but the third class cars were generally very crowded with peasantry, who while invariably good humored and civil were certainly evil smelling, and intolerant of open windows and fresh air. The men and boys generally smoked a particularly vile-smelling black tobacco, of which they seemed very fond, and although some of the cars were marked \"Niet rooken\" (no smoking) no one seemed to object to the fumes."
+    },
+    {
+      "image": "https://www.gutenberg.org/cache/epub/28288/images/image21.jpg",
+      "caption": "Tower of the Grand' Place: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
+    },
+    {
+      "text": "Here one seldom saw the purely Spanish type of face so usual in Antwerp and Brabant. The race seemed purer, and the peasants used the pure Flemish tongue. Few of the elders I found spoke French fluently, although the children used it freely to each other, of course understanding and speaking Flemish also."
+    },
+    {
+      "text": "There were various newspapers published in the Flemish language exclusively. These, however, were very primitive, given over entirely to purely local brevities, and the prices of potatoes, beets and other commodities, and containing also a \"feuilleton\" of interest to the farmers and laborers."
+    },
+    {
+      "text": "There were several \"organs\" of the Flemish Patriotic party devoted to the conservation and preservation of the Flemish language and the ancient traditions, which were powerful among the people, although their circulation could not have been very profitable. The peasantry in truth were very ignorant, and knew of very little beyond their own parishes. The educational standard of the people of West Flanders was certainly low, and it was a matter of comment among the opponents of the established church, that education being in the hands of the clergy, they invariably defeated plans for making it compulsory. But nevertheless, the peasantry were to all appearances both contented and fairly happy."
+    },
+    {
+      "text": "As their wants were few and primitive, their living was cheap. Their fare was coffee, of which they consumed a great deal, black bread, salt pork and potatoes. The use of oleomargarine was universal in place of butter. They grew tobacco in their small gardens for their own use, and also, it is whispered, smuggled it [and gin] over the border into France. They worked hard and long from five in the morning until seven or eight in the evening."
+    },
+    {
+      "text": "The Flemish farmhouse was generally well built, if somewhat untidy looking, with the pigstys and out buildings in rather too close proximity for comfort. There was usually a large living room with heavy sooty beams overhead, and thick walls pierced by quaint deeply sunken windows furnished often with seats. These picturesque rooms often contained \"good finds\" of the old Spanish furniture, and brass; but as a rule the dealers had long since bought up all the old things, replacing them by \"brummagem,\"—modern articles shining with cheap varnish."
+    },
+    {
+      "text": "The peasants themselves in their everyday clothes certainly did not impress the observer greatly. They were not picturesque, they wore the sabôt or \"Klompen,\" yellow varnished, and clumsy in shape. Their stockings were coarse gray worsted. Their short trousers were usually tied with a string above the calf, and they wore a sort of smock, sometimes of linen unbleached, or of a shining sort of dark purple thin stuff."
+    },
+    {
+      "text": "The usual headgear was for the men a cap with a glazed peak and for the women and girls a wide flapped embroidered linen cap, but this headgear was worn only in the country towns and villages. Elsewhere the costume was fast disappearing. On Sundays when dressed in their holiday clothes these peasants going to or returning from mass, looked respectable and fairly prosperous, and it was certainly clear that although poor in worldly goods, these animated and laughing throngs were far from being unhappy or dissatisfied with life as they found it in West Flanders."
+    }
+  ],
+  "terms": [
+    [
+      "weather-beaten",
+      "经风吹雨打而斑驳的，常形容建筑或面容。"
+    ],
+    [
+      "commanded a clear view of",
+      "可清楚俯瞰……。command 在这里表示占据便于观察的位置。"
+    ],
+    [
+      "laden with",
+      "载满，装满。常作后置修饰。"
+    ],
+    [
+      "with some difficulty",
+      "费了一些力气。"
+    ],
+    [
+      "from time to time",
+      "偶尔，不时。"
+    ],
+    [
+      "well-nigh",
+      "几乎，偏文学用语。"
+    ],
+    [
+      "out of the question",
+      "根本不可能，完全不予考虑。"
+    ],
+    [
+      "too close proximity",
+      "距离过近。原文后接 for comfort 表示近得让人不舒服。"
+    ]
+  ],
+  "sentences": [
+    [
+      "In plain view from this tower top were the houses of Furnes",
+      "地点与视野放在句首，谓语 were 在主语之前。先让读者站上塔顶，再把远处的房屋放进画面。"
+    ]
+  ]
 }
 ];
