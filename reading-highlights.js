@@ -1,4 +1,24 @@
 window.peaReadingHighlights = {
+  "nieuport-full": {
+  "quick": 1,
+  "recommendation": "先登旧塔看沙丘和水道，再顺着伊瑟河读到渔港。",
+  "analysis": {
+    "1": [
+      "在句首交代视角",
+      "从塔顶望出去，作者用倒装先交代视野，再引出屋舍。随后用 while 将西南面的城镇和北方的沙丘并列。"
+    ]
+  },
+  "glossary": [
+    [
+      "Templars",
+      "圣殿骑士团。"
+    ],
+    [
+      "pollards",
+      "定期截顶修剪的树木。"
+    ]
+  ]
+},
   "louvain-full": {
   "quick": 2,
   "recommendation": "先读灰墙前的红瓦、绿百叶和街边小桌，留意作者怎样靠颜色和活动写出街区的生活感。",
