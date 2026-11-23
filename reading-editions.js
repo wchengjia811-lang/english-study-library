@@ -81,7 +81,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image4.jpg",
+        "image": "assets/travel/28288-image4.jpg",
         "caption": "The Tower of St. Rombauld: Malines"
       },
       {
@@ -117,7 +117,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image5.jpg",
+        "image": "assets/travel/28288-image5.jpg",
         "caption": "Malines: A Quaint Back Street"
       },
       {
@@ -157,7 +157,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image6.jpg",
+        "image": "assets/travel/28288-image6.jpg",
         "caption": "Porte de Bruxelles: Malines"
       },
       {
@@ -225,7 +225,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image7.jpg",
+        "image": "assets/travel/28288-image7.jpg",
         "caption": "The Beguinage: Dixmude"
       },
       {
@@ -249,7 +249,7 @@ window.peaEditions = [
         "verse": false
       }
     ],
-    "cover": "https://www.gutenberg.org/cache/epub/28288/images/image4.jpg",
+    "cover": "assets/travel/28288-image4.jpg",
     "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Malines",
     "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916"
   },
@@ -346,7 +346,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image29.jpg",
+        "image": "assets/travel/28288-image29.jpg",
         "caption": "The Town Hall: Oudenaarde"
       },
       {
@@ -370,7 +370,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/28288/images/image30.jpg",
+        "image": "assets/travel/28288-image30.jpg",
         "caption": "Old Square and Church: Oudenaarde"
       },
       {
@@ -390,7 +390,7 @@ window.peaEditions = [
         "verse": false
       }
     ],
-    "cover": "https://www.gutenberg.org/cache/epub/28288/images/image29.jpg",
+    "cover": "assets/travel/28288-image29.jpg",
     "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Oudenaarde",
     "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916"
   },
@@ -480,7 +480,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/57404/images/i_099_sml.jpg",
+        "image": "assets/travel/57404-i_099_sml.jpg",
         "caption": "CASTLE OF POPPI"
       },
       {
@@ -524,7 +524,7 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/57404/images/i_107_sml.jpg",
+        "image": "assets/travel/57404-i_107_sml.jpg",
         "caption": "COURTYARD OF CASTLE, POPPI (CASENTINO)"
       },
       {
@@ -584,11 +584,11 @@ window.peaEditions = [
         "verse": false
       },
       {
-        "image": "https://www.gutenberg.org/cache/epub/57404/images/i_120_sml.jpg",
+        "image": "assets/travel/57404-i_120_sml.jpg",
         "caption": "ARMS OF THE GUIDI"
       }
     ],
-    "cover": "https://www.gutenberg.org/cache/epub/57404/images/i_099_sml.jpg",
+    "cover": "assets/travel/57404-i_099_sml.jpg",
     "source": "https://www.gutenberg.org/cache/epub/57404/pg57404-images.html#VI",
     "sourceLabel": "Lina Eckenstein · Through the Casentino · 1902"
   },
@@ -601,7 +601,7 @@ window.peaEditions = [
   "level": "中级",
   "publishedOn": "2026-11-10",
   "intro": "从一座旅行指南忽略的钟楼出发，穿过热闹的集市，走到长草深处的修道院遗址。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image18.jpg",
+  "cover": "assets/travel/28288-image18.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Bergues",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文及插图由作者创作，Project Gutenberg 标为美国公有领域",
   "background": "贝尔格位于法国北部的历史佛兰德斯地区。作者记述的是 1910 年的见闻，方括号内是战时补记，反映当时作者的记载。文中部分措辞也保留了那个时代的观察视角。",
@@ -631,7 +631,7 @@ window.peaEditions = [
       "text": "We were unable to gain entrance to either of these towers, the doorways being choked with weeds and the débris of fallen masonry. [The invaders destroyed both of these fine historical remains in November, 1914, alleging that they were being used for military observation by the Belgian army.] These small towns of Flanders had a simple dignity of their own which was of great attraction to the tourist, who could, without disillusionment, imagine himself back in the dim past. In the wayside inns or estaminets one could extract amusement and profit listening to the peasantry or admiring the sunlight dancing upon the array of bottles and glass on the leaden counters, or watch the peasants kneel and cross themselves before the invariable quaint niched figure of the Virgin and Child under the hanging lighted lantern at a street corner, the evidence of the piety of the village, or the throngs of lace-capped, rosy-cheeked milkmaids with small green carts drawn by large, black, \"slobbering\" dogs of fierce mien, from the distant farms, on their way to market."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image18.jpg",
+      "image": "assets/travel/28288-image18.jpg",
       "caption": "The Towers of St. Winoc: Bergues · George Wharton Edwards，1916 年原书插图 · Project Gutenberg，美国公有领域"
     },
     {
@@ -708,7 +708,7 @@ window.peaEditions = [
   "level": "中级",
   "publishedOn": "2026-11-11",
   "intro": "循着钟声看巨人游行，再从驶离杜埃的列车上回望雨中的市政厅钟楼。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image28.jpg",
+  "cover": "assets/travel/28288-image28.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Douai",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文和原书插图均由作者创作，Project Gutenberg 标为美国公有领域",
   "background": "这篇游记回忆一战前到访杜埃的见闻。文中的年代、历史判断和人物评价按原文呈现。",
@@ -720,7 +720,7 @@ window.peaEditions = [
       "text": "This, the most notable edifice in the town, is a fine Gothic tower one hundred and fifty feet high, with a remarkable construction of tower and turrets, supported by corbels of the fifteenth century, containing a fine chime of bells made by the Van den Gheyns. The bells are visible from below, hanging sometimes well outside the turret of the bell chamber, and, ranging tier upon tier, from those seemingly the size of a gallon measure, to those immense ones weighing from fifteen hundred to two thousand pounds. This great tower witnessed the attack and occupation of the Spaniards, the foundation by the Roman Catholics of the great University in 1652 to counter-act the Protestantism of the Netherlands, which had but a brief career, and the capture of the town by Louis the Fourteenth. Here was published in 1610 an English translation of the Old Testament for Roman Catholics, as well as the English Roman Catholic version of the scriptures, and the New Testament translated at Rheims in 1582, and known as the \"Douai Bible.\" This was also the birthplace of Jean Bellgambe, the painter (1540) surnamed \"Maître des Couleurs,\" whose nine great oaken panels form the wonderful altarpiece in the church of Notre Dame."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image28.jpg",
+      "image": "assets/travel/28288-image28.jpg",
       "caption": "The Town Hall: Douai · George Wharton Edwards 原书插图 · Project Gutenberg，美国公有领域"
     },
     {
@@ -798,7 +798,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-12",
   "intro": "从砖色斑驳的钟楼走进集市，再读一段雨中旅店里出乎意料的对话。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image22.jpg",
+  "cover": "assets/travel/28288-image22.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Alost",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与插图均为作者创作，Project Gutenberg 标注为美国公有领域",
   "background": "Alost 是比利时阿尔斯特（Aalst）的法语名称。文中的年代和战时判断按作者在 1916 年出版的原书呈现。",
@@ -813,7 +813,7 @@ window.peaEditions = [
       "text": "The old square upon which this tower was placed was quite in keeping with it. There were rows of gabled stone houses of great antiquity, still inhabited, stretching away in an array of façades, gables, and most fantastic roofs, all of mellow toned tile, brick and stone."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image22.jpg",
+      "image": "assets/travel/28288-image22.jpg",
       "caption": "The Town Hall: Alost · George Wharton Edwards · 原书插图，美国公有领域"
     },
     {
@@ -888,7 +888,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-13",
   "intro": "从雨中的石巷走进钟楼，看看商贸城镇怎样把公共生活写进建筑。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image17.jpg",
+  "cover": "assets/travel/28288-image17.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Commines",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原书及插图在美国为公有领域",
   "background": "本文保留作者在一战时期的观察与判断。",
@@ -915,7 +915,7 @@ window.peaEditions = [
       "text": "The Flemish burghers of the Middle Ages first built themselves a church; when that was finished, a great hall. That of Ypres took more than two hundred years to complete. How long this great tower of Commines took, I can only conjecture. Its semi-oriental pear-shaped (or onion-shaped, as you will) tower was certainly of great antiquity; even the unkempt little priest whom I questioned in the Grand' Place could give me little or no information concerning it. Indeed, he seemed to be on the point of resenting my questions, as though he thought that I was in some way poking fun at him. I presume that it was the scene of great splendor in their early days. For here a count of Flanders or a duke of Brabant exercised sovereign rights, and at such a ceremony as the laying of a corner-stone assumed the place of honor, although the real authority was with the burghers, and founded upon commerce. While granting this privilege, the Flemings ever hated autocracy. They loved pomp, but any attempt to exercise power over them infuriated them."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image17.jpg",
+      "image": "assets/travel/28288-image17.jpg",
       "caption": "The Belfry: Commines · George Wharton Edwards 原书插图 · 美国公有领域"
     },
     {
@@ -976,7 +976,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-15",
   "intro": "沿着海岸沙丘走进弗尔讷，看看流动影院、宗教游行与一张出人意料的旅馆账单。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image31.jpg",
+  "cover": "assets/travel/28288-image31.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Furnes",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文和作者插图在美国为公有领域",
   "background": "Furnes 是今比利时城市 Veurne 的法语名。文中的历史说法按作者原文呈现。原书此处配的是邻城伊普尔的鱼市插图。",
@@ -994,7 +994,7 @@ window.peaEditions = [
       "text": "The town before the war had about six thousand population which seemed quite lost in the long lines of silent grass grown streets, and the immense Grand' Place, around which were ranged large dark stone Flemish houses of somewhat forbidding exteriors. All the activity of the town, however, was here in this large square, for the lower floors had been turned into shops, and also here was the hotel, before which a temporary moving picture theatre had been put up."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image31.jpg",
+      "image": "assets/travel/28288-image31.jpg",
       "caption": "伊普尔鱼市（原书在本章所配插图） · George Wharton Edwards · 美国公有领域"
     },
     {
@@ -1086,7 +1086,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-16",
   "intro": "从一场街头误会读起，跟作者走进老教堂，看一幅素描怎样留下战前小城的样子。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image11.jpg",
+  "cover": "assets/travel/28288-image11.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Dixmude",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文及作者插图在美国为公有领域",
   "background": "Dixmude 是今比利时城市 Diksmuide 的法语名称。本文把 1910 年的游历与作者出版时描写的战时废墟并置。",
@@ -1104,7 +1104,7 @@ window.peaEditions = [
       "text": "The great docks to which merchantmen from all parts of the earth came in ships in the sixteenth and seventeenth centuries had now vanished, and long green grass waved in the meadows where the channel had been."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image11.jpg",
+      "image": "assets/travel/28288-image11.jpg",
       "caption": "The Ancient Place: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
     },
     {
@@ -1117,7 +1117,7 @@ window.peaEditions = [
       "text": "St. Martin's was closed, and I skirted its walls, hoping to find somewhere a door unfastened that I might enter and see the great Jube or altar screen. In a small, evil-smelling alley-way, where there was a patch of green grass, I saw low down in the wall a grated window, which I fancied must be at the back of the altar. I got down on my knees and, parting the grass which grew there rankly, I put my face in against the iron bars that closed it. For a moment I could see nothing, then when my eyes became accustomed to the light I saw a tall candle burning on an iron ring on the wall; then a heavy black cross beside it, and finally a figure in some sort of heavy dark robe kneeling prostrate before it, only the tightly clasped white hands gleaming in the dim candle light; almost holding my breath I withdrew my head, feeling that I was almost committing sacrilege. Unfortunately for me, I dislodged some loose mortar, and I heard this rattle noisily into the chamber below. Then I fled as rapidly as I could down the dim alley-way to the silent sunlit Grand' Place. Here I found the verger, and he admitted me to the great old church, in return for a one-franc piece, and brought me a rush-bottom chair to a choice spot before the wondrous Jube, where I made my drawing."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image12.jpg",
+      "image": "assets/travel/28288-image12.jpg",
       "caption": "The Great Jube, or Altar Screen: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
     },
     {
@@ -1142,7 +1142,7 @@ window.peaEditions = [
       "text": "\"See,\" he added, pointing to the ground all about us strewn with morsels of tile; \"the roof cracks, but it still holds,\" he added, pointing upwards at the old tower of St. Martin's. \"And now, M'sieur, I shall take you to my house; tenez, figure to yourself,\" and he laid a fine, richly veined, strong old hand upon my arm with a charming gesture. \"I have been here twenty-five years; I bought all the antique furniture of my predecessor. I said to myself, 'Yes, I shall buy the furniture for five hundred francs, and then, later I shall sell to a wealthy amateur for one thousand francs, perhaps in a year or two.' Twenty-five years ago, and I have it yet. And now it creaks and creaks and snaps in the night. We all creak and creak thus as we grow old; ah, you should hear my wardrobes. 'Elles cassent les dos,' and I lie in my warm bed in the winter nights and listen to my antiques groan and complain. Poor old things, they belonged to the 'Empire' Period; no wonder they groan."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image13.jpg",
+      "image": "assets/travel/28288-image13.jpg",
       "caption": "The Fish Market: Dixmude · George Wharton Edwards · 原书插图，美国公有领域"
     },
     {
@@ -1208,7 +1208,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-17",
   "intro": "从教堂前的街边咖啡座读起，看作者怎样把战前街景、战争报道与地方传说写进同一章。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image27.jpg",
+  "cover": "assets/travel/28288-image27.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Louvain",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与作者插图由 Project Gutenberg 标注为美国公有领域",
   "background": "Louvain 是鲁汶的法语名称。文中关于战时毁损的说法反映作者成书时得到的消息，后半章是当地神父口述的传说。",
@@ -1223,7 +1223,7 @@ window.peaEditions = [
       "text": "When I saw it in 1910, the church was in process of restoration, and the work was being very intelligently done by competent men. Before the façade was a most curious row of bizarre small houses of stucco, nearly every one of which was a sort of saloon or café, and the street before them was quite obstructed by small round tables and chairs at which, in the afternoon from four to five, the shopkeepers and bourgeois of the town gathered for the afternoon \"aperitif,\" whatever it might be, and to discuss politics. For be it known that this period before the outbreak of the war, was in Belgium a troublous one for the Flemings, because of the continued friction between the clerical and the anti-clerical parties. These bizarre houses, I was told by one of the priests with whom I talked, were owned by the church, and were very profitable holdings, but tourists and others had made such sport of them, and even entered such grave protests to the Bishop, that the authorities finally concluded to tear them down. But they were certainly very picturesque, as my picture shows, their red tiled roofs and green blinds, making most agreeable notes of color against old St. Peter's gray wall."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image26.jpg",
+      "image": "assets/travel/28288-image26.jpg",
       "caption": "The Cathedral: Louvain · George Wharton Edwards 原书插图 · 美国公有领域"
     },
     {
@@ -1242,7 +1242,7 @@ window.peaEditions = [
       "text": "P.J. Verhaegan, a Flemish painter of considerable reputation and ability, had decorated one of the two \"absidiole\" chapels which contained a very richly carved tomb over a certain lady of the thirteenth century whose fame is known all over Flanders. The legend was most dramatically told to me by one of the young priests of St. Peter's, and this is the story of the beautiful Margaret, called \"the Courageous,\" (La Fière)."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image27.jpg",
+      "image": "assets/travel/28288-image27.jpg",
       "caption": "The Town Hall: Louvain · George Wharton Edwards 原书插图 · 美国公有领域"
     },
     {
@@ -1313,7 +1313,7 @@ window.peaEditions = [
   "level": "进阶",
   "publishedOn": "2026-11-18",
   "intro": "沿伊瑟河走到渔港，看看一座旧塔如何把海岸地貌、战事与小镇日常连起来。",
-  "cover": "https://www.gutenberg.org/cache/epub/28288/images/image19.jpg",
+  "cover": "assets/travel/28288-image19.jpg",
   "source": "https://www.gutenberg.org/cache/epub/28288/pg28288-images.html#Nieuport",
   "sourceLabel": "George Wharton Edwards · Vanished Towers and Chimes of Flanders · 1916 · 原文与作者插图在美国为公有领域",
   "background": "Nieuport 是今比利时海滨小城 Nieuwpoort 的法语名称。作者把 1910 年游历和一战时所获消息并置，文中对当地居民的评价反映其个人视角。",
@@ -1325,7 +1325,7 @@ window.peaEditions = [
       "text": "In plain view from this tower top were the houses of Furnes, grouped about the church of Saint Nicolas to the southwest, while to the north the wide belt of dunes, or sand hills, defended the plains from the North Sea. Nearer were the populous villages of Westende and Lombaerd-Zyde, connected with Nieuport by numerous small lakes and canals derived from the channel of the Yser river, which flowed past the town on its way to the sea."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image19.jpg",
+      "image": "assets/travel/28288-image19.jpg",
       "caption": "The Tower of the Templars: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
     },
     {
@@ -1347,7 +1347,7 @@ window.peaEditions = [
       "text": "The vast green plains behind the dunes, or sand hills, extend unbrokenly from here to the French frontier, spire after spire dominating small towns, and windmills, are the objects seen. To some the flatness is most monotonous, but to those who find pleasure in the paintings of Cuyp, the country is very picturesque. The almost endless succession of green, well-cultivated fields and farmsteads is most entertaining, and the many canals winding their silvery ways through the country, between rows of pollards; the well kept though small country houses embowered in woody enclosures; the fruitful orchards in splendid cultivation; the gardens filled with fair flowers and the \"most compact little towns\"—these give the region a romance and attraction all its own."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image20.jpg",
+      "image": "assets/travel/28288-image20.jpg",
       "caption": "The Town Hall—Hall of the Knights Templars: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
     },
     {
@@ -1363,7 +1363,7 @@ window.peaEditions = [
       "text": "In addition to the main lines of the State Railway, there were what are called \"Chemins-de-fer-vicinaux,\" small narrow gauge railways which traversed Belgium in all directions. On these the fares were very reasonable, and they formed an ideal way in which to study the country and the people. There were first, second and third class carriages on these, hung high on tall wheels, which looked very unsafe, but were not really so. The classes varied only in the trimming of the windows, and quality of the cushions on the benches. Rarely if ever, were those marked \"I Klasse\" used. Those of the second class were used sometimes; but the third class cars were generally very crowded with peasantry, who while invariably good humored and civil were certainly evil smelling, and intolerant of open windows and fresh air. The men and boys generally smoked a particularly vile-smelling black tobacco, of which they seemed very fond, and although some of the cars were marked \"Niet rooken\" (no smoking) no one seemed to object to the fumes."
     },
     {
-      "image": "https://www.gutenberg.org/cache/epub/28288/images/image21.jpg",
+      "image": "assets/travel/28288-image21.jpg",
       "caption": "Tower of the Grand' Place: Nieuport · George Wharton Edwards，原书插图 · 美国公有领域"
     },
     {
