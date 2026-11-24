@@ -105,7 +105,7 @@ function termList(terms) {
 
 function renderSectionReview(item, guide, section, index) {
   const text = section.map((block) => block.text || "").join(" ").toLowerCase();
-  const terms = [...(guide?.review[index] || []), ...item.terms.filter(([word]) => text.includes(word.toLowerCase()))];
+  const terms = [...(guide?.review?.[index] || []), ...item.terms.filter(([word]) => text.includes(word.toLowerCase()))];
   const selected = [...new Map(terms.map(([word, meaning]) => [word.toLowerCase(), [word, meaning]])).values()].slice(0, 4);
   if (!selected.length) return "";
   return `<details class="analysis"><summary>本节复习 · ${selected.length} 个表达</summary>
@@ -116,7 +116,7 @@ function renderSectionReview(item, guide, section, index) {
 function renderEdition(item, targetKey, quick) {
   const sections = [];
   const guide = guides[item.id];
-  const translations = window.peaTranslations[item.id];
+  const translations = window.peaTranslations?.[item.id] || [];
   let paragraph = 0;
   const highlight = highlights[item.id];
   const firstMentions = new Map((highlight?.glossary || []).map(([word, meaning]) => [
@@ -146,7 +146,7 @@ function renderEdition(item, targetKey, quick) {
         <details class="analysis paragraph-translation"><summary>查看中文翻译</summary><p lang="zh-CN">${safe(block.translation)}</p></details>
         ${[...firstMentions].filter(([, note]) => note.index === block.index).map(([word, note]) =>
           `<details class="analysis"><summary>背景短注 · ${safe(word)}</summary><p>${safe(note.meaning)}</p></details>`).join("")}
-        ${highlight?.analysis[block.index] ? `<details class="analysis deep-reading"><summary>深读 · ${safe(highlight.analysis[block.index][0])}</summary><p>${safe(highlight.analysis[block.index][1])}</p></details>` : ""}
+        ${highlight?.analysis?.[block.index] ? `<details class="analysis deep-reading"><summary>深读 · ${safe(highlight.analysis[block.index][0])}</summary><p>${safe(highlight.analysis[block.index][1])}</p></details>` : ""}
         ${item.sentences.filter(([quote]) => block.text.includes(quote)).map(([quote, analysis]) =>
           `<details class="analysis"><summary>拆解这一段的好句</summary><blockquote lang="en">${safe(quote)}</blockquote><p>${analysis}</p></details>`).join("")}`).join("")}
       ${renderSectionReview(item, guide, section, i)}</section>`).join("")}</div>
